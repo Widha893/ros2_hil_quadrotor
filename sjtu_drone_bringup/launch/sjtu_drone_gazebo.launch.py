@@ -52,8 +52,10 @@ def generate_launch_description():
 
 
     world_file = os.path.join(
+        # get_package_share_directory("sjtu_drone_description"),
+        # "worlds", "playground.world"
         get_package_share_directory("sjtu_drone_description"),
-        "worlds", "playground.world"
+        "worlds", "empty.world"
     )
 
     def launch_gzclient(context, *args, **kwargs):

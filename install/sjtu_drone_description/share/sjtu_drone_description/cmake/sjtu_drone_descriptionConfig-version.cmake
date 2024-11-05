@@ -1,0 +1,1 @@
+/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description/ament_cmake_core/sjtu_drone_descriptionConfig-version.cmake
