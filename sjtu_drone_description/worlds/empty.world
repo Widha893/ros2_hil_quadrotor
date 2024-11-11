@@ -48,7 +48,7 @@
 
     <!-- Wind settings -->
     <wind>
-      <linear_velocity>5 0 0</linear_velocity> <!-- wind blowing along the x-axis at 5 m/s -->
+      <linear_velocity>5 3 0</linear_velocity> <!-- wind blowing along the x-axis at 5 m/s -->
     </wind>
 
     <!-- Set up default physics properties -->

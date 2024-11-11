@@ -1,0 +1,17 @@
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/gazebo_ros/conversions/generic.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/gazebo_ros/conversions/builtin_interfaces.hpp:23[m[K,
+                 from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:15[m[K:
+[01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DroneSimpleControllerPrivate::ImuCallback(sensor_msgs::msg::Imu_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:278:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kdegrees[m[K’ is not a member of ‘[01m[Kignition::math[m[K’
+  278 |             ignition::math::[01;31m[Kdegrees[m[K(euler.X()),
+      |                             [01;31m[K^~~~~~~[m[K
+[01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:279:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kdegrees[m[K’ is not a member of ‘[01m[Kignition::math[m[K’
+  279 |             ignition::math::[01;31m[Kdegrees[m[K(euler.Y()),
+      |                             [01;31m[K^~~~~~~[m[K
+[01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:280:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kdegrees[m[K’ is not a member of ‘[01m[Kignition::math[m[K’
+  280 |             ignition::math::[01;31m[Kdegrees[m[K(euler.Z()));
+      |                             [01;31m[K^~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:90: CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/plugin_drone.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

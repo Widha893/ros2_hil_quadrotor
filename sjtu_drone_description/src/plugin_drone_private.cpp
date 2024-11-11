@@ -88,6 +88,7 @@ void DroneSimpleControllerPrivate::InitSubscribers(
     imu_subscriber_ = ros_node_->create_subscription<sensor_msgs::msg::Imu>(
       imu_topic_, qos,
       std::bind(&DroneSimpleControllerPrivate::ImuCallback, this, std::placeholders::_1));
+      RCLCPP_INFO(ros_node_->get_logger(), "Euler: %.2f, %.2f, %.2f", euler[0], euler[1], euler[2]);
   } else {
     RCLCPP_ERROR(ros_node_->get_logger(), "No imu topic defined!");
   }
@@ -279,6 +280,10 @@ void DroneSimpleControllerPrivate::ImuCallback(const sensor_msgs::msg::Imu::Shar
     ignition::math::v6::Vector3<double>(
       imu->angular_velocity.x,
       imu->angular_velocity.y, imu->angular_velocity.z));
+  RCLCPP_INFO(ros_node_->get_logger(), "Angular Velocity: %.2f, %.2f, %.2f",
+            angular_velocity.X(), angular_velocity.Y(), angular_velocity.Z());
+  
+  
 }
 
 /**

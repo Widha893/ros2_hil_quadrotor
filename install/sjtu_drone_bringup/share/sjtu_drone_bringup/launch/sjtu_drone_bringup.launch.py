@@ -98,4 +98,14 @@ def generate_launch_description():
             function=get_teleop_controller,
             kwargs={'model_ns': model_ns},
         ),
+
+        # Node(
+        #     package='data_logger',
+        #     executable='data_logger',  # Ensure this matches your executable name
+        #     name='data_logger',
+        #     output='screen',
+        #     parameters=[{
+        #         'output_file': '~/DataLogger/sensor_data.csv'  # Specify the path where the CSV file will be saved
+        #     }]
+        # ),
     ])

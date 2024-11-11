@@ -1,0 +1,21 @@
+[0.925s] Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/data_logger:/opt/ros/humble /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
+[1.061s] [35m[1mConsolidate compiler generated dependencies of target plugin_drone[0m
+[1.178s] [ 25%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o[0m
+[20.035s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+[20.035s]                  from [01m[K/opt/ros/humble/include/gazebo_ros/conversions/generic.hpp:25[m[K,
+[20.035s]                  from [01m[K/opt/ros/humble/include/gazebo_ros/conversions/builtin_interfaces.hpp:23[m[K,
+[20.035s]                  from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:15[m[K:
+[20.035s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DroneSimpleControllerPrivate::ImuCallback(sensor_msgs::msg::Imu_<std::allocator<void> >::SharedPtr)[m[K’:
+[20.035s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:278:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kdegrees[m[K’ is not a member of ‘[01m[Kignition::math[m[K’
+[20.035s]   278 |             ignition::math::[01;31m[Kdegrees[m[K(euler.X()),
+[20.035s]       |                             [01;31m[K^~~~~~~[m[K
+[20.037s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:279:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kdegrees[m[K’ is not a member of ‘[01m[Kignition::math[m[K’
+[20.038s]   279 |             ignition::math::[01;31m[Kdegrees[m[K(euler.Y()),
+[20.038s]       |                             [01;31m[K^~~~~~~[m[K
+[20.040s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:280:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kdegrees[m[K’ is not a member of ‘[01m[Kignition::math[m[K’
+[20.040s]   280 |             ignition::math::[01;31m[Kdegrees[m[K(euler.Z()));
+[20.040s]       |                             [01;31m[K^~~~~~~[m[K
+[27.837s] gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:90: CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o] Error 1
+[27.838s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/plugin_drone.dir/all] Error 2
+[27.838s] gmake: *** [Makefile:146: all] Error 2
+[27.840s] Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/data_logger:/opt/ros/humble /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
