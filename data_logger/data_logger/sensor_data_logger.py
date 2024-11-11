@@ -8,10 +8,12 @@ from datetime import datetime
 
 class SensorDataLogger(Node):
     def __init__(self):
-        super().__init__('drone_simple_controller')
+        super().__init__('data_logger')
+
+        self.sensor_data = []
         
         # Define the IMU topic
-        self.imu_topic = '/simple_drone/imu'  # Replace with actual IMU topic name
+        self.imu_topic = '/simple_drone/imu/out'  # Replace with actual IMU topic name
         qos = 10  # Quality of Service (can be modified as needed)
         
         if self.imu_topic:
@@ -41,6 +43,11 @@ class SensorDataLogger(Node):
 
         # Log Euler angles
         self.get_logger().info(f"Euler Angles [Degrees]: Roll={np.degrees(roll):.2f}, Pitch={np.degrees(pitch):.2f}, Yaw={np.degrees(yaw):.2f}")
+
+        timestamp_sec = msg.header.stamp.sec
+        timestamp_nanosec = msg.header.stamp.nanosec
+        self.sensor_data.append([timestamp_sec, timestamp_nanosec, np.degrees(roll), np.degrees(pitch), np.degrees(yaw)])
+
     
     def quaternion_to_euler(self, quat):
         """Convert a quaternion to Euler angles (roll, pitch, yaw)"""
@@ -72,9 +79,7 @@ class SensorDataLogger(Node):
                 writer = csv.writer(f)
                 writer.writerow([
                     'timestamp_sec', 'timestamp_nanosec',
-                    'orientation_x', 'orientation_y', 'orientation_z', 'orientation_w',
-                    'angular_velocity_x', 'angular_velocity_y', 'angular_velocity_z',
-                    'linear_acceleration_x', 'linear_acceleration_y', 'linear_acceleration_z'
+                    'roll', 'pitch', 'yaw'
                 ])
                 writer.writerows(self.sensor_data)
             self.get_logger().info("Data successfully saved to CSV.")
@@ -82,23 +87,23 @@ class SensorDataLogger(Node):
             self.get_logger().error(f"Failed to save data: {e}")
 
 def main(args=None):
-    # rclpy.init(args=args)
-    # sensor_data_logger = SensorDataLogger()
-
-    # try:
-    #     rclpy.spin(sensor_data_logger)
-    # except KeyboardInterrupt:
-    #     sensor_data_logger.get_logger().info("Shutting down due to KeyboardInterrupt...")
-    # finally:
-    #     # Save data on shutdown
-    #     sensor_data_logger.save_data()
-    #     sensor_data_logger.destroy_node()
-    #     rclpy.shutdown()
     rclpy.init(args=args)
-    drone_controller = SensorDataLogger()
-    rclpy.spin(drone_controller)
-    drone_controller.destroy_node()
-    rclpy.shutdown()
+    sensor_data_logger = SensorDataLogger()
+
+    try:
+        rclpy.spin(sensor_data_logger)
+    except KeyboardInterrupt:
+        sensor_data_logger.get_logger().info("Shutting down due to KeyboardInterrupt...")
+    finally:
+        # Save data on shutdown
+        sensor_data_logger.save_data()
+        sensor_data_logger.destroy_node()
+        rclpy.shutdown()
+    # rclpy.init(args=args)
+    # drone_controller = SensorDataLogger()
+    # rclpy.spin(drone_controller)
+    # drone_controller.destroy_node()
+    # rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
