@@ -1,0 +1,3 @@
+[console_scripts]
+sensor_data_logger = sensor_data_logger.data_logger:main
+

@@ -1,0 +1,23 @@
+running egg_info
+writing ../build/sensor_data_logger/sensor_data_logger.egg-info/PKG-INFO
+writing dependency_links to ../build/sensor_data_logger/sensor_data_logger.egg-info/dependency_links.txt
+writing entry points to ../build/sensor_data_logger/sensor_data_logger.egg-info/entry_points.txt
+writing requirements to ../build/sensor_data_logger/sensor_data_logger.egg-info/requires.txt
+writing top-level names to ../build/sensor_data_logger/sensor_data_logger.egg-info/top_level.txt
+reading manifest file '../build/sensor_data_logger/sensor_data_logger.egg-info/SOURCES.txt'
+writing manifest file '../build/sensor_data_logger/sensor_data_logger.egg-info/SOURCES.txt'
+running build
+running build_py
+copying sensor_data_logger/data_logger.py -> /home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/build/lib/sensor_data_logger
+running install
+running install_lib
+copying /home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/build/lib/sensor_data_logger/data_logger.py -> /home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages/sensor_data_logger
+byte-compiling /home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages/sensor_data_logger/data_logger.py to data_logger.cpython-310.pyc
+running install_data
+copying package.xml -> /home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/share/sensor_data_logger
+running install_egg_info
+removing '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages/sensor_data_logger-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../build/sensor_data_logger/sensor_data_logger.egg-info to /home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages/sensor_data_logger-0.0.0-py3.10.egg-info
+running install_scripts
+Installing sensor_data script to /home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/sensor_data_logger
+writing list of installed files to '/home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/install.log'

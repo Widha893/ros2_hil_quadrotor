@@ -1,4 +1,0 @@
-gmake[2]: *** Deleting file '/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so'
-gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:387: /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so] Interrupt
-gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/plugin_drone.dir/all] Interrupt
-gmake: *** [Makefile:146: all] Interrupt
