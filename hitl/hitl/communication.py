@@ -13,6 +13,9 @@ class Communication(Node):
         super().__init__('communication')
         self.get_logger().info("Communication node has started...")
         
+        self.velocity_xy = []
+        self.acceleration_xy = []
+
         # Define topics
         self.imu_topic = '/simple_drone/imu/out'
         self.gt_pose_topic = '/simple_drone/gt_pose'
@@ -54,7 +57,8 @@ class Communication(Node):
         self.gt_pose_updated = True
 
     def gt_vel_callback(self, msg: Twist):
-        self.velocity_xy = msg.linear.x, msg.linear.y
+        self.velocity_xy = self.rotate_to_body_frame(msg.linear)
+        self.velicity_z = msg.linear.z
         self.gt_vel_updated = True
 
     def gt_acc_callback(self, msg: Twist):
@@ -71,9 +75,10 @@ class Communication(Node):
         
 
     def rotate_to_body_frame(self, msg):
+        vector = [msg.x, msg.y, msg.z]
         heading_quaternion = R.from_euler('z', self.euler[2], degrees=False).as_quat()
         heading_rot = R.from_quat(heading_quaternion)
-        return np.array(heading_rot.inv().apply(msg))
+        return heading_rot.inv().apply(vector)
 
     def quaternion_to_euler(self, quat):
         """Convert a quaternion to Euler angles (roll, pitch, yaw)"""
