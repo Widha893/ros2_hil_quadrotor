@@ -1,6 +1,6 @@
 import rclpy
 
-from drone_utils.drone_object import DroneObject
+from sjtu_drone_control.drone_utils.drone_object import DroneObject
 
 class DronePositionControl(DroneObject):
     def __init__(self):
@@ -20,7 +20,6 @@ class DronePositionControl(DroneObject):
         # Override the move_drone_to_pose method if specific behavior is needed
         super().moveTo(x, y, z)
         self.get_logger().info(f'Moving drone to pose: x={x}, y={y}, z={z}')
-
 
 def main(args=None):
     rclpy.init(args=args)
