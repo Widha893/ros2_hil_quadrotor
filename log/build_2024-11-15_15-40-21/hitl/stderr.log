@@ -1,0 +1,5 @@
+  File "/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl/communication.py", line 73
+    return roll, pitch, yaw
+    ^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: 'return' outside function
+

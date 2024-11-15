@@ -50,7 +50,7 @@ class SensorDataLogger(Node):
 
     
     def quaternion_to_euler(self, quat):
-        """Convert a quaternion to Euler angles (roll, pitch, yaw)"""
+        """Convert a quaternion to Euler angles in radian (roll, pitch, yaw)"""
         q = [quat.w, quat.x, quat.y, quat.z]
         
         sinr_cosp = 2 * (q[0] * q[1] + q[2] * q[3])
