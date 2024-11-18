@@ -1,41 +1,51 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Imu, Range
-from geometry_msgs.msg import Pose, Twist, Vector3, Quaternion
 import numpy as np
-from tf2_geometry_msgs import tf2_geometry_msgs
-from tf2_ros import transform_broadcaster
 from std_msgs.msg import Bool
-from scipy.spatial.transform import Rotation as R
 import math
+import messages_pb2
+from serial import Serial, SerialException
 
 class Communication(Node):
-    def __init__(self):
+    def __init__(self,port = '/dev/ttyACM0', baudrate = 9600):
         super().__init__('communication')
+
+        try:
+            self._serial = Serial(port, baudrate, timeout=1)
+        except SerialException as e:
+            self.get_logger().error(f"Serial connection error: {e}")
+            raise
+
         self.get_logger().info("Communication node has started...")
 
         # Define topics
         self.imu_topic = '/simple_drone/imu/out'
-        self.alt_topic = 'simple_drone/gt_pose'
-        self.alt_rate_topic = '/simple_drone/gt_vel'
+        self.alt_topic = 'simple_drone/sonar/out'
+
+        # Obtained by running hitl_control.py
+        self.gain_alt = 10.000
+        self.gain_vz = 5.526
+        self.gain_roll = 5.000
+        self.gain_p = 4.261
+        self.gain_pitch = 5.477
+        self.gain_q = 3.043
+        self.gain_yaw = 3.000
+        self.gain_r = 1.519
 
         # Define Quality of Service
         qos = 10
 
         self.imu_updated = False
         self.alt_updated = False
-        self.alt_rate_updated = False
 
         # Create subscribers
         self.imu_subscriber = self.create_subscription(
             Imu,self.imu_topic,self.imu_callback,qos
         )
         self.alt_subscriber = self.create_subscription(
-            Pose,self.alt_topic,self.alt_callback,qos
+            Range,self.alt_topic,self.alt_callback,qos
         )
-        # self.alt_rate_subscriber = self.create_subscription(
-        #     Twist,self.alt_rate_topic,self.alt_rate_callback,qos
-        # )
 
     def imu_callback(self, msg: Imu):
         # Extract quaternion and convert to Euler angles
@@ -45,26 +55,12 @@ class Communication(Node):
         self.angular_vel_y = msg.angular_velocity.y
         self.angular_vel_z = msg.angular_velocity.z
         self.imu_updated = True
-        
 
-
-    def alt_callback(self, msg: Pose):
-        # Extract quaternion and convert to Euler angles
-        self.altitude = msg.position.z
+    def alt_callback(self, msg: Range):
+        self.altitude = msg.range
         self.alt_updated = True
-        if self.imu_updated:
-            self.get_logger().info(f"IMU (Euler Angles): Roll={self.euler[0]:.2f}, Pitch={self.euler[1]:.2f}, Yaw={self.euler[2]:.2f}")
-            self.get_logger().info(f"IMU (Euler Angles): Roll Vel={self.angular_vel_x:.2f}, Pitch Vel={self.angular_vel_y:.2f}, Yaw Vel={self.angular_vel_z:.2f}")
-            self.get_logger().info(f"Pose: Altitude={self.altitude:.2f}")
-            self.reset_flags()
-
-    def alt_rate_callback(self,msg: Twist):
-        self.altitude_rate = msg.linear.z
-        self.alt_rate_updated = True
         if self.imu_updated and self.alt_updated:
-            self.get_logger().info(f"IMU (Euler Angles): Roll={self.euler[0]:.2f}, Pitch={self.euler[1]:.2f}, Yaw={self.euler[2]:.2f}")
-            self.get_logger().info(f"IMU (Euler Angles): Roll Vel={self.angular_vel_x:.2f}, Pitch Vel={self.angular_vel_y:.2f}, Yaw Vel={self.angular_vel_z:.2f}")
-            self.get_logger().info(f"Pose: Altitude={self.altitude:.2f}, Altitude Rate={self.altitude_rate:.2f}")
+            self.write(self.create_message())
             self.reset_flags()
 
     def quaternion_to_euler(self, q_w, q_x, q_y, q_z):
@@ -81,9 +77,58 @@ class Communication(Node):
 
     def reset_flags(self):
         self.imu_updated = False
-        self.gt_pose_updated = False
-        self.gt_vel_updated = False
-        self.gt_acc_updated = False
+        self.alt_updated = False
+
+    def create_message(self):
+        msg = messages_pb2.msg()
+        msg.gains.alt = self.gain_alt
+        msg.gains.vz = self.gain_vz
+        msg.gains.roll = self.gain_roll
+        msg.gains.p = self.gain_p
+        msg.gains.pitch = self.gain_pitch
+        msg.gains.q = self.gain_q
+        msg.gains.yaw = self.gain_yaw
+        msg.gains.r = self.gain_r
+        msg.sensors.euler.roll = self.euler[0]
+        msg.sensors.euler.pitch = self.euler[1]
+        msg.sensors.euler.yaw = self.euler[2]
+        msg.sensors.angular_vel.x = self.angular_vel_x
+        msg.sensors.angular_vel.y = self.angular_vel_y
+        msg.sensors.angular_vel.z = self.angular_vel_z
+        msg.sensors.altitude = self.altitude
+
+        return msg
+    
+    def write(self, message):
+        STX = b'\x02'  # Define the Start of Transmission byte
+
+        # Serialize the message
+        buffer = message.SerializeToString()
+        message_length = len(buffer)
+
+        # Write the start byte (STX)
+        self._serial.write(STX)
+
+        # Write the message length in 2 bytes (big-endian)
+        self._serial.write((message_length >> 8).to_bytes(1, 'big'))  # High byte
+        self._serial.write((message_length & 0xFF).to_bytes(1, 'big'))  # Low byte
+
+        # Write the serialized message
+        self._serial.write(buffer)
+
+        # Calculate checksum (XOR of all message bytes)
+        checksum = 0x00
+        for byte in buffer:
+            checksum ^= byte
+
+        # Write the checksum
+        self._serial.write(checksum.to_bytes(1, 'big'))
+
+        # Flush to ensure the data is sent immediately
+        self._serial.flush()
+
+        self.get_logger().info("Message sent with checksum: 0x{:02X}".format(checksum))
+
 
 def main(args=None):
     rclpy.init(args=args)

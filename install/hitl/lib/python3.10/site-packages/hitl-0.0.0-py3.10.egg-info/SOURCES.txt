@@ -10,6 +10,8 @@ setup.py
 ../build/hitl/hitl.egg-info/zip-safe
 hitl/__init__.py
 hitl/communication.py
+hitl/hitl_control.py
+hitl/messages_pb2.py
 resource/hitl
 test/test_copyright.py
 test/test_flake8.py

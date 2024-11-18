@@ -154,10 +154,10 @@
         <ray>
           <scan>
             <horizontal>
-              <samples>5</samples>
+              <samples>1</samples>
               <resolution>1</resolution>
-              <min_angle>-0.12</min_angle>
-              <max_angle>0.12</max_angle>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
             </horizontal>
             <vertical>
               <samples>5</samples>
@@ -185,7 +185,7 @@
           <output_type>sensor_msgs/Range</output_type>
           <radiation_type>ultrasound</radiation_type>
         </plugin>
-        <pose>0 0 0 3.14159 1.57079 3.14159</pose>
+        <pose>0 0 0 0 1.57079 0</pose>
       </sensor>
     </link>
     <static>0</static>
