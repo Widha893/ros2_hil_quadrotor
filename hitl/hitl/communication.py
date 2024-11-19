@@ -4,12 +4,23 @@ from sensor_msgs.msg import Imu, Range
 import numpy as np
 from std_msgs.msg import Bool
 import math
-import messages_pb2
+from hitl import messages_pb2
 from serial import Serial, SerialException
+import time
+
+STX = b'\xFE'
 
 class Communication(Node):
-    def __init__(self,port = '/dev/ttyACM0', baudrate = 9600):
+    def __init__(self,port = '/dev/ttyACM0', baudrate = 115200):
         super().__init__('communication')
+
+        self.roll = 0.0
+        self.pitch = 0.0
+        self.yaw = 0.0
+        self.angular_vel_x = 0.0
+        self.angular_vel_y = 0.0
+        self.angular_vel_z = 0.0
+        self.altitude = 0.0
 
         try:
             self._serial = Serial(port, baudrate, timeout=1)
@@ -50,7 +61,9 @@ class Communication(Node):
     def imu_callback(self, msg: Imu):
         # Extract quaternion and convert to Euler angles
         quat = msg.orientation
-        self.euler = np.degrees(self.quaternion_to_euler(quat.w, quat.x, quat.y, quat.z))
+        self.roll = np.degrees(self.quaternion_to_roll(quat.w, quat.x, quat.y, quat.z))
+        self.pitch = np.degrees(self.quaternion_to_pitch(quat.w, quat.x, quat.y, quat.z))
+        self.yaw = np.degrees(self.quaternion_to_yaw(quat.w, quat.x, quat.y, quat.z))
         self.angular_vel_x = msg.angular_velocity.x
         self.angular_vel_y = msg.angular_velocity.y
         self.angular_vel_z = msg.angular_velocity.z
@@ -61,73 +74,61 @@ class Communication(Node):
         self.alt_updated = True
         if self.imu_updated and self.alt_updated:
             self.write(self.create_message())
+            self.get_logger().info("Message sent!")
             self.reset_flags()
 
-    def quaternion_to_euler(self, q_w, q_x, q_y, q_z):
+    def quaternion_to_roll(self, q_w, q_x, q_y, q_z):
         # Roll (x-axis rotation)
         roll = math.atan2(2 * (q_w * q_x + q_y * q_z), 1 - 2 * (q_x**2 + q_y**2))
+        return roll
 
-        # Pitch (y-axis rotation)
+    def quaternion_to_pitch(self, q_w, q_x, q_y, q_z):
         pitch = math.asin(2 * (q_w * q_y - q_z * q_x))
+        return pitch
 
-        # Yaw (z-axis rotation)
+    def quaternion_to_yaw(self, q_w, q_x, q_y, q_z):
         yaw = math.atan2(2 * (q_w * q_z + q_x * q_y), 1 - 2 * (q_y**2 + q_z**2))
-    
-        return roll, pitch, yaw
+        return yaw
 
     def reset_flags(self):
         self.imu_updated = False
         self.alt_updated = False
 
     def create_message(self):
-        msg = messages_pb2.msg()
-        msg.gains.alt = self.gain_alt
-        msg.gains.vz = self.gain_vz
-        msg.gains.roll = self.gain_roll
-        msg.gains.p = self.gain_p
-        msg.gains.pitch = self.gain_pitch
-        msg.gains.q = self.gain_q
-        msg.gains.yaw = self.gain_yaw
-        msg.gains.r = self.gain_r
-        msg.sensors.euler.roll = self.euler[0]
-        msg.sensors.euler.pitch = self.euler[1]
-        msg.sensors.euler.yaw = self.euler[2]
-        msg.sensors.angular_vel.x = self.angular_vel_x
-        msg.sensors.angular_vel.y = self.angular_vel_y
-        msg.sensors.angular_vel.z = self.angular_vel_z
-        msg.sensors.altitude = self.altitude
+        _msg = messages_pb2.msg()
+        _msg.gains.alt = self.gain_alt
+        _msg.gains.vz = self.gain_vz
+        _msg.gains.roll = self.gain_roll
+        _msg.gains.p = self.gain_p
+        _msg.gains.pitch = self.gain_pitch
+        _msg.gains.q = self.gain_q
+        _msg.gains.yaw = self.gain_yaw
+        _msg.gains.r = self.gain_r
+        _msg.sensors.angular_vel_x = self.angular_vel_x
+        _msg.sensors.angular_vel_y = self.angular_vel_y
+        _msg.sensors.angular_vel_z = self.angular_vel_z
+        _msg.sensors.roll = self.roll
+        _msg.sensors.pitch = self.pitch
+        _msg.sensors.yaw = self.yaw
+        _msg.sensors.altitude = self.altitude
 
-        return msg
+        return _msg
     
     def write(self, message):
-        STX = b'\x02'  # Define the Start of Transmission byte
-
-        # Serialize the message
         buffer = message.SerializeToString()
         message_length = len(buffer)
 
-        # Write the start byte (STX)
         self._serial.write(STX)
-
-        # Write the message length in 2 bytes (big-endian)
-        self._serial.write((message_length >> 8).to_bytes(1, 'big'))  # High byte
-        self._serial.write((message_length & 0xFF).to_bytes(1, 'big'))  # Low byte
-
-        # Write the serialized message
+        self._serial.write((message_length >> 8).to_bytes(1, 'big'))
+        self._serial.write((message_length & 0xFF).to_bytes(1, 'big'))
         self._serial.write(buffer)
 
-        # Calculate checksum (XOR of all message bytes)
         checksum = 0x00
-        for byte in buffer:
-            checksum ^= byte
-
-        # Write the checksum
-        self._serial.write(checksum.to_bytes(1, 'big'))
-
-        # Flush to ensure the data is sent immediately
+        for i in range(message_length):
+            checksum ^= buffer[i]
+        cb = checksum.to_bytes(1, 'big')
+        self._serial.write(cb)
         self._serial.flush()
-
-        self.get_logger().info("Message sent with checksum: 0x{:02X}".format(checksum))
 
 
 def main(args=None):
@@ -135,6 +136,8 @@ def main(args=None):
     communication = Communication()
     try:
         rclpy.spin(communication)
+    except SerialException as e:
+        communication.get_logger().error(f"Serial connection error: {e}")
     except KeyboardInterrupt:
         communication.get_logger().info("Shutting down due to KeyboardInterrupt...")
         communication.destroy_node()

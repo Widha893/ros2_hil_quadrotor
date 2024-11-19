@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto2',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0emessages.proto\x12\x04HWIL\"\x98\x06\n\x03msg\x12\x1e\n\x05gains\x18\x01 \x01(\x0b\x32\x0f.HWIL.msg.Gains\x12\'\n\x08\x63ontrols\x18\x02 \x01(\x0b\x32\x15.HWIL.msg.ControlData\x12%\n\x07sensors\x18\x03 \x01(\x0b\x32\x14.HWIL.msg.SensorData\x1ak\n\x05Gains\x12\x0b\n\x03\x61lt\x18\x01 \x02(\x01\x12\n\n\x02vz\x18\x02 \x02(\x01\x12\x0c\n\x04roll\x18\x03 \x02(\x01\x12\t\n\x01p\x18\x04 \x02(\x01\x12\r\n\x05pitch\x18\x05 \x02(\x01\x12\t\n\x01q\x18\x06 \x02(\x01\x12\x0b\n\x03yaw\x18\x07 \x02(\x01\x12\t\n\x01r\x18\x08 \x02(\x01\x1a\xd9\x03\n\nSensorData\x1a\xfe\x01\n\x03IMU\x12-\n\x05\x65uler\x18\x01 \x02(\x0b\x32\x1e.HWIL.msg.SensorData.IMU.Euler\x12=\n\x0b\x61ngular_vel\x18\x02 \x02(\x0b\x32(.HWIL.msg.SensorData.IMU.AngularVelocity\x1a\x31\n\x05\x45uler\x12\x0c\n\x04roll\x18\x01 \x02(\x01\x12\r\n\x05pitch\x18\x02 \x02(\x01\x12\x0b\n\x03yaw\x18\x03 \x02(\x01\x1aV\n\x0f\x41ngularVelocity\x12\x15\n\rangular_vel_x\x18\x01 \x02(\x01\x12\x15\n\rangular_vel_y\x18\x02 \x02(\x01\x12\x15\n\rangular_vel_z\x18\x03 \x02(\x01\x1a\xc9\x01\n\x05Sonar\x12\x35\n\x08\x61ltitude\x18\x01 \x02(\x0b\x32#.HWIL.msg.SensorData.Sonar.Altitude\x12\x41\n\x0c\x61ltitude_vel\x18\x02 \x02(\x0b\x32+.HWIL.msg.SensorData.Sonar.AltitudeVelocity\x1a\x1c\n\x08\x41ltitude\x12\x10\n\x08\x61ltitude\x18\x01 \x02(\x01\x1a(\n\x10\x41ltitudeVelocity\x12\x14\n\x0c\x61ltitude_vel\x18\x01 \x02(\x01\x1aX\n\x0b\x43ontrolData\x12\x10\n\x08torque_x\x18\x01 \x02(\x01\x12\x10\n\x08torque_y\x18\x02 \x02(\x01\x12\x10\n\x08torque_z\x18\x03 \x02(\x01\x12\x13\n\x0btotal_force\x18\x04 \x02(\x01'
+  serialized_pb=b'\n\x0emessages.proto\x12\x04HWIL\"\xcc\x03\n\x03msg\x12\x1e\n\x05gains\x18\x01 \x01(\x0b\x32\x0f.HWIL.msg.Gains\x12\'\n\x08\x63ontrols\x18\x02 \x01(\x0b\x32\x15.HWIL.msg.ControlData\x12%\n\x07sensors\x18\x03 \x01(\x0b\x32\x14.HWIL.msg.SensorData\x1ak\n\x05Gains\x12\x0b\n\x03\x61lt\x18\x01 \x02(\x01\x12\n\n\x02vz\x18\x02 \x02(\x01\x12\x0c\n\x04roll\x18\x03 \x02(\x01\x12\t\n\x01p\x18\x04 \x02(\x01\x12\r\n\x05pitch\x18\x05 \x02(\x01\x12\t\n\x01q\x18\x06 \x02(\x01\x12\x0b\n\x03yaw\x18\x07 \x02(\x01\x12\t\n\x01r\x18\x08 \x02(\x01\x1a\x8d\x01\n\nSensorData\x12\x0c\n\x04roll\x18\x01 \x02(\x01\x12\r\n\x05pitch\x18\x02 \x02(\x01\x12\x0b\n\x03yaw\x18\x03 \x02(\x01\x12\x15\n\rangular_vel_x\x18\x04 \x02(\x01\x12\x15\n\rangular_vel_y\x18\x05 \x02(\x01\x12\x15\n\rangular_vel_z\x18\x06 \x02(\x01\x12\x10\n\x08\x61ltitude\x18\x07 \x02(\x01\x1aX\n\x0b\x43ontrolData\x12\x10\n\x08torque_x\x18\x01 \x02(\x01\x12\x10\n\x08torque_y\x18\x02 \x02(\x01\x12\x10\n\x08torque_z\x18\x03 \x02(\x01\x12\x13\n\x0btotal_force\x18\x04 \x02(\x01'
 )
 
 
@@ -105,234 +105,6 @@ _MSG_GAINS = _descriptor.Descriptor(
   serialized_end=251,
 )
 
-_MSG_SENSORDATA_IMU_EULER = _descriptor.Descriptor(
-  name='Euler',
-  full_name='HWIL.msg.SensorData.IMU.Euler',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='roll', full_name='HWIL.msg.SensorData.IMU.Euler.roll', index=0,
-      number=1, type=1, cpp_type=5, label=2,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='pitch', full_name='HWIL.msg.SensorData.IMU.Euler.pitch', index=1,
-      number=2, type=1, cpp_type=5, label=2,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='yaw', full_name='HWIL.msg.SensorData.IMU.Euler.yaw', index=2,
-      number=3, type=1, cpp_type=5, label=2,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=386,
-  serialized_end=435,
-)
-
-_MSG_SENSORDATA_IMU_ANGULARVELOCITY = _descriptor.Descriptor(
-  name='AngularVelocity',
-  full_name='HWIL.msg.SensorData.IMU.AngularVelocity',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='angular_vel_x', full_name='HWIL.msg.SensorData.IMU.AngularVelocity.angular_vel_x', index=0,
-      number=1, type=1, cpp_type=5, label=2,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='angular_vel_y', full_name='HWIL.msg.SensorData.IMU.AngularVelocity.angular_vel_y', index=1,
-      number=2, type=1, cpp_type=5, label=2,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='angular_vel_z', full_name='HWIL.msg.SensorData.IMU.AngularVelocity.angular_vel_z', index=2,
-      number=3, type=1, cpp_type=5, label=2,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=437,
-  serialized_end=523,
-)
-
-_MSG_SENSORDATA_IMU = _descriptor.Descriptor(
-  name='IMU',
-  full_name='HWIL.msg.SensorData.IMU',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='euler', full_name='HWIL.msg.SensorData.IMU.euler', index=0,
-      number=1, type=11, cpp_type=10, label=2,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='angular_vel', full_name='HWIL.msg.SensorData.IMU.angular_vel', index=1,
-      number=2, type=11, cpp_type=10, label=2,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[_MSG_SENSORDATA_IMU_EULER, _MSG_SENSORDATA_IMU_ANGULARVELOCITY, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=269,
-  serialized_end=523,
-)
-
-_MSG_SENSORDATA_SONAR_ALTITUDE = _descriptor.Descriptor(
-  name='Altitude',
-  full_name='HWIL.msg.SensorData.Sonar.Altitude',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='altitude', full_name='HWIL.msg.SensorData.Sonar.Altitude.altitude', index=0,
-      number=1, type=1, cpp_type=5, label=2,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=657,
-  serialized_end=685,
-)
-
-_MSG_SENSORDATA_SONAR_ALTITUDEVELOCITY = _descriptor.Descriptor(
-  name='AltitudeVelocity',
-  full_name='HWIL.msg.SensorData.Sonar.AltitudeVelocity',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='altitude_vel', full_name='HWIL.msg.SensorData.Sonar.AltitudeVelocity.altitude_vel', index=0,
-      number=1, type=1, cpp_type=5, label=2,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=687,
-  serialized_end=727,
-)
-
-_MSG_SENSORDATA_SONAR = _descriptor.Descriptor(
-  name='Sonar',
-  full_name='HWIL.msg.SensorData.Sonar',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='altitude', full_name='HWIL.msg.SensorData.Sonar.altitude', index=0,
-      number=1, type=11, cpp_type=10, label=2,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='altitude_vel', full_name='HWIL.msg.SensorData.Sonar.altitude_vel', index=1,
-      number=2, type=11, cpp_type=10, label=2,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[_MSG_SENSORDATA_SONAR_ALTITUDE, _MSG_SENSORDATA_SONAR_ALTITUDEVELOCITY, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=526,
-  serialized_end=727,
-)
-
 _MSG_SENSORDATA = _descriptor.Descriptor(
   name='SensorData',
   full_name='HWIL.msg.SensorData',
@@ -341,10 +113,59 @@ _MSG_SENSORDATA = _descriptor.Descriptor(
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='roll', full_name='HWIL.msg.SensorData.roll', index=0,
+      number=1, type=1, cpp_type=5, label=2,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='pitch', full_name='HWIL.msg.SensorData.pitch', index=1,
+      number=2, type=1, cpp_type=5, label=2,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='yaw', full_name='HWIL.msg.SensorData.yaw', index=2,
+      number=3, type=1, cpp_type=5, label=2,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='angular_vel_x', full_name='HWIL.msg.SensorData.angular_vel_x', index=3,
+      number=4, type=1, cpp_type=5, label=2,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='angular_vel_y', full_name='HWIL.msg.SensorData.angular_vel_y', index=4,
+      number=5, type=1, cpp_type=5, label=2,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='angular_vel_z', full_name='HWIL.msg.SensorData.angular_vel_z', index=5,
+      number=6, type=1, cpp_type=5, label=2,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='altitude', full_name='HWIL.msg.SensorData.altitude', index=6,
+      number=7, type=1, cpp_type=5, label=2,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_MSG_SENSORDATA_IMU, _MSG_SENSORDATA_SONAR, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -354,7 +175,7 @@ _MSG_SENSORDATA = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=254,
-  serialized_end=727,
+  serialized_end=395,
 )
 
 _MSG_CONTROLDATA = _descriptor.Descriptor(
@@ -405,8 +226,8 @@ _MSG_CONTROLDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=729,
-  serialized_end=817,
+  serialized_start=397,
+  serialized_end=485,
 )
 
 _MSG = _descriptor.Descriptor(
@@ -451,20 +272,10 @@ _MSG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=25,
-  serialized_end=817,
+  serialized_end=485,
 )
 
 _MSG_GAINS.containing_type = _MSG
-_MSG_SENSORDATA_IMU_EULER.containing_type = _MSG_SENSORDATA_IMU
-_MSG_SENSORDATA_IMU_ANGULARVELOCITY.containing_type = _MSG_SENSORDATA_IMU
-_MSG_SENSORDATA_IMU.fields_by_name['euler'].message_type = _MSG_SENSORDATA_IMU_EULER
-_MSG_SENSORDATA_IMU.fields_by_name['angular_vel'].message_type = _MSG_SENSORDATA_IMU_ANGULARVELOCITY
-_MSG_SENSORDATA_IMU.containing_type = _MSG_SENSORDATA
-_MSG_SENSORDATA_SONAR_ALTITUDE.containing_type = _MSG_SENSORDATA_SONAR
-_MSG_SENSORDATA_SONAR_ALTITUDEVELOCITY.containing_type = _MSG_SENSORDATA_SONAR
-_MSG_SENSORDATA_SONAR.fields_by_name['altitude'].message_type = _MSG_SENSORDATA_SONAR_ALTITUDE
-_MSG_SENSORDATA_SONAR.fields_by_name['altitude_vel'].message_type = _MSG_SENSORDATA_SONAR_ALTITUDEVELOCITY
-_MSG_SENSORDATA_SONAR.containing_type = _MSG_SENSORDATA
 _MSG_SENSORDATA.containing_type = _MSG
 _MSG_CONTROLDATA.containing_type = _MSG
 _MSG.fields_by_name['gains'].message_type = _MSG_GAINS
@@ -483,48 +294,6 @@ msg = _reflection.GeneratedProtocolMessageType('msg', (_message.Message,), {
   ,
 
   'SensorData' : _reflection.GeneratedProtocolMessageType('SensorData', (_message.Message,), {
-
-    'IMU' : _reflection.GeneratedProtocolMessageType('IMU', (_message.Message,), {
-
-      'Euler' : _reflection.GeneratedProtocolMessageType('Euler', (_message.Message,), {
-        'DESCRIPTOR' : _MSG_SENSORDATA_IMU_EULER,
-        '__module__' : 'messages_pb2'
-        # @@protoc_insertion_point(class_scope:HWIL.msg.SensorData.IMU.Euler)
-        })
-      ,
-
-      'AngularVelocity' : _reflection.GeneratedProtocolMessageType('AngularVelocity', (_message.Message,), {
-        'DESCRIPTOR' : _MSG_SENSORDATA_IMU_ANGULARVELOCITY,
-        '__module__' : 'messages_pb2'
-        # @@protoc_insertion_point(class_scope:HWIL.msg.SensorData.IMU.AngularVelocity)
-        })
-      ,
-      'DESCRIPTOR' : _MSG_SENSORDATA_IMU,
-      '__module__' : 'messages_pb2'
-      # @@protoc_insertion_point(class_scope:HWIL.msg.SensorData.IMU)
-      })
-    ,
-
-    'Sonar' : _reflection.GeneratedProtocolMessageType('Sonar', (_message.Message,), {
-
-      'Altitude' : _reflection.GeneratedProtocolMessageType('Altitude', (_message.Message,), {
-        'DESCRIPTOR' : _MSG_SENSORDATA_SONAR_ALTITUDE,
-        '__module__' : 'messages_pb2'
-        # @@protoc_insertion_point(class_scope:HWIL.msg.SensorData.Sonar.Altitude)
-        })
-      ,
-
-      'AltitudeVelocity' : _reflection.GeneratedProtocolMessageType('AltitudeVelocity', (_message.Message,), {
-        'DESCRIPTOR' : _MSG_SENSORDATA_SONAR_ALTITUDEVELOCITY,
-        '__module__' : 'messages_pb2'
-        # @@protoc_insertion_point(class_scope:HWIL.msg.SensorData.Sonar.AltitudeVelocity)
-        })
-      ,
-      'DESCRIPTOR' : _MSG_SENSORDATA_SONAR,
-      '__module__' : 'messages_pb2'
-      # @@protoc_insertion_point(class_scope:HWIL.msg.SensorData.Sonar)
-      })
-    ,
     'DESCRIPTOR' : _MSG_SENSORDATA,
     '__module__' : 'messages_pb2'
     # @@protoc_insertion_point(class_scope:HWIL.msg.SensorData)
@@ -544,12 +313,6 @@ msg = _reflection.GeneratedProtocolMessageType('msg', (_message.Message,), {
 _sym_db.RegisterMessage(msg)
 _sym_db.RegisterMessage(msg.Gains)
 _sym_db.RegisterMessage(msg.SensorData)
-_sym_db.RegisterMessage(msg.SensorData.IMU)
-_sym_db.RegisterMessage(msg.SensorData.IMU.Euler)
-_sym_db.RegisterMessage(msg.SensorData.IMU.AngularVelocity)
-_sym_db.RegisterMessage(msg.SensorData.Sonar)
-_sym_db.RegisterMessage(msg.SensorData.Sonar.Altitude)
-_sym_db.RegisterMessage(msg.SensorData.Sonar.AltitudeVelocity)
 _sym_db.RegisterMessage(msg.ControlData)
 
 

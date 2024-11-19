@@ -15,30 +15,13 @@ message msg {
       }
     
     message SensorData {
-      message IMU {
-        message Euler {
-            required double roll = 1;
-            required double pitch = 2;
-            required double yaw = 3;
-        }
-        message AngularVelocity {
-            required double angular_vel_x = 1;
-            required double angular_vel_y = 2;
-            required double angular_vel_z = 3;
-        }
-        required Euler euler = 1;
-        required AngularVelocity angular_vel = 2;
-      }
-      message Sonar {
-        message Altitude {
-            required double altitude = 1;
-        }
-        message AltitudeVelocity {
-            required double altitude_vel = 1;
-        }
-        required Altitude altitude = 1;
-        required AltitudeVelocity altitude_vel = 2;
-      }
+        required double roll = 1;
+        required double pitch = 2;
+        required double yaw = 3;
+        required double angular_vel_x = 4;
+        required double angular_vel_y = 5;
+        required double angular_vel_z = 6;
+        required double altitude = 7;
     }
     
     message ControlData {
