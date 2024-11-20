@@ -11,7 +11,7 @@ import time
 STX = b'\xFE'
 
 class Communication(Node):
-    def __init__(self,port = '/dev/ttyACM0', baudrate = 115200):
+    def __init__(self,port = '/dev/ttyACM0', baudrate = 9600):
         super().__init__('communication')
 
         self.roll = 0.0
@@ -129,7 +129,6 @@ class Communication(Node):
         cb = checksum.to_bytes(1, 'big')
         self._serial.write(cb)
         self._serial.flush()
-        time.sleep(0.5)
 
 
 def main(args=None):
