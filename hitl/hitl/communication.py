@@ -91,6 +91,7 @@ class Communication(Node):
         bool_msg = Bool()
         bool_msg.data = on
         self.pubHITL.publish(bool_msg)
+        self.get_logger().info(f"Position control is {'on' if on else 'off'}")
         return True
 
     def quaternion_to_roll(self, q_w, q_x, q_y, q_z):

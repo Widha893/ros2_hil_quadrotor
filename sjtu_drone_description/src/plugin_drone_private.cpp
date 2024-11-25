@@ -24,6 +24,7 @@ DroneSimpleControllerPrivate::DroneSimpleControllerPrivate()
 : m_timeAfterCmd(0.0)
   , navi_state(LANDED_MODEL)
   , m_posCtrl(false)
+  , m_hitl(false)
   , m_velMode(false)
   , odom_seq(0)
   , odom_hz(30)
@@ -364,6 +365,12 @@ void DroneSimpleControllerPrivate::PosCtrlCallback(const std_msgs::msg::Bool::Sh
 void DroneSimpleControllerPrivate::HITLCallback(const std_msgs::msg::Bool::SharedPtr cmd)
 {
   m_hitl = cmd->data;
+  if(m_hitl) {
+    RCLCPP_INFO(ros_node_->get_logger(), "Entering HITL mode!");
+  }
+  else {
+    RCLCPP_INFO(ros_node_->get_logger(), "HITL mode false!");
+  }
 }
 
 /**
@@ -624,6 +631,54 @@ void DroneSimpleControllerPrivate::UpdateDynamics(double dt)
           vz, velocity[2], acceleration[2],
           dt) + load_factor * gravity);
     }
+  } else if(m_hitl) {
+    RCLCPP_INFO(ros_node_->get_logger(), "Entering HITL mode!");
+    if (navi_state == FLYING_MODEL) {
+      //hovering
+      double pitch_command = controllers_.velocity_x.update(
+        cmd_vel.linear.x, velocity_xy[0],
+        acceleration_xy[0], dt) / gravity;
+      double roll_command = -controllers_.velocity_y.update(
+        cmd_vel.linear.y, velocity_xy[1],
+        acceleration_xy[1], dt) / gravity;
+      torque[0] = inertia[0] * controllers_.roll.update(
+        roll_command, euler[0],
+        angular_velocity_body[0], dt);
+      torque[1] = inertia[1] * controllers_.pitch.update(
+        pitch_command, euler[1],
+        angular_velocity_body[1], dt);
+      //TODO: add hover by distnace of sonar
+    } else {
+      //control by velocity
+      if (m_velMode) {
+        double pitch_command = controllers_.velocity_x.update(
+          cmd_vel.angular.x, velocity_xy[0],
+          acceleration_xy[0], dt) / gravity;
+        double roll_command = -controllers_.velocity_y.update(
+          cmd_vel.angular.y, velocity_xy[1],
+          acceleration_xy[1], dt) / gravity;
+        torque[0] = inertia[0] * controllers_.roll.update(
+          roll_command, euler[0],
+          angular_velocity_body[0], dt);
+        torque[1] = inertia[1] * controllers_.pitch.update(
+          pitch_command, euler[1],
+          angular_velocity_body[1], dt);
+      } else {
+        //control by tilting
+        torque[0] = inertia[0] * controllers_.roll.update(
+          cmd_vel.angular.x, euler[0],
+          angular_velocity_body[0], dt);
+        torque[1] = inertia[1] * controllers_.pitch.update(
+          cmd_vel.angular.y, euler[1],
+          angular_velocity_body[1], dt);
+      }
+    }
+    torque[2] = inertia[2] * controllers_.yaw.update(cmd_vel.angular.z, angular_velocity[2], 0, dt);
+    force[2] = mass *
+      (controllers_.velocity_z.update(
+        cmd_vel.linear.z, velocity[2], acceleration[2],
+        dt) + load_factor * gravity);
+
   } else {
     //normal control
     if (navi_state == FLYING_MODEL) {

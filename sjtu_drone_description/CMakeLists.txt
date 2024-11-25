@@ -26,7 +26,6 @@ find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(Boost REQUIRED COMPONENTS system) # Ensure Boost.Asio is available
-find_package(Protobuf REQUIRED) # Ensure Protobuf is available
 
 
 link_directories(${GAZEBO_LIBRARY_DIRS} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES} ${OGRE_LIBRARY_DIRS})
@@ -39,7 +38,12 @@ include_directories(${OpenCV_INCLUDE_DIR}
                     ${OGRE-Terrain_INCLUDE_DIRS}
                     include)
 
-
+# Path to Nanopb-generated files
+set(PROTOBUF_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include/sjtu_drone_description)
+set(PROTOBUF_FILES 
+    ${PROTOBUF_DIR}/messages.pb.c
+    ${PROTOBUF_DIR}/messages.pb.h
+)
 
 ################## 2. A simple model controller for the quadrotor #############
 add_library( plugin_drone SHARED
@@ -49,6 +53,7 @@ src/pid_controller.cpp
 include/sjtu_drone_description/plugin_drone.h
 include/sjtu_drone_description/plugin_drone_private.h
 include/sjtu_drone_description/pid_controller.h
+include/sjtu_drone_description/messages.pb.c
 )
 
 
