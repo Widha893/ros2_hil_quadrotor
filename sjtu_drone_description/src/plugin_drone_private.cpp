@@ -28,10 +28,22 @@ DroneSimpleControllerPrivate::DroneSimpleControllerPrivate()
   , odom_seq(0)
   , odom_hz(30)
   , last_odom_publish_time_(0.0)
+  , io_()
+  , serial_port_(io_)  // Initialize serial_port with io_context
 {
+  io_thread_ = std::thread([this]() { io_.run(); });
 }
 
-DroneSimpleControllerPrivate::~DroneSimpleControllerPrivate() {}
+DroneSimpleControllerPrivate::~DroneSimpleControllerPrivate() 
+{
+  if (serial_port_.is_open()) {
+        serial_port_.close();
+  }
+  io_.stop();
+  if (io_thread_.joinable()) {
+      io_thread_.join();
+  }
+}
 
 void DroneSimpleControllerPrivate::Reset()
 {
@@ -63,7 +75,8 @@ void DroneSimpleControllerPrivate::InitSubscribers(
   std::string takeoff_topic_,
   std::string land_topic_,
   std::string reset_topic_,
-  std::string switch_mode_topic_)
+  std::string switch_mode_topic_,
+  std::string hitl_topic_)
 {
   auto qos = rclcpp::QoS(rclcpp::KeepLast(1)).best_effort();
 
@@ -118,6 +131,15 @@ void DroneSimpleControllerPrivate::InitSubscribers(
       std::bind(&DroneSimpleControllerPrivate::ResetCallback, this, std::placeholders::_1));
   } else {
     RCLCPP_ERROR(ros_node_->get_logger(), "No reset topic defined!");
+  }
+
+  // subscribe command: hitl command
+  if (!hitl_topic_.empty()) {
+    posctrl_subscriber_ = ros_node_->create_subscription<std_msgs::msg::Bool>(
+      posctrl_topic_, qos,
+      std::bind(&DroneSimpleControllerPrivate::HITLCallback, this, std::placeholders::_1));
+  } else {
+    RCLCPP_ERROR(ros_node_->get_logger(), "No hitl defined!");
   }
 
   // Subscribe command: switch mode command
@@ -210,6 +232,74 @@ void DroneSimpleControllerPrivate::LoadControllerSettings(
   );
 }
 
+void DroneSimpleControllerPrivate::InitSerial() {
+    try {
+        serial_port_.open("/dev/ttyACM0"); // Adjust device path as necessary
+        serial_port_.set_option(boost::asio::serial_port_base::baud_rate(115200));
+        serial_port_.set_option(boost::asio::serial_port_base::character_size(8));
+        serial_port_.set_option(boost::asio::serial_port_base::parity(boost::asio::serial_port_base::parity::none));
+        serial_port_.set_option(boost::asio::serial_port_base::stop_bits(boost::asio::serial_port_base::stop_bits::one));
+        serial_port_.set_option(boost::asio::serial_port_base::flow_control(boost::asio::serial_port_base::flow_control::none));
+
+        // Begin asynchronous read loop
+        ReadSerialMessage();
+
+        RCLCPP_INFO(rclcpp::get_logger("plugin_drone"), "Serial port initialized successfully.");
+    } catch (const std::exception &e) {
+        RCLCPP_ERROR(rclcpp::get_logger("plugin_drone"), "Error initializing serial port: %s", e.what());
+    }
+}
+
+void DroneSimpleControllerPrivate::ReadSerialMessage() {
+    boost::asio::async_read(serial_port_,
+        boost::asio::buffer(buffer_, 1),  // Reading 1 byte at a time
+        [this](boost::system::error_code ec, std::size_t bytes_transferred) {
+            if (!ec) {
+                // Handle successful read
+                decodeMessage(bytes_transferred);
+                ReadSerialMessage();  // Continue reading
+            } else {
+                RCLCPP_ERROR(rclcpp::get_logger("plugin_drone"), "Error in serial read: %s", ec.message().c_str());
+            }
+        });
+}
+
+void DroneSimpleControllerPrivate::handleSerialRead(const boost::system::error_code &ec, std::size_t bytes_transferred) {
+    if (!ec && bytes_transferred > 0) {
+        uint16_t message_size = (buffer_[1] << 8) | buffer_[2];
+        uint8_t checksum = 0;
+
+        for (size_t i = 0; i < message_size; ++i) {
+            checksum ^= buffer_[3 + i];
+        }
+
+        if (checksum != buffer_[3 + message_size]) {
+            RCLCPP_ERROR(rclcpp::get_logger("plugin_drone"), "Checksum mismatch.");
+            ReadSerialMessage();
+            return;
+        }
+
+        // Decode the message
+        decodeMessage(message_size);
+
+        // Start next read
+        ReadSerialMessage();
+    } else {
+        RCLCPP_ERROR(rclcpp::get_logger("plugin_drone"), "Error in serial read.");
+    }
+}
+
+void DroneSimpleControllerPrivate::decodeMessage(uint16_t message_size) {
+    pb_istream_t stream = pb_istream_from_buffer(buffer_ + 3, message_size);
+    msg_ = HWIL_msg_init_zero;
+    if (!pb_decode(&stream, HWIL_msg_fields, &msg_)) {
+        RCLCPP_ERROR(rclcpp::get_logger("plugin_drone"), "Failed to decode protobuf message.");
+    } else {
+        RCLCPP_INFO(rclcpp::get_logger("plugin_drone"), "Message received: force = %f, torque = [%f, %f, %f]",
+                    msg_.controls.total_force, msg_.controls.torque_y, msg_.controls.torque_y, msg_.controls.torque_z);
+    }
+}
+
 // Callbacks
 /**
 * @brief Callback function for the drone command topic.
@@ -263,6 +353,17 @@ void DroneSimpleControllerPrivate::CmdCallback(const geometry_msgs::msg::Twist::
 void DroneSimpleControllerPrivate::PosCtrlCallback(const std_msgs::msg::Bool::SharedPtr cmd)
 {
   m_posCtrl = cmd->data;
+}
+
+/**
+* @brief Callback function for hitl command.
+* This function is called when a new hitl command is received.
+* It sets the m_hitl flag to the value of the command data.
+* @param cmd The position control command message.
+*/
+void DroneSimpleControllerPrivate::HITLCallback(const std_msgs::msg::Bool::SharedPtr cmd)
+{
+  m_hitl = cmd->data;
 }
 
 /**

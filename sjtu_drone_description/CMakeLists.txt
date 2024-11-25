@@ -25,11 +25,14 @@ find_package(nav_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system) # Ensure Boost.Asio is available
+find_package(Protobuf REQUIRED) # Ensure Protobuf is available
 
 
 link_directories(${GAZEBO_LIBRARY_DIRS} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES} ${OGRE_LIBRARY_DIRS})
 include_directories(${OpenCV_INCLUDE_DIR}
                     ${Boost_INCLUDE_DIR}
+                    ${Protobuf_INCLUDE_DIRS}
                     ${catkin_INCLUDE_DIRS}
                     ${GAZEBO_INCLUDE_DIRS}
                     ${OGRE_INCLUDE_DIRS}

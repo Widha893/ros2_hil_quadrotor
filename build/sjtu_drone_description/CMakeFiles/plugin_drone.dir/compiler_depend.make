@@ -5681,7 +5681,10 @@ CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o: /home/widha893/ros2_hil_quad
   /usr/include/gazebo-11/gazebo/transport/Subscriber.hh \
   /usr/include/gazebo-11/gazebo/transport/TransportIface.hh \
   /usr/include/gazebo-11/gazebo/Server.hh \
-  /usr/include/gazebo-11/gazebo/Master.hh
+  /usr/include/gazebo-11/gazebo/Master.hh \
+  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/messages.pb.h \
+  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb.h \
+  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb_decode.h
 
 CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o: /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp \
   /usr/include/stdc-predef.h \
@@ -8890,12 +8893,17 @@ CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o: /home/widha893/ros2_
   /usr/include/gazebo-11/gazebo/transport/Subscriber.hh \
   /usr/include/gazebo-11/gazebo/transport/TransportIface.hh \
   /usr/include/gazebo-11/gazebo/Server.hh \
-  /usr/include/gazebo-11/gazebo/Master.hh
+  /usr/include/gazebo-11/gazebo/Master.hh \
+  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/messages.pb.h \
+  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb.h \
+  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb_decode.h
 
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__builder.hpp:
 
 /opt/ros/humble/include/gazebo_ros/conversions/builtin_interfaces.hpp:
+
+/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb.h:
 
 /opt/ros/humble/include/tf2_ros/tf2_ros/qos.hpp:
 
@@ -9530,6 +9538,8 @@ CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o: /home/widha893/ros2_
 /usr/include/ignition/msgs5/ignition/msgs/wireless_node.pb.h:
 
 /usr/include/ignition/msgs5/ignition/msgs/wind.pb.h:
+
+/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb_decode.h:
 
 /usr/include/ignition/msgs5/ignition/msgs/video_record.pb.h:
 
@@ -14130,6 +14140,8 @@ CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o: /home/widha893/ros2_
 /usr/include/gazebo-11/gazebo/msgs/model.pb.h:
 
 /usr/include/gazebo-11/gazebo/msgs/model_configuration.pb.h:
+
+/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/messages.pb.h:
 
 /usr/include/ignition/msgs5/ignition/msgs/air_pressure_sensor.pb.h:
 

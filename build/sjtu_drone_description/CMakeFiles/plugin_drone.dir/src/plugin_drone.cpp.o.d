@@ -3042,4 +3042,7 @@ CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o: \
  /usr/include/gazebo-11/gazebo/transport/Subscriber.hh \
  /usr/include/gazebo-11/gazebo/transport/TransportIface.hh \
  /usr/include/gazebo-11/gazebo/Server.hh \
- /usr/include/gazebo-11/gazebo/Master.hh
+ /usr/include/gazebo-11/gazebo/Master.hh \
+ /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/messages.pb.h \
+ /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb.h \
+ /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb_decode.h

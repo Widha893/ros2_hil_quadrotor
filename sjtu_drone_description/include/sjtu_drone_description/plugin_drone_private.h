@@ -40,7 +40,12 @@
 #include <tf2_ros/transform_broadcaster.h>
 
 #include "sjtu_drone_description/pid_controller.h"
+#include "sjtu_drone_description/messages.pb.h"
+#include <boost/asio.hpp>
+#include "sjtu_drone_description/pb_decode.h"
 
+#define STX 0xFE
+#define MAX_MESSAGE_SIZE (HWIL_msg_size + 4)
 
 #define LANDED_MODEL 0
 #define FLYING_MODEL 1
@@ -61,12 +66,15 @@ public:
     std::string cmd_normal_topic_ = "cmd_vel", std::string posctrl_topic_ = "posctrl",
     std::string imu_topic_ = "imu", std::string takeoff_topic_ = "takeoff",
     std::string land_topic_ = "land", std::string reset_topic_ = "reset",
-    std::string switch_mode_topic_ = "dronevel_mode");
+    std::string switch_mode_topic_ = "dronevel_mode", std::string hitl_topic_ = "hitl");
   void InitPublishers(
     std::string gt_topic_ = "gt_pose", std::string gt_vel_topic_ = "gt_vel",
     std::string gt_acc_topic_ = "gt_acc", std::string cmd_mode_topic_ = "cmd_mode",
     std::string state_topic_ = "state", std::string odom_topic_ = "odom");
   void LoadControllerSettings(gazebo::physics::ModelPtr _model, sdf::ElementPtr _sdf);
+
+  void InitSerial();
+  void ReadSerialMessage(); // Process incoming messages
 
   void UpdateState(double dt);
   void UpdateDynamics(double dt);
@@ -90,6 +98,7 @@ public:
   double m_timeAfterCmd;
   int navi_state;
   bool m_posCtrl;
+  bool m_hitl;
   bool m_velMode;
   int odom_seq;
   int odom_hz;
@@ -99,6 +108,9 @@ public:
   rclcpp::Node::SharedPtr ros_node_{nullptr};
   rclcpp::CallbackGroup::SharedPtr callback_group_{nullptr};
   std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+  uint8_t buffer_[MAX_MESSAGE_SIZE]; // Buffer for incoming data
+  HWIL_msg msg = HWIL_msg_init_zero;
+  HWIL_msg msg_;
 
 private:
   rclcpp::SubscriptionOptions create_subscription_options(
@@ -108,6 +120,7 @@ private:
   // Callbacks
   void CmdCallback(const geometry_msgs::msg::Twist::SharedPtr cmd);
   void PosCtrlCallback(const std_msgs::msg::Bool::SharedPtr cmd);
+  void HITLCallback(const std_msgs::msg::Bool::SharedPtr cmd);
   void ImuCallback(const sensor_msgs::msg::Imu::SharedPtr imu);
   void TakeoffCallback(const std_msgs::msg::Empty::SharedPtr msg);
   void LandCallback(const std_msgs::msg::Empty::SharedPtr msg);
@@ -115,6 +128,14 @@ private:
   void SwitchModeCallback(const std_msgs::msg::Bool::SharedPtr msg);
 
   double last_odom_publish_time_;
+
+  boost::asio::io_context io_;                             // Corrected type
+  boost::asio::serial_port serial_port_;  // Manage the serial port's lifetime
+  std::thread io_thread_;
+
+  void handleSerialRead(const boost::system::error_code &ec, std::size_t bytes_transferred);
+  void decodeMessage(uint16_t message_size);
+
   void PublishOdom(
     const ignition::math::v6::Pose3<double> & pose,
     const ignition::math::v6::Vector3<double> & velocity,
@@ -141,6 +162,7 @@ private:
   // Subscribers
   rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr posctrl_subscriber_{nullptr};
+  rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr hitl_subscribers{nullptr};
   rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr takeoff_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr land_subscriber_{nullptr};

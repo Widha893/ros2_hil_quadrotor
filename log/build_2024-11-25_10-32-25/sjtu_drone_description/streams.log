@@ -1,0 +1,191 @@
+[1.448s] Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install: /usr/bin/cmake /home/widha893/ros2_hil_quadrotor/sjtu_drone_description -DCMAKE_INSTALL_PREFIX=/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description
+[4.450s] -- The C compiler identification is GNU 11.4.0
+[5.212s] -- The CXX compiler identification is GNU 11.4.0
+[5.333s] -- Detecting C compiler ABI info
+[5.523s] -- Detecting C compiler ABI info - done
+[5.536s] -- Check for working C compiler: /usr/bin/cc - skipped
+[5.537s] -- Detecting C compile features
+[5.572s] -- Detecting C compile features - done
+[5.579s] -- Detecting CXX compiler ABI info
+[5.687s] -- Detecting CXX compiler ABI info - done
+[5.697s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[5.697s] -- Detecting CXX compile features
+[5.698s] -- Detecting CXX compile features - done
+[5.815s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+[5.816s] -- Checking for module 'OGRE'
+[5.866s] --   Found OGRE, version 1.9.0
+[6.037s] -- Checking for module 'OGRE-Terrain'
+[6.099s] --   Found OGRE-Terrain, version 1.9.0
+[6.297s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[6.599s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[7.482s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[7.625s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[8.050s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[8.091s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[8.123s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[8.204s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[8.288s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[8.623s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[8.671s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[9.209s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[9.252s] -- Found FastRTPS: /opt/ros/humble/include  
+[9.307s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[9.410s] -- Looking for pthread.h
+[9.516s] -- Looking for pthread.h - found
+[9.517s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[9.775s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[9.776s] -- Found Threads: TRUE  
+[10.205s] -- Found gazebo_ros: 3.7.0 (/opt/ros/humble/share/gazebo_ros/cmake)
+[10.273s] -- Checking for module 'bullet>=2.82'
+[10.329s] --   Found bullet, version 3.05
+[10.625s] -- Found fcl: /usr/include (found suitable version "0.7.0", minimum required is "0.5.0") 
+[10.687s] -- Found assimp: /usr/include (found version "5.2.0") 
+[10.913s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[11.061s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+[11.144s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[11.232s] -- Looking for ignition-math6 -- found version 6.15.1
+[11.312s] -- Searching for dependencies of ignition-math6
+[11.339s] -- Looking for OGRE...
+[11.340s] -- OGRE_PREFIX_WATCH changed.
+[11.350s] -- Checking for module 'OGRE'
+[11.375s] --   Found OGRE, version 1.9.0
+[11.426s] -- Found Ogre Ghadamon (1.9.0)
+[11.465s] -- Looking for OGRE_Paging...
+[11.469s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[11.469s] -- Looking for OGRE_Terrain...
+[11.474s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[11.474s] -- Looking for OGRE_Property...
+[11.497s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[11.497s] -- Looking for OGRE_RTShaderSystem...
+[11.502s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[11.502s] -- Looking for OGRE_Volume...
+[11.507s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[11.507s] -- Looking for OGRE_Overlay...
+[11.511s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[11.640s] -- Looking for ignition-math6 -- found version 6.15.1
+[11.654s] -- Looking for ignition-transport8 -- found version 8.2.1
+[11.655s] -- Searching for dependencies of ignition-transport8
+[11.671s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") 
+[11.681s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[11.686s] -- Checking for module 'libzmq >= 4'
+[11.809s] --   Found libzmq , version 4.3.4
+[11.872s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[11.897s] -- Checking for module 'uuid'
+[11.935s] --   Found uuid, version 2.37.2
+[12.008s] -- Found UUID: TRUE  
+[12.033s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[12.034s] -- Searching for dependencies of ignition-msgs5
+[12.057s] -- Looking for ignition-math6 -- found version 6.15.1
+[12.063s] -- Checking for module 'tinyxml2'
+[12.074s] --   Found tinyxml2, version 9.0.0
+[12.109s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[12.119s] -- Looking for ignition-common3 -- found version 3.14.0
+[12.120s] -- Searching for dependencies of ignition-common3
+[12.120s] -- Looking for dlfcn.h - found
+[12.121s] -- Looking for libdl - found
+[12.123s] -- Found DL: TRUE  
+[12.152s] -- Found tinyobjloader: /usr/lib/x86_64-linux-gnu/cmake/tinyobjloader/tinyobjloader-config.cmake (found version "2.0.0") 
+[12.153s] -- Searching for <ignition-common3> component [graphics]
+[12.173s] -- Looking for ignition-common3-graphics -- found version 3.14.0
+[12.174s] -- Searching for dependencies of ignition-common3-graphics
+[12.175s] -- Looking for ignition-math6 -- found version 6.15.1
+[12.188s] -- Looking for ignition-fuel_tools4 -- found version 4.4.0
+[12.189s] -- Searching for dependencies of ignition-fuel_tools4
+[12.337s] -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.81.0")  
+[12.386s] -- Checking for module 'jsoncpp'
+[12.401s] --   Found jsoncpp, version 1.9.5
+[12.438s] -- Found JSONCPP: TRUE  
+[12.446s] -- Checking for module 'libzip'
+[12.488s] --   Found libzip, version 1.7.3
+[12.535s] -- Found ZIP: TRUE  
+[12.536s] -- Looking for ignition-common3 -- found version 3.14.0
+[12.537s] -- Looking for ignition-math6 -- found version 6.15.1
+[12.538s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[12.573s] -- Gazebo version: 11.10
+[12.573s] -- Checking for module 'tbb'
+[12.600s] --   Found tbb, version 2021.5.0
+[12.658s] -- Found gazebo_plugins: 3.7.0 (/opt/ros/humble/share/gazebo_plugins/cmake)
+[13.282s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[13.319s] -- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)
+[13.446s] -- Found tf2: 0.25.8 (/opt/ros/humble/share/tf2/cmake)
+[13.533s] -- Found tf2_ros: 0.25.8 (/opt/ros/humble/share/tf2_ros/cmake)
+[13.895s] -- Found tf2_geometry_msgs: 0.25.8 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[13.976s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[13.980s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[13.980s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[13.991s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system 
+[13.999s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[14.026s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[14.309s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[14.311s] -- Configured cppcheck include dirs: /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include;$<BUILD_INTERFACE:/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include>
+[14.311s] -- Configured cppcheck exclude dirs and/or files: 
+[14.313s] -- Added test 'flake8' to check Python code syntax and style conventions
+[14.315s] -- Added test 'lint_cmake' to check CMake code style
+[14.316s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[14.318s] -- Added test 'uncrustify' to check C / C++ code style
+[14.318s] -- Configured uncrustify additional arguments: 
+[14.319s] -- Added test 'xmllint' to check XML markup files
+[14.395s] -- Configuring done
+[16.646s] -- Generating done
+[16.650s] -- Build files have been written to: /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description
+[16.665s] Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install: /usr/bin/cmake /home/widha893/ros2_hil_quadrotor/sjtu_drone_description -DCMAKE_INSTALL_PREFIX=/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description
+[16.667s] Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
+[16.724s] [ 75%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o[0m
+[16.724s] [ 75%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/pid_controller.cpp.o[0m
+[16.724s] [ 75%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o[0m
+[34.237s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:[m[K In destructor ‘[01m[Kgazebo_plugins::DroneSimpleControllerPrivate::~DroneSimpleControllerPrivate()[m[K’:
+[34.237s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:40:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kserial_port[m[K’ was not declared in this scope; did you mean ‘[01m[Kboost::asio::serial_port[m[K’?
+[34.237s]    40 |         [01;31m[Kserial_port[m[K.close();
+[34.237s]       |         [01;31m[K^~~~~~~~~~~[m[K
+[34.237s]       |         [32m[Kboost::asio::serial_port[m[K
+[34.237s] In file included from [01m[K/usr/include/boost/asio.hpp:150[m[K,
+[34.237s]                  from [01m[K/usr/include/gazebo-11/gazebo/transport/Connection.hh:36[m[K,
+[34.237s]                  from [01m[K/usr/include/gazebo-11/gazebo/transport/transport.hh:3[m[K,
+[34.237s]                  from [01m[K/usr/include/gazebo-11/gazebo/gazebo_core.hh:21[m[K,
+[34.237s]                  from [01m[K/usr/include/gazebo-11/gazebo/gazebo.hh:20[m[K,
+[34.237s]                  from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pid_controller.h:19[m[K,
+[34.237s]                  from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:42[m[K,
+[34.237s]                  from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:18[m[K:
+[34.237s] [01m[K/usr/include/boost/asio/serial_port.hpp:30:29:[m[K [01;36m[Knote: [m[K‘[01m[Kboost::asio::serial_port[m[K’ declared here
+[34.238s]    30 | typedef basic_serial_port<> [01;36m[Kserial_port[m[K;
+[34.238s]       |                             [01;36m[K^~~~~~~~~~~[m[K
+[34.284s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DroneSimpleControllerPrivate::InitSerial()[m[K’:
+[34.284s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:237:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ has non-pointer type ‘[01m[Kboost::asio::serial_port[m[K’ {aka ‘[01m[Kboost::asio::basic_serial_port<>[m[K’}
+[34.284s]   237 |         serial_port_[01;31m[K->[m[Kopen("/dev/ttyACM0"); // Adjust device path as necessary
+[34.284s]       |                     [01;31m[K^~[m[K
+[34.284s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:238:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ has non-pointer type ‘[01m[Kboost::asio::serial_port[m[K’ {aka ‘[01m[Kboost::asio::basic_serial_port<>[m[K’}
+[34.284s]   238 |         serial_port_[01;31m[K->[m[Kset_option(boost::asio::serial_port_base::baud_rate(115200));
+[34.285s]       |                     [01;31m[K^~[m[K
+[34.285s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:239:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ has non-pointer type ‘[01m[Kboost::asio::serial_port[m[K’ {aka ‘[01m[Kboost::asio::basic_serial_port<>[m[K’}
+[34.285s]   239 |         serial_port_[01;31m[K->[m[Kset_option(boost::asio::serial_port_base::character_size(8));
+[34.285s]       |                     [01;31m[K^~[m[K
+[34.285s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:240:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ has non-pointer type ‘[01m[Kboost::asio::serial_port[m[K’ {aka ‘[01m[Kboost::asio::basic_serial_port<>[m[K’}
+[34.285s]   240 |         serial_port_[01;31m[K->[m[Kset_option(boost::asio::serial_port_base::parity(boost::asio::serial_port_base::parity::none));
+[34.285s]       |                     [01;31m[K^~[m[K
+[34.285s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:241:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ has non-pointer type ‘[01m[Kboost::asio::serial_port[m[K’ {aka ‘[01m[Kboost::asio::basic_serial_port<>[m[K’}
+[34.285s]   241 |         serial_port_[01;31m[K->[m[Kset_option(boost::asio::serial_port_base::stop_bits(boost::asio::serial_port_base::stop_bits::one));
+[34.285s]       |                     [01;31m[K^~[m[K
+[34.286s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:242:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ has non-pointer type ‘[01m[Kboost::asio::serial_port[m[K’ {aka ‘[01m[Kboost::asio::basic_serial_port<>[m[K’}
+[34.286s]   242 |         serial_port_[01;31m[K->[m[Kset_option(boost::asio::serial_port_base::flow_control(boost::asio::serial_port_base::flow_control::none));
+[34.286s]       |                     [01;31m[K^~[m[K
+[34.294s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+[34.294s]                  from [01m[K/opt/ros/humble/include/gazebo_ros/conversions/generic.hpp:25[m[K,
+[34.294s]                  from [01m[K/opt/ros/humble/include/gazebo_ros/conversions/builtin_interfaces.hpp:23[m[K,
+[34.294s]                  from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:15[m[K:
+[34.294s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DroneSimpleControllerPrivate::decodeMessage(uint16_t)[m[K’:
+[34.294s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:299:26:[m[K [01;31m[Kerror: [m[K‘[01m[KHWIL_msg[m[K’ {aka ‘[01m[Kstruct _HWIL_msg[m[K’} has no member named ‘[01m[Ktotal_force[m[K’
+[34.294s]   299 |                     msg_.[01;31m[Ktotal_force[m[K, msg_.torque_x, msg_.torque_y, msg_.torque_z);
+[34.294s]       |                          [01;31m[K^~~~~~~~~~~[m[K
+[34.294s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:299:44:[m[K [01;31m[Kerror: [m[K‘[01m[KHWIL_msg[m[K’ {aka ‘[01m[Kstruct _HWIL_msg[m[K’} has no member named ‘[01m[Ktorque_x[m[K’
+[34.294s]   299 |                     msg_.total_force, msg_.[01;31m[Ktorque_x[m[K, msg_.torque_y, msg_.torque_z);
+[34.294s]       |                                            [01;31m[K^~~~~~~~[m[K
+[34.295s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:299:59:[m[K [01;31m[Kerror: [m[K‘[01m[KHWIL_msg[m[K’ {aka ‘[01m[Kstruct _HWIL_msg[m[K’} has no member named ‘[01m[Ktorque_y[m[K’
+[34.295s]   299 |                     msg_.total_force, msg_.torque_x, msg_.[01;31m[Ktorque_y[m[K, msg_.torque_z);
+[34.295s]       |                                                           [01;31m[K^~~~~~~~[m[K
+[34.295s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:299:74:[m[K [01;31m[Kerror: [m[K‘[01m[KHWIL_msg[m[K’ {aka ‘[01m[Kstruct _HWIL_msg[m[K’} has no member named ‘[01m[Ktorque_z[m[K’
+[34.295s]   299 |                     msg_.total_force, msg_.torque_x, msg_.torque_y, msg_.[01;31m[Ktorque_z[m[K);
+[34.295s]       |                                                                          [01;31m[K^~~~~~~~[m[K
+[44.083s] gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:90: CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o] Error 1
+[44.083s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/plugin_drone.dir/all] Error 2
+[44.084s] gmake: *** [Makefile:146: all] Error 2
+[44.086s] Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
