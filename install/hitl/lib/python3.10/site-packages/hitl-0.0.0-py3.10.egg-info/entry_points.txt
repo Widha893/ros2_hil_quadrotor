@@ -1,3 +1,4 @@
 [console_scripts]
 communication = hitl.communication:main
+receiver = hitl.receiver:main
 

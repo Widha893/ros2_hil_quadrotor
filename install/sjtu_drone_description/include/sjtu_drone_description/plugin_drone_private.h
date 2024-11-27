@@ -33,6 +33,7 @@
 #include <std_msgs/msg/bool.hpp>
 #include <std_msgs/msg/string.hpp>
 #include <std_msgs/msg/int8.hpp>
+#include <std_msgs/msg/float64_multi_array.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
@@ -66,7 +67,8 @@ public:
     std::string cmd_normal_topic_ = "cmd_vel", std::string posctrl_topic_ = "posctrl",
     std::string imu_topic_ = "imu", std::string takeoff_topic_ = "takeoff",
     std::string land_topic_ = "land", std::string reset_topic_ = "reset",
-    std::string switch_mode_topic_ = "dronevel_mode", std::string hitl_topic_ = "/communication/hitl");
+    std::string switch_mode_topic_ = "dronevel_mode", std::string hitl_topic_ = "/receiver/hitl",
+    std::string control_data_topic_ = "/receiver/control_data");
   void InitPublishers(
     std::string gt_topic_ = "gt_pose", std::string gt_vel_topic_ = "gt_vel",
     std::string gt_acc_topic_ = "gt_acc", std::string cmd_mode_topic_ = "cmd_mode",
@@ -107,6 +109,12 @@ public:
   int odom_hz;
   bool pub_odom;
 
+  // Controller for HITL mode
+  double total_force;
+  double control_roll;
+  double control_pitch;
+  double control_yaw;
+
   // rclcpp configuration
   rclcpp::Node::SharedPtr ros_node_{nullptr};
   rclcpp::CallbackGroup::SharedPtr callback_group_{nullptr};
@@ -124,6 +132,7 @@ private:
   void CmdCallback(const geometry_msgs::msg::Twist::SharedPtr cmd);
   void PosCtrlCallback(const std_msgs::msg::Bool::SharedPtr cmd);
   void HITLCallback(const std_msgs::msg::Bool::SharedPtr cmd);
+  void HITLControlCallback(const std_msgs::msg::Float64MultiArray::SharedPtr cmd);
   void ImuCallback(const sensor_msgs::msg::Imu::SharedPtr imu);
   void TakeoffCallback(const std_msgs::msg::Empty::SharedPtr msg);
   void LandCallback(const std_msgs::msg::Empty::SharedPtr msg);
@@ -163,6 +172,7 @@ private:
   rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr posctrl_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr hitl_subscriber_{nullptr};
+  rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr hitl_control_subscriber_{nullptr};
   rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr takeoff_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr land_subscriber_{nullptr};

@@ -51,7 +51,7 @@ class Communication(Node):
         self.alt_updated = False
 
         # Create publishers
-        self.pubHITL = self.create_publisher(Bool, '~/hitl', 1024)
+        # self.pubHITL = self.create_publisher(Bool, '~/hitl', 1024)
 
         # Create subscribers
         self.imu_subscriber = self.create_subscription(
@@ -61,7 +61,7 @@ class Communication(Node):
             Range,self.alt_topic,self.alt_callback,qos
         )
 
-        self.mHITL(True)
+        # self.mHITL(True)
 
     def imu_callback(self, msg: Imu):
         # Extract quaternion and convert to Euler angles
@@ -82,15 +82,15 @@ class Communication(Node):
             self.get_logger().info("Message sent!")
             self.reset_flags()
 
-    def mHITL(self, on: bool):
-        """
-        Turn on/off position control
-        :param on: True to turn on position control, False to turn off
-        """
-        self.hitl_mode = Bool()
-        self.hitl_mode.data = on
-        self.pubHITL.publish(self.hitl_mode)
-        return True
+    # def mHITL(self, on: bool):
+    #     """
+    #     Turn on/off position control
+    #     :param on: True to turn on position control, False to turn off
+    #     """
+    #     self.hitl_mode = Bool()
+    #     self.hitl_mode.data = on
+    #     self.pubHITL.publish(self.hitl_mode)
+    #     return True
 
     def quaternion_to_roll(self, q_w, q_x, q_y, q_z):
         # Roll (x-axis rotation)

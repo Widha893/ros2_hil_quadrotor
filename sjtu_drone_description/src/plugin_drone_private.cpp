@@ -77,7 +77,8 @@ void DroneSimpleControllerPrivate::InitSubscribers(
   std::string land_topic_,
   std::string reset_topic_,
   std::string switch_mode_topic_,
-  std::string hitl_topic_)
+  std::string hitl_topic_,
+  std::string hitl_control_topic_)
 {
   auto qos = rclcpp::QoS(rclcpp::KeepLast(1)).best_effort();
 
@@ -150,6 +151,14 @@ void DroneSimpleControllerPrivate::InitSubscribers(
       std::bind(&DroneSimpleControllerPrivate::SwitchModeCallback, this, std::placeholders::_1));
   } else {
     RCLCPP_ERROR(ros_node_->get_logger(), "No switch mode topic defined!");
+  }
+
+  if (!hitl_control_topic_.empty()) {
+    hitl_control_subscriber_ = ros_node_->create_subscription<std_msgs::msg::Float64MultiArray>(
+      hitl_control_topic_, qos,
+      std::bind(&DroneSimpleControllerPrivate::HITLControlCallback, this, std::placeholders::_1));
+  } else {
+    RCLCPP_ERROR(ros_node_->get_logger(), "No hitl control topic defined!");
   }
 }
 
@@ -432,6 +441,14 @@ void DroneSimpleControllerPrivate::HITLCallback(const std_msgs::msg::Bool::Share
   }
 }
 
+void DroneSimpleControllerPrivate::HITLControlCallback(const std_msgs::msg::Float64MultiArray::SharedPtr cmd)
+{
+  total_force = cmd->data[0];
+  control_roll = cmd->data[1];
+  control_pitch = cmd->data[2];
+  control_yaw = cmd->data[3];
+}
+
 /**
 * @brief Callback function to handle IMU sensor data.
 * @param imu Shared pointer to IMU sensor data.
@@ -694,56 +711,11 @@ void DroneSimpleControllerPrivate::UpdateDynamics(double dt)
     std::cout << "Entering hitl mode!" << std::endl;
     //normal control
     if (navi_state == FLYING_MODEL) {
-      // if (receive_message()){
-      //   // double total_force = msg_.controls.total_force;
-      //   double control_roll = msg_.controls.torque_x;
-      //   double control_pitch = msg_.controls.torque_y;
-      //   double control_yaw = msg_.controls.torque_z;
-
-      //   std::cout<< "control_roll: " << control_roll << std::endl;
-      //   std::cout<< "control_pitch: " << control_pitch << std::endl;
-      //   std::cout<< "control_yaw: " << control_yaw << std::endl;
-      // }
-      // //hovering
-      double pitch_command = controllers_.velocity_x.update(
-        cmd_vel.linear.x, velocity_xy[0],
-        acceleration_xy[0], dt) / gravity;
-      double roll_command = -controllers_.velocity_y.update(
-        cmd_vel.linear.y, velocity_xy[1],
-        acceleration_xy[1], dt) / gravity;
-      torque[0] = inertia[0] * controllers_.roll.update(
-        roll_command, euler[0],
-        angular_velocity_body[0], dt);
-      torque[1] = inertia[1] * controllers_.pitch.update(
-        pitch_command, euler[1],
-        angular_velocity_body[1], dt);
+      torque[0] = inertia[0] * control_roll;
+      torque[1] = inertia[1] * control_pitch;
       //TODO: add hover by distnace of sonar
-    } else {
-      //control by velocity
-      if (m_velMode) {
-        double pitch_command = controllers_.velocity_x.update(
-          cmd_vel.angular.x, velocity_xy[0],
-          acceleration_xy[0], dt) / gravity;
-        double roll_command = -controllers_.velocity_y.update(
-          cmd_vel.angular.y, velocity_xy[1],
-          acceleration_xy[1], dt) / gravity;
-        torque[0] = inertia[0] * controllers_.roll.update(
-          roll_command, euler[0],
-          angular_velocity_body[0], dt);
-        torque[1] = inertia[1] * controllers_.pitch.update(
-          pitch_command, euler[1],
-          angular_velocity_body[1], dt);
-      } else {
-        //control by tilting
-        torque[0] = inertia[0] * controllers_.roll.update(
-          cmd_vel.angular.x, euler[0],
-          angular_velocity_body[0], dt);
-        torque[1] = inertia[1] * controllers_.pitch.update(
-          cmd_vel.angular.y, euler[1],
-          angular_velocity_body[1], dt);
-      }
-    }
-    torque[2] = inertia[2] * controllers_.yaw.update(cmd_vel.angular.z, angular_velocity[2], 0, dt);
+    } 
+    torque[2] = inertia[2] * control_yaw;
     force[2] = mass *
       (controllers_.velocity_z.update(
         cmd_vel.linear.z, velocity[2], acceleration[2],
