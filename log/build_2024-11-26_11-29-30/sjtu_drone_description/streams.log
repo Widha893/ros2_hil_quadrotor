@@ -1,0 +1,84 @@
+[1.095s] Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
+[5.056s] [35m[1mConsolidate compiler generated dependencies of target plugin_drone[0m
+[5.835s] [ 20%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o[0m
+[5.838s] [ 40%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o[0m
+[60.598s] [ 60%] [32m[1mLinking CXX shared library /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so[0m
+[90.206s] [100%] Built target plugin_drone
+[90.303s] Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
+[90.350s] Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install: /usr/bin/cmake --install /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description
+[90.542s] -- Install configuration: ""
+[90.542s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include
+[90.611s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include/sjtu_drone_description
+[90.611s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include/sjtu_drone_description/pb_decode.h
+[90.611s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include/sjtu_drone_description/pb_common.c
+[90.612s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include/sjtu_drone_description/plugin_drone.h
+[90.612s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include/sjtu_drone_description/pid_controller.h
+[90.612s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include/sjtu_drone_description/messages.pb.h
+[90.613s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include/sjtu_drone_description/pb.h
+[90.613s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include/sjtu_drone_description/messages.pb.c
+[90.613s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include/sjtu_drone_description/pb_encode.h
+[90.613s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include/sjtu_drone_description/pb_common.h
+[90.614s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include/sjtu_drone_description/pb_decode.c
+[90.614s] -- Installing: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h
+[90.666s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/include/sjtu_drone_description/pb_encode.c
+[90.800s] -- Installing: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/lib/libplugin_drone.so
+[90.915s] -- Set runtime path of "/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/lib/libplugin_drone.so" to ""
+[90.915s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/environment/library_path.sh
+[90.915s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/environment/library_path.dsv
+[90.915s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/models
+[90.940s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/models/sjtu_drone
+[90.951s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/models/sjtu_drone/model.config
+[90.952s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/models/sjtu_drone/quadrotor_4.stl
+[90.952s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/models/sjtu_drone/quadrotor_4.dae
+[90.952s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/models/sjtu_drone/sjtu_drone.sdf
+[90.953s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/models/database.config
+[90.953s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf
+[90.953s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/build
+[90.953s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/build/COLCON_IGNORE
+[90.954s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/build/.built_by
+[90.954s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/install
+[90.954s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/install/local_setup.zsh
+[90.954s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/install/setup.bash
+[90.955s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/install/_local_setup_util_sh.py
+[90.955s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/install/local_setup.ps1
+[90.955s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/install/local_setup.sh
+[90.955s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/install/setup.sh
+[90.955s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/install/local_setup.bash
+[90.956s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/install/.colcon_install_layout
+[90.956s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/install/COLCON_IGNORE
+[90.956s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/install/_local_setup_util_ps1.py
+[90.956s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/install/setup.zsh
+[91.014s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/install/setup.ps1
+[91.015s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/sjtu_drone.urdf
+[91.015s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/log
+[91.015s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/log/COLCON_IGNORE
+[91.015s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/log/build_2024-11-15_22-20-31
+[91.039s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/log/build_2024-11-15_22-20-31/logger_all.log
+[91.039s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/log/build_2024-11-15_22-20-31/events.log
+[91.039s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/log/latest_build
+[91.040s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/log/latest
+[91.040s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/urdf/sjtu_drone.urdf.xacro
+[91.040s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/worlds
+[91.063s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/worlds/empty.world
+[91.063s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/worlds/playground.world
+[91.063s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/ament_index/resource_index/package_run_dependencies/sjtu_drone_description
+[91.063s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/ament_index/resource_index/parent_prefix_path/sjtu_drone_description
+[91.064s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/environment/ament_prefix_path.sh
+[91.064s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/environment/ament_prefix_path.dsv
+[91.064s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/environment/path.sh
+[91.064s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/environment/path.dsv
+[91.064s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/local_setup.bash
+[91.064s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/local_setup.sh
+[91.064s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/local_setup.zsh
+[91.065s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/local_setup.dsv
+[91.065s] -- Installing: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/package.dsv
+[91.139s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/ament_index/resource_index/packages/sjtu_drone_description
+[91.208s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/cmake/export_sjtu_drone_descriptionExport.cmake
+[91.208s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/cmake/export_sjtu_drone_descriptionExport-noconfig.cmake
+[91.209s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/cmake/ament_cmake_export_include_directories-extras.cmake
+[91.209s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/cmake/ament_cmake_export_libraries-extras.cmake
+[91.209s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/cmake/ament_cmake_export_targets-extras.cmake
+[91.209s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/cmake/sjtu_drone_descriptionConfig.cmake
+[91.210s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/cmake/sjtu_drone_descriptionConfig-version.cmake
+[91.210s] -- Up-to-date: /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/package.xml
+[91.215s] Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install: /usr/bin/cmake --install /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description

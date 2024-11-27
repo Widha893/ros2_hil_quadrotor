@@ -1,0 +1,21 @@
+[4.998s] Invoking command in '/home/widha893/ros2_hil_quadrotor/hitl': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/hitl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/hitl build --build-base /home/widha893/ros2_hil_quadrotor/build/hitl/build install --record /home/widha893/ros2_hil_quadrotor/build/hitl/install.log --single-version-externally-managed install_data
+[5.307s] running egg_info
+[5.308s] writing ../build/hitl/hitl.egg-info/PKG-INFO
+[5.308s] writing dependency_links to ../build/hitl/hitl.egg-info/dependency_links.txt
+[5.308s] writing entry points to ../build/hitl/hitl.egg-info/entry_points.txt
+[5.308s] writing requirements to ../build/hitl/hitl.egg-info/requires.txt
+[5.308s] writing top-level names to ../build/hitl/hitl.egg-info/top_level.txt
+[5.310s] reading manifest file '../build/hitl/hitl.egg-info/SOURCES.txt'
+[5.311s] writing manifest file '../build/hitl/hitl.egg-info/SOURCES.txt'
+[5.311s] running build
+[5.311s] running build_py
+[5.312s] running install
+[5.312s] running install_lib
+[5.313s] running install_data
+[5.313s] running install_egg_info
+[5.315s] removing '/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl-0.0.0-py3.10.egg-info' (and everything under it)
+[5.316s] Copying ../build/hitl/hitl.egg-info to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl-0.0.0-py3.10.egg-info
+[5.356s] running install_scripts
+[5.380s] Installing communication script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[5.380s] writing list of installed files to '/home/widha893/ros2_hil_quadrotor/build/hitl/install.log'
+[5.425s] Invoked command in '/home/widha893/ros2_hil_quadrotor/hitl' returned '0': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/hitl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/hitl build --build-base /home/widha893/ros2_hil_quadrotor/build/hitl/build install --record /home/widha893/ros2_hil_quadrotor/build/hitl/install.log --single-version-externally-managed install_data

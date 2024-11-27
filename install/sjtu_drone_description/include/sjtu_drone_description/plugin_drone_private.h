@@ -66,7 +66,7 @@ public:
     std::string cmd_normal_topic_ = "cmd_vel", std::string posctrl_topic_ = "posctrl",
     std::string imu_topic_ = "imu", std::string takeoff_topic_ = "takeoff",
     std::string land_topic_ = "land", std::string reset_topic_ = "reset",
-    std::string switch_mode_topic_ = "dronevel_mode", std::string hitl_topic_ = "hitl");
+    std::string switch_mode_topic_ = "dronevel_mode", std::string hitl_topic_ = "/communication/hitl");
   void InitPublishers(
     std::string gt_topic_ = "gt_pose", std::string gt_vel_topic_ = "gt_vel",
     std::string gt_acc_topic_ = "gt_acc", std::string cmd_mode_topic_ = "cmd_mode",
@@ -75,6 +75,9 @@ public:
 
   void InitSerial();
   void ReadSerialMessage(); // Process incoming messages
+  void handleSerialRead(const boost::system::error_code &ec, std::size_t bytes_transferred);
+  void decodeMessage(uint16_t message_size);
+  bool receive_message();
 
   void UpdateState(double dt);
   void UpdateDynamics(double dt);
@@ -133,9 +136,6 @@ private:
   boost::asio::serial_port serial_port_;  // Manage the serial port's lifetime
   std::thread io_thread_;
 
-  void handleSerialRead(const boost::system::error_code &ec, std::size_t bytes_transferred);
-  void decodeMessage(uint16_t message_size);
-
   void PublishOdom(
     const ignition::math::v6::Pose3<double> & pose,
     const ignition::math::v6::Vector3<double> & velocity,
@@ -162,7 +162,7 @@ private:
   // Subscribers
   rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr posctrl_subscriber_{nullptr};
-  rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr hitl_subscribers{nullptr};
+  rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr hitl_subscriber_{nullptr};
   rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr takeoff_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr land_subscriber_{nullptr};

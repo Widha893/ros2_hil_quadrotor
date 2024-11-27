@@ -136,8 +136,8 @@ void DroneSimpleControllerPrivate::InitSubscribers(
 
   // subscribe command: hitl command
   if (!hitl_topic_.empty()) {
-    posctrl_subscriber_ = ros_node_->create_subscription<std_msgs::msg::Bool>(
-      posctrl_topic_, qos,
+    hitl_subscriber_ = ros_node_->create_subscription<std_msgs::msg::Bool>(
+      hitl_topic_, qos,
       std::bind(&DroneSimpleControllerPrivate::HITLCallback, this, std::placeholders::_1));
   } else {
     RCLCPP_ERROR(ros_node_->get_logger(), "No hitl defined!");
@@ -257,8 +257,7 @@ void DroneSimpleControllerPrivate::ReadSerialMessage() {
         [this](boost::system::error_code ec, std::size_t bytes_transferred) {
             if (!ec) {
                 // Handle successful read
-                decodeMessage(bytes_transferred);
-                ReadSerialMessage();  // Continue reading
+                handleSerialRead(ec, bytes_transferred);
             } else {
                 RCLCPP_ERROR(rclcpp::get_logger("plugin_drone"), "Error in serial read: %s", ec.message().c_str());
             }
@@ -299,6 +298,66 @@ void DroneSimpleControllerPrivate::decodeMessage(uint16_t message_size) {
         RCLCPP_INFO(rclcpp::get_logger("plugin_drone"), "Message received: force = %f, torque = [%f, %f, %f]",
                     msg_.controls.total_force, msg_.controls.torque_y, msg_.controls.torque_y, msg_.controls.torque_z);
     }
+}
+
+bool DroneSimpleControllerPrivate::receive_message() {
+  uint8_t buffer[MAX_MESSAGE_SIZE];
+        uint8_t checksum = 0;
+        uint16_t message_size = 0;
+
+        try {
+            // Read until we find the STX byte
+            while (true) {
+                uint8_t byte;
+                boost::asio::read(serial_port_, boost::asio::buffer(&byte, 1));
+                if (byte == STX) {
+                    break;
+                }
+            }
+
+            // Read message size
+            uint8_t size_bytes[2];
+            boost::asio::read(serial_port_, boost::asio::buffer(size_bytes, 2));
+            message_size = (size_bytes[0] << 8) | size_bytes[1];
+
+            if (message_size > MAX_MESSAGE_SIZE) {
+                std::cerr << "Message too large: " << message_size << "\n";
+                return false;
+            }
+
+            // Read the message payload
+            boost::asio::read(serial_port_, boost::asio::buffer(buffer, message_size));
+
+            // Compute checksum
+            for (uint16_t i = 0; i < message_size; ++i) {
+                checksum ^= buffer[i];
+            }
+
+            // Read the transmitted checksum
+            uint8_t received_checksum;
+            boost::asio::read(serial_port_, boost::asio::buffer(&received_checksum, 1));
+
+            // Verify checksum
+            if (checksum != received_checksum) {
+                std::cerr << "Checksum mismatch. Calculated: 0x" << std::hex << (int)checksum
+                          << ", Received: 0x" << std::hex << (int)received_checksum << "\n";
+                return false;
+            }
+
+            // Decode the message using nanopb
+            pb_istream_t stream = pb_istream_from_buffer(buffer, message_size);
+            msg = HWIL_msg_init_zero;
+
+            if (!pb_decode(&stream, HWIL_msg_fields, &msg)) {
+                std::cerr << "Failed to decode message\n";
+                return false;
+            }
+
+            return true;
+        } catch (const std::exception& e) {
+            std::cerr << "Error during serial read: " << e.what() << "\n";
+            return false;
+        }
 }
 
 // Callbacks
@@ -632,9 +691,20 @@ void DroneSimpleControllerPrivate::UpdateDynamics(double dt)
           dt) + load_factor * gravity);
     }
   } else if(m_hitl) {
-    RCLCPP_INFO(ros_node_->get_logger(), "Entering HITL mode!");
+    std::cout << "Entering hitl mode!" << std::endl;
+    //normal control
     if (navi_state == FLYING_MODEL) {
-      //hovering
+      // if (receive_message()){
+      //   // double total_force = msg_.controls.total_force;
+      //   double control_roll = msg_.controls.torque_x;
+      //   double control_pitch = msg_.controls.torque_y;
+      //   double control_yaw = msg_.controls.torque_z;
+
+      //   std::cout<< "control_roll: " << control_roll << std::endl;
+      //   std::cout<< "control_pitch: " << control_pitch << std::endl;
+      //   std::cout<< "control_yaw: " << control_yaw << std::endl;
+      // }
+      // //hovering
       double pitch_command = controllers_.velocity_x.update(
         cmd_vel.linear.x, velocity_xy[0],
         acceleration_xy[0], dt) / gravity;
@@ -681,7 +751,18 @@ void DroneSimpleControllerPrivate::UpdateDynamics(double dt)
 
   } else {
     //normal control
+    std::cout << "hitl mode: " << m_hitl << std::endl;
     if (navi_state == FLYING_MODEL) {
+      // if (receive_message()){
+      //   // double total_force = msg_.controls.total_force;
+      //   double control_roll = msg_.controls.torque_x;
+      //   double control_pitch = msg_.controls.torque_y;
+      //   double control_yaw = msg_.controls.torque_z;
+
+      //   std::cout<< "control_roll: " << control_roll << std::endl;
+      //   std::cout<< "control_pitch: " << control_pitch << std::endl;
+      //   std::cout<< "control_yaw: " << control_yaw << std::endl;
+      // }
       //hovering
       double pitch_command = controllers_.velocity_x.update(
         cmd_vel.linear.x, velocity_xy[0],

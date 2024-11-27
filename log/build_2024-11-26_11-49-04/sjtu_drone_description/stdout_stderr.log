@@ -1,0 +1,34 @@
+[35m[1mConsolidate compiler generated dependencies of target plugin_drone[0m
+[ 20%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o[0m
+[01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DroneSimpleControllerPrivate::UpdateDynamics(double)[m[K’:
+[01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:697:16:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ktotal_force[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  697 |         double [01;35m[Ktotal_force[m[K = msg_.controls.total_force;
+      |                [01;35m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/gazebo_ros/conversions/generic.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/gazebo_ros/conversions/builtin_interfaces.hpp:23[m[K,
+                 from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:15[m[K:
+[01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:714:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kget_logger[m[K’ was not declared in this scope; did you mean ‘[01m[Krclcpp::get_logger[m[K’?
+  714 |     RCLCPP_INFO([01;31m[Kget_logger[m[K(), "Normal control");
+      |                 [01;31m[K^~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:23[m[K,
+                 from [01m[K/opt/ros/humble/include/gazebo_ros/conversions/generic.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/gazebo_ros/conversions/builtin_interfaces.hpp:23[m[K,
+                 from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:15[m[K:
+[01m[K/opt/ros/humble/include/rclcpp/rclcpp/logger.hpp:106:17:[m[K [01;36m[Knote: [m[K‘[01m[Krclcpp::get_logger[m[K’ declared here
+  106 |   friend Logger [01;36m[Krclcpp[m[K::get_logger(const std::string & name);
+      |                 [01;36m[K^~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/gazebo_ros/conversions/generic.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/gazebo_ros/conversions/builtin_interfaces.hpp:23[m[K,
+                 from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:15[m[K:
+[01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:714:5:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  714 |     [01;31m[KRCLCPP_INFO[m[K(get_logger(), "Normal control");
+      |     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:714:5:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  714 |     [01;31m[KRCLCPP_INFO[m[K(get_logger(), "Normal control");
+      |     [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:714:5:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  714 |     [01;31m[KRCLCPP_INFO[m[K(get_logger(), "Normal control");
+      |     [01;31m[K^~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:90: CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/plugin_drone.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

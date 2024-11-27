@@ -1,0 +1,21 @@
+[1.334s] Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
+[6.271s] [35m[1mConsolidate compiler generated dependencies of target plugin_drone[0m
+[6.491s] [ 20%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o[0m
+[6.528s] [ 40%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o[0m
+[29.896s] In file included from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone.h:23[m[K,
+[29.896s]                  from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone.cpp:15[m[K:
+[29.896s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:80:24:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[29.896s]    80 |   bool receive_message([01;31m[K)[m[K
+[29.896s]       |                        [01;31m[K^[m[K
+[29.896s]       |                         [32m[K;[m[K
+[31.041s] In file included from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:18[m[K:
+[31.041s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:80:24:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[31.041s]    80 |   bool receive_message([01;31m[K)[m[K
+[31.041s]       |                        [01;31m[K^[m[K
+[31.041s]       |                         [32m[K;[m[K
+[35.362s] gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:76: CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o] Error 1
+[35.362s] gmake[2]: *** Waiting for unfinished jobs....
+[40.696s] gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:90: CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o] Error 1
+[40.697s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/plugin_drone.dir/all] Error 2
+[40.697s] gmake: *** [Makefile:146: all] Error 2
+[41.270s] Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8

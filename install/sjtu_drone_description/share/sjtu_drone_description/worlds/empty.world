@@ -47,9 +47,10 @@
     </model>
 
     <!-- Wind settings -->
-    <wind>
-      <linear_velocity>5 3 0</linear_velocity> <!-- wind blowing along the x-axis at 5 m/s -->
-    </wind>
+    <plugin name="wind_plugin" filename="libwind_plugin.so">
+      <queue_size>1000</queue_size>
+      <update_rate>50</update_rate>
+    </plugin>
 
     <!-- Set up default physics properties -->
     <physics type="ode">

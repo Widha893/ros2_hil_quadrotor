@@ -82,16 +82,14 @@ class Communication(Node):
             self.get_logger().info("Message sent!")
             self.reset_flags()
 
-    def mHITL(self, on):
+    def mHITL(self, on: bool):
         """
         Turn on/off position control
         :param on: True to turn on position control, False to turn off
         """
-        self.isHITL = on
-        bool_msg = Bool()
-        bool_msg.data = on
-        self.pubHITL.publish(bool_msg)
-        self.get_logger().info(f"Position control is {'on' if on else 'off'}")
+        self.hitl_mode = Bool()
+        self.hitl_mode.data = on
+        self.pubHITL.publish(self.hitl_mode)
         return True
 
     def quaternion_to_roll(self, q_w, q_x, q_y, q_z):
