@@ -1,0 +1,349 @@
+[0.480s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.480s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7561b3c2cca0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7561b3d217e0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7561b3d217e0>>)
+[1.608s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.609s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.609s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.609s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.609s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.609s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.609s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/widha893/ros2_hil_quadrotor'
+[1.610s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.610s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.610s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.610s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.610s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.635s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.635s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(hitl) by extensions ['ignore', 'ignore_ament_install']
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(hitl) by extension 'ignore'
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(hitl) by extension 'ignore_ament_install'
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(hitl) by extensions ['colcon_pkg']
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(hitl) by extension 'colcon_pkg'
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(hitl) by extensions ['colcon_meta']
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(hitl) by extension 'colcon_meta'
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(hitl) by extensions ['ros']
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(hitl) by extension 'ros'
+[1.675s] DEBUG:colcon.colcon_core.package_identification:Package 'hitl' with type 'ros.ament_python' and name 'hitl'
+[1.675s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extensions ['ignore', 'ignore_ament_install']
+[1.675s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extension 'ignore'
+[1.676s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extension 'ignore_ament_install'
+[1.676s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extensions ['colcon_pkg']
+[1.676s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extension 'colcon_pkg'
+[1.676s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extensions ['colcon_meta']
+[1.676s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extension 'colcon_meta'
+[1.676s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extensions ['ros']
+[1.676s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extension 'ros'
+[1.676s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extensions ['cmake', 'python']
+[1.677s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extension 'cmake'
+[1.677s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extension 'python'
+[1.677s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extensions ['python_setup_py']
+[1.677s] Level 1:colcon.colcon_core.package_identification:_identify(imgs) by extension 'python_setup_py'
+[1.677s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.677s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.677s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.678s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.678s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.678s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.678s] Level 1:colcon.colcon_core.package_identification:_identify(sensor_data_logger) by extensions ['ignore', 'ignore_ament_install']
+[1.678s] Level 1:colcon.colcon_core.package_identification:_identify(sensor_data_logger) by extension 'ignore'
+[1.678s] Level 1:colcon.colcon_core.package_identification:_identify(sensor_data_logger) by extension 'ignore_ament_install'
+[1.678s] Level 1:colcon.colcon_core.package_identification:_identify(sensor_data_logger) by extensions ['colcon_pkg']
+[1.678s] Level 1:colcon.colcon_core.package_identification:_identify(sensor_data_logger) by extension 'colcon_pkg'
+[1.678s] Level 1:colcon.colcon_core.package_identification:_identify(sensor_data_logger) by extensions ['colcon_meta']
+[1.679s] Level 1:colcon.colcon_core.package_identification:_identify(sensor_data_logger) by extension 'colcon_meta'
+[1.679s] Level 1:colcon.colcon_core.package_identification:_identify(sensor_data_logger) by extensions ['ros']
+[1.679s] Level 1:colcon.colcon_core.package_identification:_identify(sensor_data_logger) by extension 'ros'
+[1.686s] DEBUG:colcon.colcon_core.package_identification:Package 'sensor_data_logger' with type 'ros.ament_python' and name 'sensor_data_logger'
+[1.686s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_bringup) by extensions ['ignore', 'ignore_ament_install']
+[1.687s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_bringup) by extension 'ignore'
+[1.687s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_bringup) by extension 'ignore_ament_install'
+[1.687s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_bringup) by extensions ['colcon_pkg']
+[1.687s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_bringup) by extension 'colcon_pkg'
+[1.687s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_bringup) by extensions ['colcon_meta']
+[1.687s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_bringup) by extension 'colcon_meta'
+[1.687s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_bringup) by extensions ['ros']
+[1.687s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_bringup) by extension 'ros'
+[1.699s] DEBUG:colcon.colcon_core.package_identification:Package 'sjtu_drone_bringup' with type 'ros.ament_python' and name 'sjtu_drone_bringup'
+[1.699s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_control) by extensions ['ignore', 'ignore_ament_install']
+[1.700s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_control) by extension 'ignore'
+[1.700s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_control) by extension 'ignore_ament_install'
+[1.700s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_control) by extensions ['colcon_pkg']
+[1.700s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_control) by extension 'colcon_pkg'
+[1.700s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_control) by extensions ['colcon_meta']
+[1.700s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_control) by extension 'colcon_meta'
+[1.700s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_control) by extensions ['ros']
+[1.700s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_control) by extension 'ros'
+[1.703s] DEBUG:colcon.colcon_core.package_identification:Package 'sjtu_drone_control' with type 'ros.ament_python' and name 'sjtu_drone_control'
+[1.703s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_description) by extensions ['ignore', 'ignore_ament_install']
+[1.703s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_description) by extension 'ignore'
+[1.703s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_description) by extension 'ignore_ament_install'
+[1.703s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_description) by extensions ['colcon_pkg']
+[1.703s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_description) by extension 'colcon_pkg'
+[1.704s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_description) by extensions ['colcon_meta']
+[1.704s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_description) by extension 'colcon_meta'
+[1.704s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_description) by extensions ['ros']
+[1.704s] Level 1:colcon.colcon_core.package_identification:_identify(sjtu_drone_description) by extension 'ros'
+[1.722s] DEBUG:colcon.colcon_core.package_identification:Package 'sjtu_drone_description' with type 'ros.ament_cmake' and name 'sjtu_drone_description'
+[1.722s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.722s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.722s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.722s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.722s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.981s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.981s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[2.004s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 5 installed packages in /home/widha893/ros2_hil_quadrotor/install
+[2.007s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 284 installed packages in /opt/ros/humble
+[2.011s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[4.713s] Level 5:colcon.colcon_core.verb:set package 'hitl' build argument 'cmake_args' from command line to 'None'
+[4.713s] Level 5:colcon.colcon_core.verb:set package 'hitl' build argument 'cmake_target' from command line to 'None'
+[4.713s] Level 5:colcon.colcon_core.verb:set package 'hitl' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[4.713s] Level 5:colcon.colcon_core.verb:set package 'hitl' build argument 'cmake_clean_cache' from command line to 'False'
+[4.713s] Level 5:colcon.colcon_core.verb:set package 'hitl' build argument 'cmake_clean_first' from command line to 'False'
+[4.713s] Level 5:colcon.colcon_core.verb:set package 'hitl' build argument 'cmake_force_configure' from command line to 'False'
+[4.713s] Level 5:colcon.colcon_core.verb:set package 'hitl' build argument 'ament_cmake_args' from command line to 'None'
+[4.713s] Level 5:colcon.colcon_core.verb:set package 'hitl' build argument 'catkin_cmake_args' from command line to 'None'
+[4.713s] Level 5:colcon.colcon_core.verb:set package 'hitl' build argument 'catkin_skip_building_tests' from command line to 'False'
+[4.713s] DEBUG:colcon.colcon_core.verb:Building package 'hitl' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/widha893/ros2_hil_quadrotor/build/hitl', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/widha893/ros2_hil_quadrotor/install/hitl', 'merge_install': False, 'path': '/home/widha893/ros2_hil_quadrotor/hitl', 'symlink_install': False, 'test_result_base': None}
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sensor_data_logger' build argument 'cmake_args' from command line to 'None'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sensor_data_logger' build argument 'cmake_target' from command line to 'None'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sensor_data_logger' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sensor_data_logger' build argument 'cmake_clean_cache' from command line to 'False'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sensor_data_logger' build argument 'cmake_clean_first' from command line to 'False'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sensor_data_logger' build argument 'cmake_force_configure' from command line to 'False'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sensor_data_logger' build argument 'ament_cmake_args' from command line to 'None'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sensor_data_logger' build argument 'catkin_cmake_args' from command line to 'None'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sensor_data_logger' build argument 'catkin_skip_building_tests' from command line to 'False'
+[4.714s] DEBUG:colcon.colcon_core.verb:Building package 'sensor_data_logger' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/widha893/ros2_hil_quadrotor/build/sensor_data_logger', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger', 'merge_install': False, 'path': '/home/widha893/ros2_hil_quadrotor/sensor_data_logger', 'symlink_install': False, 'test_result_base': None}
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_bringup' build argument 'cmake_args' from command line to 'None'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_bringup' build argument 'cmake_target' from command line to 'None'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[4.714s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[4.714s] DEBUG:colcon.colcon_core.verb:Building package 'sjtu_drone_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup', 'merge_install': False, 'path': '/home/widha893/ros2_hil_quadrotor/sjtu_drone_bringup', 'symlink_install': False, 'test_result_base': None}
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_control' build argument 'cmake_args' from command line to 'None'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_control' build argument 'cmake_target' from command line to 'None'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_control' build argument 'cmake_clean_cache' from command line to 'False'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_control' build argument 'cmake_clean_first' from command line to 'False'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_control' build argument 'cmake_force_configure' from command line to 'False'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_control' build argument 'ament_cmake_args' from command line to 'None'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_control' build argument 'catkin_cmake_args' from command line to 'None'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[4.715s] DEBUG:colcon.colcon_core.verb:Building package 'sjtu_drone_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control', 'merge_install': False, 'path': '/home/widha893/ros2_hil_quadrotor/sjtu_drone_control', 'symlink_install': False, 'test_result_base': None}
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_description' build argument 'cmake_args' from command line to 'None'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_description' build argument 'cmake_target' from command line to 'None'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_description' build argument 'cmake_clean_cache' from command line to 'False'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_description' build argument 'cmake_clean_first' from command line to 'False'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_description' build argument 'cmake_force_configure' from command line to 'False'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_description' build argument 'ament_cmake_args' from command line to 'None'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_description' build argument 'catkin_cmake_args' from command line to 'None'
+[4.715s] Level 5:colcon.colcon_core.verb:set package 'sjtu_drone_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[4.715s] DEBUG:colcon.colcon_core.verb:Building package 'sjtu_drone_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description', 'merge_install': False, 'path': '/home/widha893/ros2_hil_quadrotor/sjtu_drone_description', 'symlink_install': False, 'test_result_base': None}
+[4.716s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[4.717s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[4.717s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/widha893/ros2_hil_quadrotor/hitl' with build type 'ament_python'
+[4.717s] Level 1:colcon.colcon_core.shell:create_environment_hook('hitl', 'ament_prefix_path')
+[4.808s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[4.808s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/hitl/share/hitl/hook/ament_prefix_path.ps1'
+[4.851s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/widha893/ros2_hil_quadrotor/install/hitl/share/hitl/hook/ament_prefix_path.dsv'
+[4.892s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/hitl/share/hitl/hook/ament_prefix_path.sh'
+[4.918s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.918s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.931s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/widha893/ros2_hil_quadrotor/sensor_data_logger' with build type 'ament_python'
+[4.931s] Level 1:colcon.colcon_core.shell:create_environment_hook('sensor_data_logger', 'ament_prefix_path')
+[4.932s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/share/sensor_data_logger/hook/ament_prefix_path.ps1'
+[4.933s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/share/sensor_data_logger/hook/ament_prefix_path.dsv'
+[4.934s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/share/sensor_data_logger/hook/ament_prefix_path.sh'
+[4.935s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.935s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.941s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/widha893/ros2_hil_quadrotor/sjtu_drone_bringup' with build type 'ament_python'
+[4.941s] Level 1:colcon.colcon_core.shell:create_environment_hook('sjtu_drone_bringup', 'ament_prefix_path')
+[4.942s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/hook/ament_prefix_path.ps1'
+[4.943s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/hook/ament_prefix_path.dsv'
+[4.943s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/hook/ament_prefix_path.sh'
+[4.944s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.944s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.947s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/widha893/ros2_hil_quadrotor/sjtu_drone_control' with build type 'ament_python'
+[4.948s] Level 1:colcon.colcon_core.shell:create_environment_hook('sjtu_drone_control', 'ament_prefix_path')
+[4.948s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/share/sjtu_drone_control/hook/ament_prefix_path.ps1'
+[4.949s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/share/sjtu_drone_control/hook/ament_prefix_path.dsv'
+[4.949s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/share/sjtu_drone_control/hook/ament_prefix_path.sh'
+[4.950s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.950s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.952s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/widha893/ros2_hil_quadrotor/sjtu_drone_description' with build type 'ament_cmake'
+[4.952s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/widha893/ros2_hil_quadrotor/sjtu_drone_description'
+[4.952s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.953s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.362s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/widha893/ros2_hil_quadrotor/hitl'
+[5.362s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.362s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.710s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/widha893/ros2_hil_quadrotor/sensor_data_logger'
+[5.711s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.711s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.051s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/widha893/ros2_hil_quadrotor/sjtu_drone_bringup'
+[6.052s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.052s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.374s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/widha893/ros2_hil_quadrotor/sjtu_drone_control'
+[6.374s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.374s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.406s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
+[10.625s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/widha893/ros2_hil_quadrotor/sjtu_drone_control': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/sjtu_drone_control build --build-base /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_control/build install --record /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_control/install.log --single-version-externally-managed install_data
+[10.627s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/widha893/ros2_hil_quadrotor/hitl': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/hitl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/hitl build --build-base /home/widha893/ros2_hil_quadrotor/build/hitl/build install --record /home/widha893/ros2_hil_quadrotor/build/hitl/install.log --single-version-externally-managed install_data
+[10.631s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/widha893/ros2_hil_quadrotor/sensor_data_logger': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/sensor_data_logger build --build-base /home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/build install --record /home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/install.log --single-version-externally-managed install_data
+[10.635s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/widha893/ros2_hil_quadrotor/sjtu_drone_bringup': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/sjtu_drone_bringup build --build-base /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/build install --record /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/install.log --single-version-externally-managed install_data
+[11.475s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/widha893/ros2_hil_quadrotor/sjtu_drone_bringup' returned '0': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/sjtu_drone_bringup build --build-base /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/build install --record /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/install.log --single-version-externally-managed install_data
+[12.252s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup' for CMake module files
+[12.253s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup' for CMake config files
+[12.441s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib'
+[12.442s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/bin'
+[12.442s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/pkgconfig/sjtu_drone_bringup.pc'
+[12.443s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages'
+[12.443s] Level 1:colcon.colcon_core.shell:create_environment_hook('sjtu_drone_bringup', 'pythonpath')
+[12.443s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/hook/pythonpath.ps1'
+[12.444s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/hook/pythonpath.dsv'
+[12.445s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/hook/pythonpath.sh'
+[12.446s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/bin'
+[12.446s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sjtu_drone_bringup)
+[12.446s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/package.ps1'
+[12.541s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/package.dsv'
+[12.571s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/package.sh'
+[12.577s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/package.bash'
+[13.072s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/package.zsh'
+[13.244s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/colcon-core/packages/sjtu_drone_bringup)
+[13.248s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/hitl' for CMake module files
+[13.249s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/widha893/ros2_hil_quadrotor/hitl' returned '0': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/hitl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/hitl build --build-base /home/widha893/ros2_hil_quadrotor/build/hitl/build install --record /home/widha893/ros2_hil_quadrotor/build/hitl/install.log --single-version-externally-managed install_data
+[13.250s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/hitl' for CMake config files
+[13.733s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/hitl/lib'
+[13.733s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/hitl/bin'
+[13.734s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/hitl/lib/pkgconfig/hitl.pc'
+[13.734s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages'
+[13.734s] Level 1:colcon.colcon_core.shell:create_environment_hook('hitl', 'pythonpath')
+[13.735s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/hitl/share/hitl/hook/pythonpath.ps1'
+[13.811s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/widha893/ros2_hil_quadrotor/install/hitl/share/hitl/hook/pythonpath.dsv'
+[13.842s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/hitl/share/hitl/hook/pythonpath.sh'
+[13.843s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/hitl/bin'
+[13.844s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hitl)
+[13.844s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/hitl/share/hitl/package.ps1'
+[13.845s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/widha893/ros2_hil_quadrotor/install/hitl/share/hitl/package.dsv'
+[13.846s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/hitl/share/hitl/package.sh'
+[13.847s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/hitl/share/hitl/package.bash'
+[13.862s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/hitl/share/hitl/package.zsh'
+[13.863s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/widha893/ros2_hil_quadrotor/install/hitl/share/colcon-core/packages/hitl)
+[13.864s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger' for CMake module files
+[13.867s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/widha893/ros2_hil_quadrotor/sensor_data_logger' returned '0': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/sensor_data_logger build --build-base /home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/build install --record /home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/install.log --single-version-externally-managed install_data
+[13.876s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger' for CMake config files
+[14.788s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib'
+[14.788s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/bin'
+[14.788s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/pkgconfig/sensor_data_logger.pc'
+[14.789s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages'
+[14.789s] Level 1:colcon.colcon_core.shell:create_environment_hook('sensor_data_logger', 'pythonpath')
+[14.789s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/share/sensor_data_logger/hook/pythonpath.ps1'
+[14.791s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/share/sensor_data_logger/hook/pythonpath.dsv'
+[14.791s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/share/sensor_data_logger/hook/pythonpath.sh'
+[14.793s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/bin'
+[14.793s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sensor_data_logger)
+[14.793s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/share/sensor_data_logger/package.ps1'
+[14.794s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/share/sensor_data_logger/package.dsv'
+[14.799s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/share/sensor_data_logger/package.sh'
+[14.800s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/share/sensor_data_logger/package.bash'
+[14.801s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/share/sensor_data_logger/package.zsh'
+[14.802s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/share/colcon-core/packages/sensor_data_logger)
+[14.803s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control' for CMake module files
+[14.804s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control' for CMake config files
+[14.805s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/widha893/ros2_hil_quadrotor/sjtu_drone_control' returned '0': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/sjtu_drone_control build --build-base /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_control/build install --record /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_control/install.log --single-version-externally-managed install_data
+[14.901s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib'
+[14.901s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/bin'
+[14.901s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/pkgconfig/sjtu_drone_control.pc'
+[14.902s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/python3.10/site-packages'
+[14.902s] Level 1:colcon.colcon_core.shell:create_environment_hook('sjtu_drone_control', 'pythonpath')
+[14.903s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/share/sjtu_drone_control/hook/pythonpath.ps1'
+[14.905s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/share/sjtu_drone_control/hook/pythonpath.dsv'
+[14.906s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/share/sjtu_drone_control/hook/pythonpath.sh'
+[14.908s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/bin'
+[14.908s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sjtu_drone_control)
+[14.909s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/share/sjtu_drone_control/package.ps1'
+[14.911s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/share/sjtu_drone_control/package.dsv'
+[14.912s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/share/sjtu_drone_control/package.sh'
+[14.913s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/share/sjtu_drone_control/package.bash'
+[14.914s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/share/sjtu_drone_control/package.zsh'
+[14.915s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/share/colcon-core/packages/sjtu_drone_control)
+[26.326s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
+[26.382s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble: /usr/bin/cmake --install /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description
+[26.719s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sjtu_drone_description)
+[26.719s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description' for CMake module files
+[26.721s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble: /usr/bin/cmake --install /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description
+[26.722s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description' for CMake config files
+[26.722s] Level 1:colcon.colcon_core.shell:create_environment_hook('sjtu_drone_description', 'cmake_prefix_path')
+[26.723s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/hook/cmake_prefix_path.ps1'
+[26.724s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/hook/cmake_prefix_path.dsv'
+[26.725s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/hook/cmake_prefix_path.sh'
+[26.726s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/lib'
+[26.726s] Level 1:colcon.colcon_core.shell:create_environment_hook('sjtu_drone_description', 'ld_library_path_lib')
+[26.726s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/hook/ld_library_path_lib.ps1'
+[26.727s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/hook/ld_library_path_lib.dsv'
+[26.753s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/hook/ld_library_path_lib.sh'
+[26.754s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/bin'
+[26.755s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/lib/pkgconfig/sjtu_drone_description.pc'
+[26.755s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/lib/python3.10/site-packages'
+[26.756s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/bin'
+[26.757s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/package.ps1'
+[26.758s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/package.dsv'
+[26.759s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/package.sh'
+[26.759s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/package.bash'
+[26.760s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/package.zsh'
+[26.805s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/colcon-core/packages/sjtu_drone_description)
+[26.862s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sjtu_drone_description)
+[26.862s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description' for CMake module files
+[26.863s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description' for CMake config files
+[26.864s] Level 1:colcon.colcon_core.shell:create_environment_hook('sjtu_drone_description', 'cmake_prefix_path')
+[26.864s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/hook/cmake_prefix_path.ps1'
+[26.865s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/hook/cmake_prefix_path.dsv'
+[26.866s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/hook/cmake_prefix_path.sh'
+[26.867s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/lib'
+[26.867s] Level 1:colcon.colcon_core.shell:create_environment_hook('sjtu_drone_description', 'ld_library_path_lib')
+[26.867s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/hook/ld_library_path_lib.ps1'
+[26.868s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/hook/ld_library_path_lib.dsv'
+[26.868s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/hook/ld_library_path_lib.sh'
+[26.869s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/bin'
+[26.869s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/lib/pkgconfig/sjtu_drone_description.pc'
+[26.869s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/lib/python3.10/site-packages'
+[26.869s] Level 1:colcon.colcon_core.environment:checking '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/bin'
+[26.870s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/package.ps1'
+[26.870s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/package.dsv'
+[26.871s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/package.sh'
+[26.871s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/package.bash'
+[26.871s] INFO:colcon.colcon_core.shell:Creating package script '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/sjtu_drone_description/package.zsh'
+[26.872s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/share/colcon-core/packages/sjtu_drone_description)
+[26.872s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[26.872s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[26.872s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[26.872s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[27.309s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[27.310s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[27.310s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[27.336s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[27.336s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/widha893/ros2_hil_quadrotor/install/local_setup.ps1'
+[27.629s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/widha893/ros2_hil_quadrotor/install/_local_setup_util_ps1.py'
+[27.664s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/widha893/ros2_hil_quadrotor/install/setup.ps1'
+[27.670s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/widha893/ros2_hil_quadrotor/install/local_setup.sh'
+[27.693s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/widha893/ros2_hil_quadrotor/install/_local_setup_util_sh.py'
+[27.694s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/widha893/ros2_hil_quadrotor/install/setup.sh'
+[27.728s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/widha893/ros2_hil_quadrotor/install/local_setup.bash'
+[27.861s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/widha893/ros2_hil_quadrotor/install/setup.bash'
+[27.874s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/widha893/ros2_hil_quadrotor/install/local_setup.zsh'
+[28.011s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/widha893/ros2_hil_quadrotor/install/setup.zsh'

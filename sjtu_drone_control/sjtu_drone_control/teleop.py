@@ -31,16 +31,16 @@ Moving around:
         x
 
 t/l: takeoff/land (upper/lower case)
-q/e : increase/decrease linear and angular velocity (upper/lower case)
+q/e : increase/decrease linear velocity (upper/lower case)
 A/D: rotate left/right
 r/f : rise/fall (upper/lower case)
+z/c: increase/decrease angular velocity
 
 ---------------------------
 CTRL-C to quit
 ---------------------------
 
 """
-
 
 class TeleopNode(Node):
     def __init__(self) -> None:
@@ -79,13 +79,15 @@ class TeleopNode(Node):
             if key.lower() == 'q':
                 self.linear_velocity = min(self.linear_velocity + self.linear_increment,
                                            self.max_linear_velocity)
+            elif key.lower() == 'z':
                 self.angular_velocity = min(self.angular_velocity + self.angular_increment,
                                             self.max_angular_velocity)
+            elif key.lower() == 'c':
+                self.angular_velocity = max(self.angular_velocity - self.angular_increment,
+                                            -self.max_angular_velocity)
             elif key.lower() == 'e':
                 self.linear_velocity = max(self.linear_velocity - self.linear_increment,
                                            -self.max_linear_velocity)
-                self.angular_velocity = max(self.angular_velocity - self.angular_increment,
-                                            -self.max_angular_velocity)
             elif key.lower() == 'w':
                 # Move forward
                 linear_vec = Vector3()

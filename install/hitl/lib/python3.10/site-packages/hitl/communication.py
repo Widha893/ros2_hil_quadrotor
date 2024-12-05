@@ -2,13 +2,17 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Imu, Range
 import numpy as np
-from std_msgs.msg import Bool
+from std_msgs.msg import Bool, Float64MultiArray
 import math
 from hitl import messages_pb2
 from serial import Serial, SerialException
 import time
+import csv
+import os
+import serial
 
 STX = b'\xFE'
+MAX_MESSAGE_SIZE = 1024  # Maximum buffer size, adjust if needed
 
 class Communication(Node):
     def __init__(self,port = '/dev/ttyACM0', baudrate = 9600):
@@ -61,6 +65,15 @@ class Communication(Node):
             Range,self.alt_topic,self.alt_callback,qos
         )
 
+        # CSV file setup
+        self.csv_filename = '/home/widha893/DataLogger/data_log.csv'
+        self.fieldnames = ['timestamp', 'roll', 'pitch', 'yaw', 'altitude', 'roll_setpoint', 'pitch_setpoint', 'yaw_setpoint']
+        
+        if not os.path.exists(self.csv_filename):
+            with open(self.csv_filename, mode='w', newline='') as file:
+                writer = csv.DictWriter(file, fieldnames=self.fieldnames)
+                writer.writeheader()
+
         # self.mHITL(True)
 
     def imu_callback(self, msg: Imu):
@@ -78,19 +91,10 @@ class Communication(Node):
         self.altitude = msg.range
         self.alt_updated = True
         if self.imu_updated and self.alt_updated:
+            self.save_to_csv()
             self.write(self.create_message())
             self.get_logger().info("Message sent!")
             self.reset_flags()
-
-    # def mHITL(self, on: bool):
-    #     """
-    #     Turn on/off position control
-    #     :param on: True to turn on position control, False to turn off
-    #     """
-    #     self.hitl_mode = Bool()
-    #     self.hitl_mode.data = on
-    #     self.pubHITL.publish(self.hitl_mode)
-    #     return True
 
     def quaternion_to_roll(self, q_w, q_x, q_y, q_z):
         # Roll (x-axis rotation)
@@ -108,6 +112,26 @@ class Communication(Node):
     def reset_flags(self):
         self.imu_updated = False
         self.alt_updated = False
+
+    def save_to_csv(self):
+        timestamp = int(time.time() * 1e6)  # timestamp in microseconds
+        roll_setpoint = 0.0
+        pitch_setpoint = 0.0
+        yaw_setpoint = 0.0
+
+        # Append data to CSV
+        with open(self.csv_filename, mode='a', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=self.fieldnames)
+            writer.writerow({
+                'timestamp': timestamp,
+                'roll': self.roll,
+                'pitch': self.pitch,
+                'yaw': self.yaw,
+                'altitude': self.altitude,
+                'roll_setpoint': roll_setpoint,
+                'pitch_setpoint': pitch_setpoint,
+                'yaw_setpoint': yaw_setpoint
+            })
 
     def create_message(self):
         _msg = messages_pb2.msg()
@@ -145,6 +169,25 @@ class Communication(Node):
         self._serial.write(cb)
         self._serial.flush()
 
+    # def save_graph(self):
+    #     # Plot the roll, pitch, and yaw data with 0-degree setpoints
+    #     fig, ax = plt.subplots()
+    #     ax.plot(self.time_data, np.zeros_like(self.time_data), 'k--', label='Setpoint (0 degrees)')
+    #     ax.plot(self.time_data, self.roll_data, label='Roll', color='r')
+    #     ax.plot(self.time_data, self.pitch_data, label='Pitch', color='g')
+    #     ax.plot(self.time_data, self.yaw_data, label='Yaw', color='b')
+
+    #     ax.set_xlabel('Time (seconds)')
+    #     ax.set_ylabel('Angle (degrees)')
+    #     ax.set_title('Roll, Pitch, and Yaw over Time')
+    #     ax.legend()
+
+    #     # Save the plot as an image
+    #     os.makedirs('graphs', exist_ok=True)
+    #     plot_filename = f'/home/widha893/graphs/roll_pitch_yaw_{time.strftime("%Y%m%d_%H%M%S")}.png'
+    #     plt.savefig(plot_filename)
+    #     self.get_logger().info(f"Graph saved to {plot_filename}")
+    #     plt.close(fig)
 
 def main(args=None):
     rclpy.init(args=args)
@@ -155,6 +198,7 @@ def main(args=None):
         communication.get_logger().error(f"Serial connection error: {e}")
     except KeyboardInterrupt:
         communication.get_logger().info("Shutting down due to KeyboardInterrupt...")
+        # communication.save_graph()
         communication.destroy_node()
         rclpy.shutdown()
 

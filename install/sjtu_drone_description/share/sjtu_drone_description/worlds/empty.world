@@ -46,12 +46,6 @@
       </link>
     </model>
 
-    <!-- Wind settings -->
-    <plugin name="wind_plugin" filename="libwind_plugin.so">
-      <queue_size>1000</queue_size>
-      <update_rate>50</update_rate>
-    </plugin>
-
     <!-- Set up default physics properties -->
     <physics type="ode">
       <max_step_size>0.001</max_step_size>
