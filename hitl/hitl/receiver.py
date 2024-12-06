@@ -1,7 +1,13 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float64MultiArray
+from sensor_msgs.msg import Imu, Range
 import serial
+import os
+import math
+import time
+import numpy as np
+import csv
 import struct
 from std_msgs.msg import Bool
 from hitl.messages_pb2 import msg as HWIL_msg  # Import the HWIL_msg class from your Protobuf file
@@ -17,6 +23,12 @@ class SerialReceiverNode(Node):
         # ROS 2 publisher
         self.publisher_ = self.create_publisher(Float64MultiArray, '~/control_data', 10)
         self.pubHITL = self.create_publisher(Bool, '~/hitl', 1024)
+        self.imu_sub_topic = '/simple_drone/imu/out'
+        self.alt_sub_topic = 'simple_drone/sonar/out'
+        qos = 10
+
+        self.imu_status = False
+        self.alt_status = False
 
         # Serial port configuration
         self.port = '/dev/ttyACM0'
@@ -27,7 +39,7 @@ class SerialReceiverNode(Node):
         self.mHITL(True)
 
         # Timer for polling serial data
-        self.timer_period = 0.1  # 10 Hz
+        self.timer_period = 0.1      # 10 Hz
         self.timer = self.create_timer(self.timer_period, self.poll_serial)
 
         # Initialize serial port
@@ -37,6 +49,21 @@ class SerialReceiverNode(Node):
         except Exception as e:
             self.get_logger().error(f"Failed to open serial port: {e}")
             raise
+
+        self.imu_sensor_subscriber = self.create_subscription(
+            Imu,self.imu_sub_topic,self.imu_sensor_callback,qos
+        )
+        self.alt_sensor_subscriber = self.create_subscription(
+            Range,self.alt_sub_topic,self.alt_sensor_callback,qos
+        )
+
+        self.csv_filename = '/home/widha893/DataLogger/data_log.csv'
+        self.fieldnames = ['timestamp', 'roll', 'pitch', 'yaw', 'altitude', 'roll_setpoint', 'pitch_setpoint', 'yaw_setpoint', 'alt_setpoint']
+        
+        if not os.path.exists(self.csv_filename):
+            with open(self.csv_filename, mode='w', newline='') as file:
+                writer = csv.DictWriter(file, fieldnames=self.fieldnames)
+                writer.writeheader()
 
     def poll_serial(self):
         """
@@ -126,6 +153,63 @@ class SerialReceiverNode(Node):
         self.hitl_mode.data = on
         self.pubHITL.publish(self.hitl_mode)
         return True
+    
+    def imu_sensor_callback(self, msg: Imu):
+        # Extract quaternion and convert to Euler angles
+        quat = msg.orientation
+        self.roll = np.degrees(self.quaternion_to_roll(quat.w, quat.x, quat.y, quat.z))
+        self.pitch = np.degrees(self.quaternion_to_pitch(quat.w, quat.x, quat.y, quat.z))
+        self.yaw = np.degrees(self.quaternion_to_yaw(quat.w, quat.x, quat.y, quat.z))
+        self.angular_vel_x = msg.angular_velocity.x
+        self.angular_vel_y = msg.angular_velocity.y
+        self.angular_vel_z = msg.angular_velocity.z
+        self.imu_updated = True
+
+    def alt_sensor_callback(self, msg: Range):
+        self.altitude = msg.range
+        self.alt_updated = True
+        if self.imu_updated and self.alt_updated:
+            self.save_to_csv()
+            self.reset_flags()
+
+    def quaternion_to_roll(self, q_w, q_x, q_y, q_z):
+        # Roll (x-axis rotation)
+        roll = math.atan2(2 * (q_w * q_x + q_y * q_z), 1 - 2 * (q_x**2 + q_y**2))
+        return roll
+
+    def quaternion_to_pitch(self, q_w, q_x, q_y, q_z):
+        pitch = math.asin(2 * (q_w * q_y - q_z * q_x))
+        return pitch
+
+    def quaternion_to_yaw(self, q_w, q_x, q_y, q_z):
+        yaw = math.atan2(2 * (q_w * q_z + q_x * q_y), 1 - 2 * (q_y**2 + q_z**2))
+        return yaw
+
+    def reset_flags(self):
+        self.imu_status = False
+        self.alt_status = False
+
+    def save_to_csv(self):
+        timestamp = int(time.time() * 1e6)  # timestamp in microseconds
+        roll_setpoint = 0.0
+        pitch_setpoint = 0.0
+        yaw_setpoint = 0.0
+        alt_setpoint = 0.8
+
+        # Append data to CSV
+        with open(self.csv_filename, mode='a', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=self.fieldnames)
+            writer.writerow({
+                'timestamp': timestamp,
+                'roll': self.roll,
+                'pitch': self.pitch,
+                'yaw': self.yaw,
+                'altitude': self.altitude,
+                'roll_setpoint': roll_setpoint,
+                'pitch_setpoint': pitch_setpoint,
+                'yaw_setpoint': yaw_setpoint,
+                'alt_setpoint': alt_setpoint
+            })
 
 
 def main(args=None):

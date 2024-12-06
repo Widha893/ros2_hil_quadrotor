@@ -41,10 +41,10 @@ class Communication(Node):
         # Obtained by running hitl_control.py
         self.gain_alt = 10.000
         self.gain_vz = 5.526
-        self.gain_roll = 5.000
-        self.gain_p = 4.261
-        self.gain_pitch = 5.477
-        self.gain_q = 3.043
+        self.gain_roll = 10.000
+        self.gain_p = 5.000
+        self.gain_pitch = 10.000
+        self.gain_q = 5.000
         self.gain_yaw = 3.000
         self.gain_r = 1.519
 
@@ -66,13 +66,13 @@ class Communication(Node):
         )
 
         # CSV file setup
-        self.csv_filename = '/home/widha893/DataLogger/data_log.csv'
-        self.fieldnames = ['timestamp', 'roll', 'pitch', 'yaw', 'altitude', 'roll_setpoint', 'pitch_setpoint', 'yaw_setpoint']
+        # self.csv_filename = '/home/widha893/DataLogger/data_log.csv'
+        # self.fieldnames = ['timestamp', 'roll', 'pitch', 'yaw', 'altitude', 'roll_setpoint', 'pitch_setpoint', 'yaw_setpoint']
         
-        if not os.path.exists(self.csv_filename):
-            with open(self.csv_filename, mode='w', newline='') as file:
-                writer = csv.DictWriter(file, fieldnames=self.fieldnames)
-                writer.writeheader()
+        # if not os.path.exists(self.csv_filename):
+        #     with open(self.csv_filename, mode='w', newline='') as file:
+        #         writer = csv.DictWriter(file, fieldnames=self.fieldnames)
+        #         writer.writeheader()
 
         # self.mHITL(True)
 
@@ -91,7 +91,7 @@ class Communication(Node):
         self.altitude = msg.range
         self.alt_updated = True
         if self.imu_updated and self.alt_updated:
-            self.save_to_csv()
+            # self.save_to_csv()
             self.write(self.create_message())
             self.get_logger().info("Message sent!")
             self.reset_flags()
@@ -113,25 +113,25 @@ class Communication(Node):
         self.imu_updated = False
         self.alt_updated = False
 
-    def save_to_csv(self):
-        timestamp = int(time.time() * 1e6)  # timestamp in microseconds
-        roll_setpoint = 0.0
-        pitch_setpoint = 0.0
-        yaw_setpoint = 0.0
+    # def save_to_csv(self):
+    #     timestamp = int(time.time() * 1e6)  # timestamp in microseconds
+    #     roll_setpoint = 0.0
+    #     pitch_setpoint = 0.0
+    #     yaw_setpoint = 0.0
 
-        # Append data to CSV
-        with open(self.csv_filename, mode='a', newline='') as file:
-            writer = csv.DictWriter(file, fieldnames=self.fieldnames)
-            writer.writerow({
-                'timestamp': timestamp,
-                'roll': self.roll,
-                'pitch': self.pitch,
-                'yaw': self.yaw,
-                'altitude': self.altitude,
-                'roll_setpoint': roll_setpoint,
-                'pitch_setpoint': pitch_setpoint,
-                'yaw_setpoint': yaw_setpoint
-            })
+    #     # Append data to CSV
+    #     with open(self.csv_filename, mode='a', newline='') as file:
+    #         writer = csv.DictWriter(file, fieldnames=self.fieldnames)
+    #         writer.writerow({
+    #             'timestamp': timestamp,
+    #             'roll': self.roll,
+    #             'pitch': self.pitch,
+    #             'yaw': self.yaw,
+    #             'altitude': self.altitude,
+    #             'roll_setpoint': roll_setpoint,
+    #             'pitch_setpoint': pitch_setpoint,
+    #             'yaw_setpoint': yaw_setpoint
+    #         })
 
     def create_message(self):
         _msg = messages_pb2.msg()

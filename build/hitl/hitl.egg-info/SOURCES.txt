@@ -11,6 +11,7 @@ setup.py
 hitl/__init__.py
 hitl/communication.py
 hitl/hitl_control.py
+hitl/matplotlib_test.py
 hitl/messages_pb2.py
 hitl/receiver.py
 resource/hitl
