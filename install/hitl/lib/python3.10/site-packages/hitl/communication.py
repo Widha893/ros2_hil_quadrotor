@@ -40,13 +40,13 @@ class Communication(Node):
 
         # Obtained by running hitl_control.py
         self.gain_alt = 10.000
-        self.gain_vz = 5.526
+        self.gain_vz = 5.626
         self.gain_roll = 10.000
         self.gain_p = 5.000
         self.gain_pitch = 10.000
         self.gain_q = 5.000
-        self.gain_yaw = 3.000
-        self.gain_r = 1.519
+        self.gain_yaw = 2.049
+        self.gain_r = 1.000
 
         # Define Quality of Service
         qos = 10
@@ -61,9 +61,9 @@ class Communication(Node):
         self.imu_subscriber = self.create_subscription(
             Imu,self.imu_topic,self.imu_callback,qos
         )
-        self.alt_subscriber = self.create_subscription(
-            Range,self.alt_topic,self.alt_callback,qos
-        )
+        # self.alt_subscriber = self.create_subscription(
+        #     Range,self.alt_topic,self.alt_callback,qos
+        # )
 
         # CSV file setup
         # self.csv_filename = '/home/widha893/DataLogger/data_log.csv'
@@ -86,6 +86,11 @@ class Communication(Node):
         self.angular_vel_y = msg.angular_velocity.y
         self.angular_vel_z = msg.angular_velocity.z
         self.imu_updated = True
+        if self.imu_updated:
+            # self.save_to_csv()
+            self.write(self.create_message())
+            self.get_logger().info("Message sent!")
+            self.reset_flags()
 
     def alt_callback(self, msg: Range):
         self.altitude = msg.range
@@ -149,7 +154,7 @@ class Communication(Node):
         _msg.sensors.roll = self.roll
         _msg.sensors.pitch = self.pitch
         _msg.sensors.yaw = self.yaw
-        _msg.sensors.altitude = self.altitude
+        _msg.sensors.altitude = 0.0
 
         return _msg
     

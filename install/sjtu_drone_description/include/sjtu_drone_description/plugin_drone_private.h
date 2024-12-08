@@ -67,8 +67,8 @@ public:
     std::string cmd_normal_topic_ = "cmd_vel", std::string posctrl_topic_ = "posctrl",
     std::string imu_topic_ = "imu", std::string takeoff_topic_ = "takeoff",
     std::string land_topic_ = "land", std::string reset_topic_ = "reset",
-    std::string switch_mode_topic_ = "dronevel_mode", std::string hitl_topic_ = "/receiver/hitl", /*Change back to /receiver/hitl if error*/
-    std::string control_data_topic_ = "/receiver/control_data"); /*Change back to /receiver/control_data if error*/
+    std::string switch_mode_topic_ = "dronevel_mode", std::string hitl_topic_ = "/hitl_node/hitl_status", /*Change back to /receiver/hitl if error*/
+    std::string control_data_topic_ = "/hitl_node/drone_control_signals"); /*Change back to /receiver/control_data if error*/
   void InitPublishers(
     std::string gt_topic_ = "gt_pose", std::string gt_vel_topic_ = "gt_vel",
     std::string gt_acc_topic_ = "gt_acc", std::string cmd_mode_topic_ = "cmd_mode",

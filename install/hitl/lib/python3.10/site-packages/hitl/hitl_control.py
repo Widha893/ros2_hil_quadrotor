@@ -5,9 +5,12 @@ import matplotlib.pyplot as plt
 # Constants
 m = 1.477
 g = 9.8065
-Ixx = 0.1152
-Iyy = 0.1152
-Izz = 0.218
+# Ixx = 0.1152
+# Iyy = 0.1152
+# Izz = 0.218
+Ixx = 0.014891
+Iyy = 0.015712
+Izz = 0.027364271
 
 # State-space matrices
 A = np.array([[0, 1, 0, 0, 0, 0, 0, 0],
@@ -44,7 +47,7 @@ sys = control.ss(A, B, C, D)
 
 # LQR Controller
 def LQR():
-    Q = np.diag([100, 1, 1000, 50, 3000, 60, 9, 1])  # State cost
+    Q = np.diag([100, 1, 100, 25, 20, 13, 4.2, 0.2])  # State cost
     R = np.diag([1, 1, 1, 1])  # Input cost
     K, S, E = control.lqr(sys, Q, R)
     print("\nLQR Gain Matrix (K):")

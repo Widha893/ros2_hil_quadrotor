@@ -1,0 +1,26 @@
+[0.000000] (-) TimerEvent: {}
+[0.000406] (hitl) JobQueued: {'identifier': 'hitl', 'dependencies': OrderedDict()}
+[0.000438] (sensor_data_logger) JobQueued: {'identifier': 'sensor_data_logger', 'dependencies': OrderedDict()}
+[0.000454] (sjtu_drone_bringup) JobQueued: {'identifier': 'sjtu_drone_bringup', 'dependencies': OrderedDict()}
+[0.000468] (sjtu_drone_control) JobQueued: {'identifier': 'sjtu_drone_control', 'dependencies': OrderedDict()}
+[0.000480] (sjtu_drone_description) JobQueued: {'identifier': 'sjtu_drone_description', 'dependencies': OrderedDict()}
+[0.000493] (hitl) JobStarted: {'identifier': 'hitl'}
+[0.006845] (sensor_data_logger) JobStarted: {'identifier': 'sensor_data_logger'}
+[0.011076] (sjtu_drone_bringup) JobStarted: {'identifier': 'sjtu_drone_bringup'}
+[0.015878] (sjtu_drone_control) JobStarted: {'identifier': 'sjtu_drone_control'}
+[0.020064] (sjtu_drone_description) JobStarted: {'identifier': 'sjtu_drone_description'}
+[0.099794] (-) TimerEvent: {}
+[0.200155] (-) TimerEvent: {}
+[0.300483] (-) TimerEvent: {}
+[0.400810] (-) TimerEvent: {}
+[0.501156] (-) TimerEvent: {}
+[0.601505] (-) TimerEvent: {}
+[0.655479] (sjtu_drone_bringup) JobEnded: {'identifier': 'sjtu_drone_bringup', 'rc': 0}
+[0.701663] (-) TimerEvent: {}
+[0.802026] (-) TimerEvent: {}
+[0.898632] (hitl) JobEnded: {'identifier': 'hitl', 'rc': 'SIGINT'}
+[0.899355] (sensor_data_logger) JobEnded: {'identifier': 'sensor_data_logger', 'rc': 'SIGINT'}
+[0.899598] (sjtu_drone_description) JobEnded: {'identifier': 'sjtu_drone_description', 'rc': 'SIGINT'}
+[0.899785] (sjtu_drone_control) JobEnded: {'identifier': 'sjtu_drone_control', 'rc': 'SIGINT'}
+[0.902080] (-) TimerEvent: {}
+[0.909633] (-) EventReactorShutdown: {}

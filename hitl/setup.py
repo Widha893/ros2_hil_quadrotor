@@ -21,7 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             'communication = hitl.communication:main',
-            'receiver = hitl.receiver:main'
+            'receiver = hitl.receiver:main',
+            'hitl_node = hitl.hitl_node:main'
         ],
     },
 )

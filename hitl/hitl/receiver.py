@@ -39,7 +39,7 @@ class SerialReceiverNode(Node):
         self.mHITL(True)
 
         # Timer for polling serial data
-        self.timer_period = 0.1      # 10 Hz
+        self.timer_period = 0.01      # 10 Hz
         self.timer = self.create_timer(self.timer_period, self.poll_serial)
 
         # Initialize serial port
@@ -53,9 +53,9 @@ class SerialReceiverNode(Node):
         self.imu_sensor_subscriber = self.create_subscription(
             Imu,self.imu_sub_topic,self.imu_sensor_callback,qos
         )
-        self.alt_sensor_subscriber = self.create_subscription(
-            Range,self.alt_sub_topic,self.alt_sensor_callback,qos
-        )
+        # self.alt_sensor_subscriber = self.create_subscription(
+        #     Range,self.alt_sub_topic,self.alt_sensor_callback,qos
+        # )
 
         self.csv_filename = '/home/widha893/DataLogger/data_log.csv'
         self.fieldnames = ['timestamp', 'roll', 'pitch', 'yaw', 'altitude', 'roll_setpoint', 'pitch_setpoint', 'yaw_setpoint', 'alt_setpoint']
@@ -190,7 +190,7 @@ class SerialReceiverNode(Node):
         self.alt_status = False
 
     def save_to_csv(self):
-        timestamp = int(time.time() * 1e6)  # timestamp in microseconds
+        timestamp = int(time.time() * 1e3)  # timestamp in microseconds
         roll_setpoint = 0.0
         pitch_setpoint = 0.0
         yaw_setpoint = 0.0
@@ -204,7 +204,7 @@ class SerialReceiverNode(Node):
                 'roll': self.roll,
                 'pitch': self.pitch,
                 'yaw': self.yaw,
-                'altitude': self.altitude,
+                'altitude': 0.0,
                 'roll_setpoint': roll_setpoint,
                 'pitch_setpoint': pitch_setpoint,
                 'yaw_setpoint': yaw_setpoint,

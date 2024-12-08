@@ -1,10 +1,13 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Imu
+from geometry_msgs.msg import Pose
 import numpy as np
+import math
 import csv
 import os
 from datetime import datetime
+import time
 
 class SensorDataLogger(Node):
     def __init__(self):
@@ -14,7 +17,11 @@ class SensorDataLogger(Node):
         
         # Define the IMU topic
         self.imu_topic = '/simple_drone/imu/out'  # Replace with actual IMU topic name
+        self.altitude_topic = 'simple_drone/gt_pose'
         qos = 10  # Quality of Service (can be modified as needed)
+
+        self.imu_status = False
+        self.alt_status = False
         
         if self.imu_topic:
             # Create the IMU subscriber
@@ -28,63 +35,83 @@ class SensorDataLogger(Node):
         else:
             self.get_logger().error("No IMU topic defined!")
 
-    def _imu_callback(self, msg: Imu):
-        # Extract quaternion and convert to Euler angles
-        quat = msg.orientation
-        roll, pitch, yaw = self.quaternion_to_euler(quat)
+        if self.altitude_topic:
+            # Create the alt subscriber
+            self.altitude_subscriber = self.create_subscription(
+                Pose,
+                self.altitude_topic,
+                self.altitude_callback,
+                qos
+            )
+            self.get_logger().info(f"Subscribed to IMU topic: {self.imu_topic}")
+        else:
+            self.get_logger().error("No IMU topic defined!")
 
-        # Log Euler angles
-        self.get_logger().info(f"Euler Angles [Degrees]: Roll={np.degrees(roll):.2f}, Pitch={np.degrees(pitch):.2f}, Yaw={np.degrees(yaw):.2f}")
+        self.csv_filename = '/home/widha893/DataLogger/data_log_new.csv'
+        self.fieldnames = ['timestamp', 'roll', 'pitch', 'yaw', 'altitude', 'roll_setpoint', 'pitch_setpoint', 'yaw_setpoint', 'alt_setpoint']
+        
+        if not os.path.exists(self.csv_filename):
+            with open(self.csv_filename, mode='w', newline='') as file:
+                writer = csv.DictWriter(file, fieldnames=self.fieldnames)
+                writer.writeheader()
 
     def imu_callback(self, msg: Imu):
         # Extract quaternion and convert to Euler angles
         quat = msg.orientation
-        roll, pitch, yaw = self.quaternion_to_euler(quat)
-
-        # Log Euler angles
-        self.get_logger().info(f"Euler Angles [Degrees]: Roll={np.degrees(roll):.2f}, Pitch={np.degrees(pitch):.2f}, Yaw={np.degrees(yaw):.2f}")
-
-        timestamp_sec = msg.header.stamp.sec
-        timestamp_nanosec = msg.header.stamp.nanosec
-        self.sensor_data.append([timestamp_sec, timestamp_nanosec, np.degrees(roll), np.degrees(pitch), np.degrees(yaw)])
-
+        self.roll = np.degrees(self.quaternion_to_roll(quat.w, quat.x, quat.y, quat.z))
+        self.pitch = np.degrees(self.quaternion_to_pitch(quat.w, quat.x, quat.y, quat.z))
+        self.yaw = np.degrees(self.quaternion_to_yaw(quat.w, quat.x, quat.y, quat.z))
+        self.angular_vel_x = msg.angular_velocity.x
+        self.angular_vel_y = msg.angular_velocity.y
+        self.angular_vel_z = msg.angular_velocity.z
+        self.imu_updated = True
     
-    def quaternion_to_euler(self, quat):
-        """Convert a quaternion to Euler angles in radian (roll, pitch, yaw)"""
-        q = [quat.w, quat.x, quat.y, quat.z]
-        
-        sinr_cosp = 2 * (q[0] * q[1] + q[2] * q[3])
-        cosr_cosp = 1 - 2 * (q[1]**2 + q[2]**2)
-        roll = np.arctan2(sinr_cosp, cosr_cosp)
+    def quaternion_to_roll(self, q_w, q_x, q_y, q_z):
+        # Roll (x-axis rotation)
+        roll = math.atan2(2 * (q_w * q_x + q_y * q_z), 1 - 2 * (q_x**2 + q_y**2))
+        return roll
 
-        sinp = 2 * (q[0] * q[2] - q[3] * q[1])
-        pitch = np.arcsin(np.clip(sinp, -1.0, 1.0))
+    def quaternion_to_pitch(self, q_w, q_x, q_y, q_z):
+        pitch = math.asin(2 * (q_w * q_y - q_z * q_x))
+        return pitch
 
-        siny_cosp = 2 * (q[0] * q[3] + q[1] * q[2])
-        cosy_cosp = 1 - 2 * (q[2]**2 + q[3]**2)
-        yaw = np.arctan2(siny_cosp, cosy_cosp)
+    def quaternion_to_yaw(self, q_w, q_x, q_y, q_z):
+        yaw = math.atan2(2 * (q_w * q_z + q_x * q_y), 1 - 2 * (q_y**2 + q_z**2))
+        return yaw
+    
+    def altitude_callback(self, msg: Pose):
+        self.altitude = msg.position.z
+        self.alt_updated = True
+        if self.imu_updated and self.alt_updated:
+            self.get_logger().info(f"Altitude = {self.altitude:.2f}, Euler Angles [Degrees]: Roll={self.roll:.2f}, Pitch={self.pitch:.2f}, Yaw={self.yaw:.2f}")
+            self.save_to_csv()
+            self.reset_flags()
 
-        return roll, pitch, yaw
+    def save_to_csv(self):
+        timestamp = int(time.time() * 1e3)  # timestamp in milliseconds
+        roll_setpoint = 0.0
+        pitch_setpoint = 0.0
+        yaw_setpoint = 0.0
+        alt_setpoint = 0.8
 
-    def save_data(self):
-        """Saves collected sensor data to a CSV file."""
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        file_path = os.path.expanduser(f'~/DataLogger/data_sensors_{timestamp}.csv')
-        # file_path = '/DataLogger/data_sensors.csv'
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)  # Ensure directory exists
-        
-        self.get_logger().info(f"Saving data to {file_path}")
-        try:
-            with open(file_path, 'w', newline='') as f:
-                writer = csv.writer(f)
-                writer.writerow([
-                    'timestamp_sec', 'timestamp_nanosec',
-                    'roll', 'pitch', 'yaw'
-                ])
-                writer.writerows(self.sensor_data)
-            self.get_logger().info("Data successfully saved to CSV.")
-        except Exception as e:
-            self.get_logger().error(f"Failed to save data: {e}")
+        # Append data to CSV
+        with open(self.csv_filename, mode='a', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=self.fieldnames)
+            writer.writerow({
+                'timestamp': timestamp,
+                'roll': self.roll,
+                'pitch': self.pitch,
+                'yaw': self.yaw,
+                'altitude': 0.0,
+                'roll_setpoint': roll_setpoint,
+                'pitch_setpoint': pitch_setpoint,
+                'yaw_setpoint': yaw_setpoint,
+                'alt_setpoint': alt_setpoint
+            })
+
+    def reset_flags(self):
+        self.imu_status = False
+        self.alt_status = False
 
 def main(args=None):
     rclpy.init(args=args)
@@ -96,7 +123,6 @@ def main(args=None):
         sensor_data_logger.get_logger().info("Shutting down due to KeyboardInterrupt...")
     finally:
         # Save data on shutdown
-        sensor_data_logger.save_data()
         sensor_data_logger.destroy_node()
         rclpy.shutdown()
 

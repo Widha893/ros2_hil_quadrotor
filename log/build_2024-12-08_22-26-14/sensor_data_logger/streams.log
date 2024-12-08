@@ -1,0 +1,21 @@
+[2.819s] Invoking command in '/home/widha893/ros2_hil_quadrotor/sensor_data_logger': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/sensor_data_logger build --build-base /home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/build install --record /home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/install.log --single-version-externally-managed install_data
+[3.110s] running egg_info
+[3.111s] writing ../build/sensor_data_logger/sensor_data_logger.egg-info/PKG-INFO
+[3.111s] writing dependency_links to ../build/sensor_data_logger/sensor_data_logger.egg-info/dependency_links.txt
+[3.121s] writing entry points to ../build/sensor_data_logger/sensor_data_logger.egg-info/entry_points.txt
+[3.121s] writing requirements to ../build/sensor_data_logger/sensor_data_logger.egg-info/requires.txt
+[3.121s] writing top-level names to ../build/sensor_data_logger/sensor_data_logger.egg-info/top_level.txt
+[3.123s] reading manifest file '../build/sensor_data_logger/sensor_data_logger.egg-info/SOURCES.txt'
+[3.125s] writing manifest file '../build/sensor_data_logger/sensor_data_logger.egg-info/SOURCES.txt'
+[3.125s] running build
+[3.125s] running build_py
+[3.125s] running install
+[3.126s] running install_lib
+[3.128s] running install_data
+[3.128s] running install_egg_info
+[3.131s] removing '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages/sensor_data_logger-0.0.0-py3.10.egg-info' (and everything under it)
+[3.131s] Copying ../build/sensor_data_logger/sensor_data_logger.egg-info to /home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages/sensor_data_logger-0.0.0-py3.10.egg-info
+[3.141s] running install_scripts
+[3.168s] Installing sensor_data_logger script to /home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/sensor_data_logger
+[3.169s] writing list of installed files to '/home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/install.log'
+[3.400s] Invoked command in '/home/widha893/ros2_hil_quadrotor/sensor_data_logger' returned '0': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/sensor_data_logger build --build-base /home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/build install --record /home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/install.log --single-version-externally-managed install_data

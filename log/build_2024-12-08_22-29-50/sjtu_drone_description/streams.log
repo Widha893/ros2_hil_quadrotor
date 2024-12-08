@@ -1,0 +1,145 @@
+[1.084s] Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
+[1.199s] [35m[1mConsolidate compiler generated dependencies of target plugin_drone[0m
+[1.289s] [ 20%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o[0m
+[1.293s] [ 40%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o[0m
+[12.726s] In file included from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone.h:23[m[K,
+[12.726s]                  from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone.cpp:15[m[K:
+[12.726s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:190:36:[m[K [01;31m[Kerror: [m[K‘[01m[KFloat64[m[K’ is not a member of ‘[01m[Kstd_msgs::msg[m[K’
+[12.726s]   190 |   rclcpp::Publisher<std_msgs::msg::[01;31m[KFloat64[m[K>::SharedPtr pub_roll_command{nullptr}; //for publishing roll command
+[12.726s]       |                                    [01;31m[K^~~~~~~[m[K
+[12.726s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:190:43:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[12.727s]   190 |   rclcpp::Publisher<std_msgs::msg::Float64[01;31m[K>[m[K::SharedPtr pub_roll_command{nullptr}; //for publishing roll command
+[12.727s]       |                                           [01;31m[K^[m[K
+[12.727s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:190:46:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[12.727s]   190 |   rclcpp::Publisher<std_msgs::msg::Float64>::[01;31m[KSharedPtr[m[K pub_roll_command{nullptr}; //for publishing roll command
+[12.727s]       |                                              [01;31m[K^~~~~~~~~[m[K
+[12.727s]       |                                                       [32m[K;[m[K
+[12.744s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:190:56:[m[K [01;31m[Kerror: [m[K‘[01m[Kpub_roll_command[m[K’ does not name a type
+[12.744s]   190 |   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr [01;31m[Kpub_roll_command[m[K{nullptr}; //for publishing roll command
+[12.745s]       |                                                        [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[12.745s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:190:81:[m[K [01;35m[Kwarning: [m[Kextra ‘[01m[K;[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+[12.745s]   190 |   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr pub_roll_command{nullptr}[01;35m[K;[m[K //for publishing roll command
+[12.745s]       |                                                                                 [01;35m[K^[m[K
+[12.745s]       |                                                                                 [31m[K-[m[K
+[12.748s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:191:36:[m[K [01;31m[Kerror: [m[K‘[01m[KFloat64[m[K’ is not a member of ‘[01m[Kstd_msgs::msg[m[K’
+[12.748s]   191 |   rclcpp::Publisher<std_msgs::msg::[01;31m[KFloat64[m[K>::SharedPtr pub_pitch_command{nullptr}; //for publishing pitch command
+[12.749s]       |                                    [01;31m[K^~~~~~~[m[K
+[12.749s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:191:43:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[12.749s]   191 |   rclcpp::Publisher<std_msgs::msg::Float64[01;31m[K>[m[K::SharedPtr pub_pitch_command{nullptr}; //for publishing pitch command
+[12.749s]       |                                           [01;31m[K^[m[K
+[12.749s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:191:46:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[12.749s]   191 |   rclcpp::Publisher<std_msgs::msg::Float64>::[01;31m[KSharedPtr[m[K pub_pitch_command{nullptr}; //for publishing pitch command
+[12.749s]       |                                              [01;31m[K^~~~~~~~~[m[K
+[12.749s]       |                                                       [32m[K;[m[K
+[12.749s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:191:46:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kint gazebo_plugins::DroneSimpleControllerPrivate::SharedPtr[m[K’
+[12.749s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:190:46:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kint gazebo_plugins::DroneSimpleControllerPrivate::SharedPtr[m[K’
+[12.749s]   190 |   rclcpp::Publisher<std_msgs::msg::Float64>::[01;36m[KSharedPtr[m[K pub_roll_command{nullptr}; //for publishing roll command
+[12.750s]       |                                              [01;36m[K^~~~~~~~~[m[K
+[12.767s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:191:56:[m[K [01;31m[Kerror: [m[K‘[01m[Kpub_pitch_command[m[K’ does not name a type
+[12.767s]   191 |   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr [01;31m[Kpub_pitch_command[m[K{nullptr}; //for publishing pitch command
+[12.767s]       |                                                        [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[12.768s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:191:82:[m[K [01;35m[Kwarning: [m[Kextra ‘[01m[K;[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+[12.768s]   191 |   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr pub_pitch_command{nullptr}[01;35m[K;[m[K //for publishing pitch command
+[12.768s]       |                                                                                  [01;35m[K^[m[K
+[12.768s]       |                                                                                  [31m[K-[m[K
+[12.813s] In file included from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:18[m[K:
+[12.813s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:190:36:[m[K [01;31m[Kerror: [m[K‘[01m[KFloat64[m[K’ is not a member of ‘[01m[Kstd_msgs::msg[m[K’
+[12.813s]   190 |   rclcpp::Publisher<std_msgs::msg::[01;31m[KFloat64[m[K>::SharedPtr pub_roll_command{nullptr}; //for publishing roll command
+[12.814s]       |                                    [01;31m[K^~~~~~~[m[K
+[12.814s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:190:43:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[12.814s]   190 |   rclcpp::Publisher<std_msgs::msg::Float64[01;31m[K>[m[K::SharedPtr pub_roll_command{nullptr}; //for publishing roll command
+[12.814s]       |                                           [01;31m[K^[m[K
+[12.814s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:190:46:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[12.814s]   190 |   rclcpp::Publisher<std_msgs::msg::Float64>::[01;31m[KSharedPtr[m[K pub_roll_command{nullptr}; //for publishing roll command
+[12.814s]       |                                              [01;31m[K^~~~~~~~~[m[K
+[12.814s]       |                                                       [32m[K;[m[K
+[12.831s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:190:56:[m[K [01;31m[Kerror: [m[K‘[01m[Kpub_roll_command[m[K’ does not name a type
+[12.831s]   190 |   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr [01;31m[Kpub_roll_command[m[K{nullptr}; //for publishing roll command
+[12.831s]       |                                                        [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[12.831s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:190:81:[m[K [01;35m[Kwarning: [m[Kextra ‘[01m[K;[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+[12.832s]   190 |   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr pub_roll_command{nullptr}[01;35m[K;[m[K //for publishing roll command
+[12.832s]       |                                                                                 [01;35m[K^[m[K
+[12.832s]       |                                                                                 [31m[K-[m[K
+[12.834s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:191:36:[m[K [01;31m[Kerror: [m[K‘[01m[KFloat64[m[K’ is not a member of ‘[01m[Kstd_msgs::msg[m[K’
+[12.835s]   191 |   rclcpp::Publisher<std_msgs::msg::[01;31m[KFloat64[m[K>::SharedPtr pub_pitch_command{nullptr}; //for publishing pitch command
+[12.835s]       |                                    [01;31m[K^~~~~~~[m[K
+[12.835s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:191:43:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[12.835s]   191 |   rclcpp::Publisher<std_msgs::msg::Float64[01;31m[K>[m[K::SharedPtr pub_pitch_command{nullptr}; //for publishing pitch command
+[12.835s]       |                                           [01;31m[K^[m[K
+[12.835s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:191:46:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[12.835s]   191 |   rclcpp::Publisher<std_msgs::msg::Float64>::[01;31m[KSharedPtr[m[K pub_pitch_command{nullptr}; //for publishing pitch command
+[12.835s]       |                                              [01;31m[K^~~~~~~~~[m[K
+[12.835s]       |                                                       [32m[K;[m[K
+[12.835s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:191:46:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kint gazebo_plugins::DroneSimpleControllerPrivate::SharedPtr[m[K’
+[12.835s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:190:46:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kint gazebo_plugins::DroneSimpleControllerPrivate::SharedPtr[m[K’
+[12.836s]   190 |   rclcpp::Publisher<std_msgs::msg::Float64>::[01;36m[KSharedPtr[m[K pub_roll_command{nullptr}; //for publishing roll command
+[12.836s]       |                                              [01;36m[K^~~~~~~~~[m[K
+[12.853s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:191:56:[m[K [01;31m[Kerror: [m[K‘[01m[Kpub_pitch_command[m[K’ does not name a type
+[12.853s]   191 |   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr [01;31m[Kpub_pitch_command[m[K{nullptr}; //for publishing pitch command
+[12.853s]       |                                                        [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[12.853s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:191:82:[m[K [01;35m[Kwarning: [m[Kextra ‘[01m[K;[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+[12.853s]   191 |   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr pub_pitch_command{nullptr}[01;35m[K;[m[K //for publishing pitch command
+[12.853s]       |                                                                                  [01;35m[K^[m[K
+[12.853s]       |                                                                                  [31m[K-[m[K
+[12.931s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DroneSimpleControllerPrivate::InitPublishers(std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string)[m[K’:
+[12.931s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:211:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpub_roll_command[m[K’ was not declared in this scope
+[12.931s]   211 |     [01;31m[Kpub_roll_command[m[K = ros_node_->create_publisher<std_msgs::msg::Float64>(roll_command_topic_, 1024);
+[12.931s]       |     [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[12.934s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:211:67:[m[K [01;31m[Kerror: [m[K‘[01m[KFloat64[m[K’ is not a member of ‘[01m[Kstd_msgs::msg[m[K’
+[12.935s]   211 |     pub_roll_command = ros_node_->create_publisher<std_msgs::msg::[01;31m[KFloat64[m[K>(roll_command_topic_, 1024);
+[12.935s]       |                                                                   [01;31m[K^~~~~~~[m[K
+[12.935s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:211:75:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Krclcpp::Node::create_publisher<<expression error> >(std::string&, int)[m[K’
+[12.935s]   211 |     pub_roll_command = [01;31m[Kros_node_->create_publisher<std_msgs::msg::Float64>(roll_command_topic_, 1024)[m[K;
+[12.935s]       |                        [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[12.935s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:1321[m[K,
+[12.935s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28[m[K,
+[12.935s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:22[m[K,
+[12.935s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[12.935s]                  from [01m[K/opt/ros/humble/include/gazebo_ros/node.hpp:18[m[K,
+[12.935s]                  from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:18[m[K,
+[12.936s]                  from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:18[m[K:
+[12.936s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node_impl.hpp:73:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)[m[K’
+[12.936s]    73 | [01;36m[KNode[m[K::create_publisher(
+[12.936s]       | [01;36m[K^~~~[m[K
+[12.936s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node_impl.hpp:73:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[12.936s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:211:75:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[12.936s]   211 |     pub_roll_command = [01;31m[Kros_node_->create_publisher<std_msgs::msg::Float64>(roll_command_topic_, 1024)[m[K;
+[12.936s]       |                        [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[12.984s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:217:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpub_pitch_command[m[K’ was not declared in this scope
+[12.984s]   217 |     [01;31m[Kpub_pitch_command[m[K = ros_node_->create_publisher<std_msgs::msg::Float64>(pitch_command_topic_, 1024);
+[12.984s]       |     [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[12.987s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:217:68:[m[K [01;31m[Kerror: [m[K‘[01m[KFloat64[m[K’ is not a member of ‘[01m[Kstd_msgs::msg[m[K’
+[12.988s]   217 |     pub_pitch_command = ros_node_->create_publisher<std_msgs::msg::[01;31m[KFloat64[m[K>(pitch_command_topic_, 1024);
+[12.988s]       |                                                                    [01;31m[K^~~~~~~[m[K
+[12.988s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:217:76:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Krclcpp::Node::create_publisher<<expression error> >(std::string&, int)[m[K’
+[12.988s]   217 |     pub_pitch_command = [01;31m[Kros_node_->create_publisher<std_msgs::msg::Float64>(pitch_command_topic_, 1024)[m[K;
+[12.988s]       |                         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[12.988s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:1321[m[K,
+[12.988s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28[m[K,
+[12.988s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:22[m[K,
+[12.988s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[12.988s]                  from [01m[K/opt/ros/humble/include/gazebo_ros/node.hpp:18[m[K,
+[12.988s]                  from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:18[m[K,
+[12.989s]                  from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:18[m[K:
+[12.989s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node_impl.hpp:73:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)[m[K’
+[12.989s]    73 | [01;36m[KNode[m[K::create_publisher(
+[12.989s]       | [01;36m[K^~~~[m[K
+[12.989s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node_impl.hpp:73:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[12.989s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:217:76:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[12.989s]   217 |     pub_pitch_command = [01;31m[Kros_node_->create_publisher<std_msgs::msg::Float64>(pitch_command_topic_, 1024)[m[K;
+[12.989s]       |                         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[13.079s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DroneSimpleControllerPrivate::UpdateDynamics(double)[m[K’:
+[13.079s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:698:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kpub_pitch_command[m[K’ was not declared in this scope; did you mean ‘[01m[Kpitch_command[m[K’?
+[13.079s]   698 |   [01;31m[Kpub_pitch_command[m[K->publish(pitch_command);
+[13.079s]       |   [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[13.079s]       |   [32m[Kpitch_command[m[K
+[13.118s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:703:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kpub_roll_command[m[K’ was not declared in this scope; did you mean ‘[01m[Kroll_command[m[K’?
+[13.118s]   703 |   [01;31m[Kpub_roll_command[m[K->publish(roll_command);
+[13.118s]       |   [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[13.118s]       |   [32m[Kroll_command[m[K
+[15.213s] gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:76: CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o] Error 1
+[15.213s] gmake[2]: *** Waiting for unfinished jobs....
+[21.606s] gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:90: CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o] Error 1
+[21.606s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/plugin_drone.dir/all] Error 2
+[21.606s] gmake: *** [Makefile:146: all] Error 2
+[21.608s] Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
