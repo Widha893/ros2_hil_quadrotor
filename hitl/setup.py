@@ -22,7 +22,8 @@ setup(
         'console_scripts': [
             'communication = hitl.communication:main',
             'receiver = hitl.receiver:main',
-            'hitl_node = hitl.hitl_node:main'
+            'hitl_node = hitl.hitl_node:main',
+            'data_analyzer = hitl.data_analyzer:main'
         ],
     },
 )

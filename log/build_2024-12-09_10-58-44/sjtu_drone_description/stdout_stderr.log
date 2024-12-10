@@ -1,0 +1,11 @@
+[35m[1mConsolidate compiler generated dependencies of target plugin_drone[0m
+[ 20%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o[0m
+[01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone.cpp:[m[K In member function ‘[01m[Kvirtual void gazebo_plugins::DroneSimpleController::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)[m[K’:
+[01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone.cpp:126:10:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass gazebo_plugins::DroneSimpleControllerPrivate[m[K’ has no member named ‘[01m[KInitSerial[m[K’
+  126 |   impl_->[01;31m[KInitSerial[m[K();
+      |          [01;31m[K^~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:76: CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/plugin_drone.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

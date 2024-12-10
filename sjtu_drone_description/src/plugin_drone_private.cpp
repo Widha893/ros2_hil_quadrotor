@@ -29,21 +29,21 @@ DroneSimpleControllerPrivate::DroneSimpleControllerPrivate()
   , odom_seq(0)
   , odom_hz(30)
   , last_odom_publish_time_(0.0)
-  , io_()
-  , serial_port_(io_)  // Initialize serial_port with io_context
+  // , io_()
+  // , serial_port_(io_)  // Initialize serial_port with io_context
 {
-  io_thread_ = std::thread([this]() { io_.run(); });
+  // io_thread_ = std::thread([this]() { io_.run(); });
 }
 
 DroneSimpleControllerPrivate::~DroneSimpleControllerPrivate() 
 {
-  if (serial_port_.is_open()) {
-        serial_port_.close();
-  }
-  io_.stop();
-  if (io_thread_.joinable()) {
-      io_thread_.join();
-  }
+  // if (serial_port_.is_open()) {
+  //       serial_port_.close();
+  // }
+  // io_.stop();
+  // if (io_thread_.joinable()) {
+  //     io_thread_.join();
+  // }
 }
 
 void DroneSimpleControllerPrivate::Reset()
@@ -167,7 +167,9 @@ void DroneSimpleControllerPrivate::InitPublishers(
   std::string gt_acc_topic_,
   std::string cmd_mode_topic_,
   std::string state_topic_,
-  std::string odom_topic_)
+  std::string odom_topic_,
+  std::string roll_command_topic_,
+  std::string pitch_command_topic_)
 {
   if (!gt_topic_.empty()) {
     pub_gt_pose_ = ros_node_->create_publisher<geometry_msgs::msg::Pose>(gt_topic_, 1024);
@@ -203,6 +205,18 @@ void DroneSimpleControllerPrivate::InitPublishers(
     pub_odom_ = ros_node_->create_publisher<nav_msgs::msg::Odometry>(odom_topic_, 1024);
   } else {
     RCLCPP_ERROR(ros_node_->get_logger(), "No odom topic defined!");
+  }
+  
+  if (!roll_command_topic_.empty()) {
+    pub_roll_command = ros_node_->create_publisher<std_msgs::msg::Float64>(roll_command_topic_, 1024);
+  } else {
+    RCLCPP_ERROR(ros_node_->get_logger(), "No roll command topic defined!");
+  }
+
+  if (!pitch_command_topic_.empty()) {
+    pub_pitch_command = ros_node_->create_publisher<std_msgs::msg::Float64>(pitch_command_topic_, 1024);
+  } else {
+    RCLCPP_ERROR(ros_node_->get_logger(), "No pitch command topic defined!");
   }
 }
 
@@ -240,133 +254,6 @@ void DroneSimpleControllerPrivate::LoadControllerSettings(
       "\tPosition XY:\n" << "\t\tkP: " << controllers_.pos_x.gain_p << ", kI: " << controllers_.pos_x.gain_i << ",kD: " << controllers_.pos_x.gain_d << ", Limit: " << controllers_.pos_x.limit << ", Time Constant: " << controllers_.pos_x.time_constant << "\n" <<
       "\tPosition Z:\n" << "\t\tkP: " << controllers_.pos_z.gain_p << ", kI: " << controllers_.pos_z.gain_i << ",kD: " << controllers_.pos_z.gain_d << ", Limit: " << controllers_.pos_z.limit << ", Time Constant: " << controllers_.pos_z.time_constant
   );
-}
-
-void DroneSimpleControllerPrivate::InitSerial() {
-    try {
-        serial_port_.open("/dev/ttyACM0"); // Adjust device path as necessary
-        serial_port_.set_option(boost::asio::serial_port_base::baud_rate(115200));
-        serial_port_.set_option(boost::asio::serial_port_base::character_size(8));
-        serial_port_.set_option(boost::asio::serial_port_base::parity(boost::asio::serial_port_base::parity::none));
-        serial_port_.set_option(boost::asio::serial_port_base::stop_bits(boost::asio::serial_port_base::stop_bits::one));
-        serial_port_.set_option(boost::asio::serial_port_base::flow_control(boost::asio::serial_port_base::flow_control::none));
-
-        // Begin asynchronous read loop
-        ReadSerialMessage();
-
-        RCLCPP_INFO(rclcpp::get_logger("plugin_drone"), "Serial port initialized successfully.");
-    } catch (const std::exception &e) {
-        RCLCPP_ERROR(rclcpp::get_logger("plugin_drone"), "Error initializing serial port: %s", e.what());
-    }
-}
-
-void DroneSimpleControllerPrivate::ReadSerialMessage() {
-    boost::asio::async_read(serial_port_,
-        boost::asio::buffer(buffer_, 1),  // Reading 1 byte at a time
-        [this](boost::system::error_code ec, std::size_t bytes_transferred) {
-            if (!ec) {
-                // Handle successful read
-                handleSerialRead(ec, bytes_transferred);
-            } else {
-                RCLCPP_ERROR(rclcpp::get_logger("plugin_drone"), "Error in serial read: %s", ec.message().c_str());
-            }
-        });
-}
-
-void DroneSimpleControllerPrivate::handleSerialRead(const boost::system::error_code &ec, std::size_t bytes_transferred) {
-    if (!ec && bytes_transferred > 0) {
-        uint16_t message_size = (buffer_[1] << 8) | buffer_[2];
-        uint8_t checksum = 0;
-
-        for (size_t i = 0; i < message_size; ++i) {
-            checksum ^= buffer_[3 + i];
-        }
-
-        if (checksum != buffer_[3 + message_size]) {
-            RCLCPP_ERROR(rclcpp::get_logger("plugin_drone"), "Checksum mismatch.");
-            ReadSerialMessage();
-            return;
-        }
-
-        // Decode the message
-        decodeMessage(message_size);
-
-        // Start next read
-        ReadSerialMessage();
-    } else {
-        RCLCPP_ERROR(rclcpp::get_logger("plugin_drone"), "Error in serial read.");
-    }
-}
-
-void DroneSimpleControllerPrivate::decodeMessage(uint16_t message_size) {
-    pb_istream_t stream = pb_istream_from_buffer(buffer_ + 3, message_size);
-    msg_ = HWIL_msg_init_zero;
-    if (!pb_decode(&stream, HWIL_msg_fields, &msg_)) {
-        RCLCPP_ERROR(rclcpp::get_logger("plugin_drone"), "Failed to decode protobuf message.");
-    } else {
-        RCLCPP_INFO(rclcpp::get_logger("plugin_drone"), "Message received: force = %f, torque = [%f, %f, %f]",
-                    msg_.controls.total_force, msg_.controls.torque_y, msg_.controls.torque_y, msg_.controls.torque_z);
-    }
-}
-
-bool DroneSimpleControllerPrivate::receive_message() {
-  uint8_t buffer[MAX_MESSAGE_SIZE];
-        uint8_t checksum = 0;
-        uint16_t message_size = 0;
-
-        try {
-            // Read until we find the STX byte
-            while (true) {
-                uint8_t byte;
-                boost::asio::read(serial_port_, boost::asio::buffer(&byte, 1));
-                if (byte == STX) {
-                    break;
-                }
-            }
-
-            // Read message size
-            uint8_t size_bytes[2];
-            boost::asio::read(serial_port_, boost::asio::buffer(size_bytes, 2));
-            message_size = (size_bytes[0] << 8) | size_bytes[1];
-
-            if (message_size > MAX_MESSAGE_SIZE) {
-                std::cerr << "Message too large: " << message_size << "\n";
-                return false;
-            }
-
-            // Read the message payload
-            boost::asio::read(serial_port_, boost::asio::buffer(buffer, message_size));
-
-            // Compute checksum
-            for (uint16_t i = 0; i < message_size; ++i) {
-                checksum ^= buffer[i];
-            }
-
-            // Read the transmitted checksum
-            uint8_t received_checksum;
-            boost::asio::read(serial_port_, boost::asio::buffer(&received_checksum, 1));
-
-            // Verify checksum
-            if (checksum != received_checksum) {
-                std::cerr << "Checksum mismatch. Calculated: 0x" << std::hex << (int)checksum
-                          << ", Received: 0x" << std::hex << (int)received_checksum << "\n";
-                return false;
-            }
-
-            // Decode the message using nanopb
-            pb_istream_t stream = pb_istream_from_buffer(buffer, message_size);
-            msg = HWIL_msg_init_zero;
-
-            if (!pb_decode(&stream, HWIL_msg_fields, &msg)) {
-                std::cerr << "Failed to decode message\n";
-                return false;
-            }
-
-            return true;
-        } catch (const std::exception& e) {
-            std::cerr << "Error during serial read: " << e.what() << "\n";
-            return false;
-        }
 }
 
 // Callbacks
@@ -678,6 +565,20 @@ void DroneSimpleControllerPrivate::UpdateDynamics(double dt)
   force.Set(0.0, 0.0, 0.0);
   torque.Set(0.0, 0.0, 0.0);
 
+  std_msgs::msg::Float64 pitch_command_msg;
+  double pitch_command = controllers_.velocity_x.update(
+        cmd_vel.linear.x, velocity_xy[0],
+        acceleration_xy[0], dt) / gravity;
+  pitch_command_msg.data = pitch_command;
+  pub_pitch_command->publish(pitch_command_msg);
+
+  std_msgs::msg::Float64 roll_command_msg;
+  double roll_command = -controllers_.velocity_y.update(
+        cmd_vel.linear.y, velocity_xy[1],
+        acceleration_xy[1], dt) / gravity;
+  roll_command_msg.data = roll_command;
+  pub_roll_command->publish(roll_command_msg);
+
   if (m_posCtrl) {
     //position control
     if (navi_state == FLYING_MODEL) {
@@ -708,11 +609,34 @@ void DroneSimpleControllerPrivate::UpdateDynamics(double dt)
           dt) + load_factor * gravity);
     }
   } else if(m_hitl) {
-    std::cout << "Entering hitl mode!" << std::endl;
-    //normal control
+    // double pitch_command_hitl = controllers_.velocity_x.update(
+    //     cmd_vel.linear.x, velocity_xy[0],
+    //     acceleration_xy[0], dt) / gravity;
+    // double roll_command_hitl = -controllers_.velocity_y.update(
+    //     cmd_vel.linear.y, velocity_xy[1],
+    //     acceleration_xy[1], dt) / gravity;
+    // RCLCPP_INFO(ros_node_->get_logger(), "pitch_command_hitl: %.2f, roll_command_hitl: %.2f", pitch_command_hitl, roll_command_hitl);
+    
     if (navi_state == FLYING_MODEL) {
-      torque[0] = inertia[0] * control_roll;
-      torque[1] = inertia[1] * control_pitch;
+      // if (std::fmod(dt,3.0) == 0)
+      // {
+      //   roll_command_hitl = 0.401;
+      // }
+      // else {
+      //   roll_command_hitl = 0.0;
+      // }
+      // if (std::fmod(dt,5.0) == 0)
+      // {
+      //   pitch_command_hitl = 0.401;
+      // }
+      // else {
+      //   pitch_command_hitl = 0.0;
+      // }
+      // RCLCPP_INFO(ros_node_->get_logger(), "Roll Command: %.2f, Pitch Command: %.2f", roll_command_hitl, pitch_command_hitl);
+      
+      torque[0] = (inertia[0] * control_roll); //+ (inertia[0] * roll_command_hitl); 
+      torque[1] = (inertia[1] * control_pitch); //+ (inertia[1] * pitch_command_hitl);
+      RCLCPP_INFO(ros_node_->get_logger(), "Torque: %.2f, %.2f", torque[0], torque[1]);
       //TODO: add hover by distnace of sonar
     } 
     torque[2] = inertia[2] * control_yaw;

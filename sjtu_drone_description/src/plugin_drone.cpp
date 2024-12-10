@@ -123,7 +123,7 @@ void DroneSimpleController::Load(gazebo::physics::ModelPtr _model, sdf::ElementP
   impl_->inertia = impl_->link->GetInertial()->PrincipalMoments();
   impl_->mass = impl_->link->GetInertial()->Mass();
 
-  impl_->InitSerial();
+  // impl_->InitSerial();
   impl_->InitSubscribers();
   impl_->InitPublishers();
 

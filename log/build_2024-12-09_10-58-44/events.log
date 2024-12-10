@@ -1,0 +1,550 @@
+[0.000000] (-) TimerEvent: {}
+[0.000320] (hitl) JobQueued: {'identifier': 'hitl', 'dependencies': OrderedDict()}
+[0.000369] (sensor_data_logger) JobQueued: {'identifier': 'sensor_data_logger', 'dependencies': OrderedDict()}
+[0.000387] (sjtu_drone_bringup) JobQueued: {'identifier': 'sjtu_drone_bringup', 'dependencies': OrderedDict()}
+[0.000400] (sjtu_drone_control) JobQueued: {'identifier': 'sjtu_drone_control', 'dependencies': OrderedDict()}
+[0.000412] (sjtu_drone_description) JobQueued: {'identifier': 'sjtu_drone_description', 'dependencies': OrderedDict()}
+[0.000424] (hitl) JobStarted: {'identifier': 'hitl'}
+[0.056143] (sensor_data_logger) JobStarted: {'identifier': 'sensor_data_logger'}
+[0.064662] (sjtu_drone_bringup) JobStarted: {'identifier': 'sjtu_drone_bringup'}
+[0.070625] (sjtu_drone_control) JobStarted: {'identifier': 'sjtu_drone_control'}
+[0.075536] (sjtu_drone_description) JobStarted: {'identifier': 'sjtu_drone_description'}
+[0.099446] (-) TimerEvent: {}
+[0.199711] (-) TimerEvent: {}
+[0.300023] (-) TimerEvent: {}
+[0.400427] (-) TimerEvent: {}
+[0.500692] (-) TimerEvent: {}
+[0.601003] (-) TimerEvent: {}
+[0.701299] (-) TimerEvent: {}
+[0.801685] (-) TimerEvent: {}
+[0.902102] (-) TimerEvent: {}
+[1.002467] (-) TimerEvent: {}
+[1.102913] (-) TimerEvent: {}
+[1.199739] (sjtu_drone_description) JobProgress: {'identifier': 'sjtu_drone_description', 'progress': 'cmake'}
+[1.203026] (-) TimerEvent: {}
+[1.242091] (sjtu_drone_description) JobProgress: {'identifier': 'sjtu_drone_description', 'progress': 'build'}
+[1.244245] (sjtu_drone_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description', '--', '-j8', '-l8'], 'cwd': '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'widha893'), ('LC_TIME', 'id_ID.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/widha893'), ('OLDPWD', '/home/widha893'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'id_ID.UTF-8'), ('SYSTEMD_EXEC_PID', '2019'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/widha893/ros2_hil_quadrotor/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'widha893'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'widha893'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/widha893/.local/bin:/home/widha893/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/widha893:@/tmp/.ICE-unix/1736,unix/widha893:/tmp/.ICE-unix/1736'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'id_ID.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/84d4ef14_0b1d_4f22_9b57_d791d0bc8133'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'id_ID.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.5HTOY2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.121'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install:'), ('SHELL', '/bin/bash'), ('LC_NAME', 'id_ID.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'id_ID.UTF-8'), ('LC_IDENTIFICATION', 'id_ID.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'id_ID.UTF-8'), ('LC_PAPER', 'id_ID.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install:')]), 'shell': False}
+[1.303190] (-) TimerEvent: {}
+[1.403641] (-) TimerEvent: {}
+[1.503969] (-) TimerEvent: {}
+[1.604380] (-) TimerEvent: {}
+[1.704850] (-) TimerEvent: {}
+[1.805246] (-) TimerEvent: {}
+[1.906005] (-) TimerEvent: {}
+[2.006506] (-) TimerEvent: {}
+[2.106972] (-) TimerEvent: {}
+[2.207690] (-) TimerEvent: {}
+[2.308270] (-) TimerEvent: {}
+[2.408798] (-) TimerEvent: {}
+[2.509306] (-) TimerEvent: {}
+[2.609886] (-) TimerEvent: {}
+[2.710401] (-) TimerEvent: {}
+[2.745530] (sjtu_drone_description) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target plugin_drone\x1b[0m\n'}
+[2.810639] (-) TimerEvent: {}
+[2.911209] (-) TimerEvent: {}
+[2.948315] (sjtu_drone_description) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o\x1b[0m\n'}
+[2.951185] (sjtu_drone_description) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o\x1b[0m\n'}
+[2.970164] (sensor_data_logger) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/sensor_data_logger', 'build', '--build-base', '/home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/build', 'install', '--record', '/home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/widha893/ros2_hil_quadrotor/sensor_data_logger', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'widha893', 'LC_TIME': 'id_ID.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/widha893', 'OLDPWD': '/home/widha893', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'id_ID.UTF-8', 'SYSTEMD_EXEC_PID': '2019', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/widha893/ros2_hil_quadrotor/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'widha893', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'widha893', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/home/widha893/.local/bin:/home/widha893/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/widha893:@/tmp/.ICE-unix/1736,unix/widha893:/tmp/.ICE-unix/1736', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'id_ID.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/84d4ef14_0b1d_4f22_9b57_d791d0bc8133', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'id_ID.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.5HTOY2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.121', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install:', 'SHELL': '/bin/bash', 'LC_NAME': 'id_ID.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'id_ID.UTF-8', 'LC_IDENTIFICATION': 'id_ID.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/widha893/ros2_hil_quadrotor/build/sensor_data_logger', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'id_ID.UTF-8', 'LC_PAPER': 'id_ID.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description'}, 'shell': False}
+[2.975017] (hitl) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/hitl', 'build', '--build-base', '/home/widha893/ros2_hil_quadrotor/build/hitl/build', 'install', '--record', '/home/widha893/ros2_hil_quadrotor/build/hitl/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/widha893/ros2_hil_quadrotor/hitl', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'widha893', 'LC_TIME': 'id_ID.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/widha893', 'OLDPWD': '/home/widha893', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'id_ID.UTF-8', 'SYSTEMD_EXEC_PID': '2019', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/widha893/ros2_hil_quadrotor/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'widha893', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'widha893', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/home/widha893/.local/bin:/home/widha893/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/widha893:@/tmp/.ICE-unix/1736,unix/widha893:/tmp/.ICE-unix/1736', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'id_ID.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/84d4ef14_0b1d_4f22_9b57_d791d0bc8133', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'id_ID.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.5HTOY2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.121', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install:', 'SHELL': '/bin/bash', 'LC_NAME': 'id_ID.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'id_ID.UTF-8', 'LC_IDENTIFICATION': 'id_ID.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/widha893/ros2_hil_quadrotor/build/hitl', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/widha893/ros2_hil_quadrotor/build/hitl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'id_ID.UTF-8', 'LC_PAPER': 'id_ID.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description'}, 'shell': False}
+[2.986086] (sjtu_drone_bringup) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/sjtu_drone_bringup', 'build', '--build-base', '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/build', 'install', '--record', '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/widha893/ros2_hil_quadrotor/sjtu_drone_bringup', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'widha893', 'LC_TIME': 'id_ID.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/widha893', 'OLDPWD': '/home/widha893', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'id_ID.UTF-8', 'SYSTEMD_EXEC_PID': '2019', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/widha893/ros2_hil_quadrotor/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'widha893', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'widha893', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/home/widha893/.local/bin:/home/widha893/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/widha893:@/tmp/.ICE-unix/1736,unix/widha893:/tmp/.ICE-unix/1736', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'id_ID.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/84d4ef14_0b1d_4f22_9b57_d791d0bc8133', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'id_ID.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.5HTOY2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.121', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install:', 'SHELL': '/bin/bash', 'LC_NAME': 'id_ID.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'id_ID.UTF-8', 'LC_IDENTIFICATION': 'id_ID.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'id_ID.UTF-8', 'LC_PAPER': 'id_ID.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description'}, 'shell': False}
+[2.990818] (sjtu_drone_control) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/sjtu_drone_control', 'build', '--build-base', '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_control/build', 'install', '--record', '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_control/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/widha893/ros2_hil_quadrotor/sjtu_drone_control', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'widha893', 'LC_TIME': 'id_ID.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/widha893', 'OLDPWD': '/home/widha893', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'id_ID.UTF-8', 'SYSTEMD_EXEC_PID': '2019', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/widha893/ros2_hil_quadrotor/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'widha893', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'widha893', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/home/widha893/.local/bin:/home/widha893/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/widha893:@/tmp/.ICE-unix/1736,unix/widha893:/tmp/.ICE-unix/1736', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'id_ID.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/84d4ef14_0b1d_4f22_9b57_d791d0bc8133', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'id_ID.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.5HTOY2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.121', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble:/home/widha893/ros2_hil_quadrotor/install:', 'SHELL': '/bin/bash', 'LC_NAME': 'id_ID.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'id_ID.UTF-8', 'LC_IDENTIFICATION': 'id_ID.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_control', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'id_ID.UTF-8', 'LC_PAPER': 'id_ID.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_description'}, 'shell': False}
+[3.011535] (-) TimerEvent: {}
+[3.111921] (-) TimerEvent: {}
+[3.212269] (-) TimerEvent: {}
+[3.238917] (sensor_data_logger) StdoutLine: {'line': b'running egg_info\n'}
+[3.240037] (sensor_data_logger) StdoutLine: {'line': b'writing ../build/sensor_data_logger/sensor_data_logger.egg-info/PKG-INFO\n'}
+[3.240375] (sensor_data_logger) StdoutLine: {'line': b'writing dependency_links to ../build/sensor_data_logger/sensor_data_logger.egg-info/dependency_links.txt\n'}
+[3.240612] (sensor_data_logger) StdoutLine: {'line': b'writing entry points to ../build/sensor_data_logger/sensor_data_logger.egg-info/entry_points.txt\n'}
+[3.240941] (sensor_data_logger) StdoutLine: {'line': b'writing requirements to ../build/sensor_data_logger/sensor_data_logger.egg-info/requires.txt\n'}
+[3.241067] (sensor_data_logger) StdoutLine: {'line': b'writing top-level names to ../build/sensor_data_logger/sensor_data_logger.egg-info/top_level.txt\n'}
+[3.243601] (sensor_data_logger) StdoutLine: {'line': b"reading manifest file '../build/sensor_data_logger/sensor_data_logger.egg-info/SOURCES.txt'\n"}
+[3.263992] (sensor_data_logger) StdoutLine: {'line': b"writing manifest file '../build/sensor_data_logger/sensor_data_logger.egg-info/SOURCES.txt'\n"}
+[3.266595] (sensor_data_logger) StdoutLine: {'line': b'running build\n'}
+[3.266808] (sensor_data_logger) StdoutLine: {'line': b'running build_py\n'}
+[3.266907] (sensor_data_logger) StdoutLine: {'line': b'running install\n'}
+[3.266991] (sensor_data_logger) StdoutLine: {'line': b'running install_lib\n'}
+[3.271588] (sensor_data_logger) StdoutLine: {'line': b'running install_data\n'}
+[3.271800] (sensor_data_logger) StdoutLine: {'line': b'running install_egg_info\n'}
+[3.271896] (sensor_data_logger) StdoutLine: {'line': b"removing '/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages/sensor_data_logger-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[3.271984] (sensor_data_logger) StdoutLine: {'line': b'Copying ../build/sensor_data_logger/sensor_data_logger.egg-info to /home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/python3.10/site-packages/sensor_data_logger-0.0.0-py3.10.egg-info\n'}
+[3.292467] (sjtu_drone_control) StdoutLine: {'line': b'running egg_info\n'}
+[3.293049] (sjtu_drone_control) StdoutLine: {'line': b'writing ../build/sjtu_drone_control/sjtu_drone_control.egg-info/PKG-INFO\n'}
+[3.293266] (sjtu_drone_control) StdoutLine: {'line': b'writing dependency_links to ../build/sjtu_drone_control/sjtu_drone_control.egg-info/dependency_links.txt\n'}
+[3.293436] (sjtu_drone_control) StdoutLine: {'line': b'writing entry points to ../build/sjtu_drone_control/sjtu_drone_control.egg-info/entry_points.txt\n'}
+[3.293572] (sjtu_drone_control) StdoutLine: {'line': b'writing requirements to ../build/sjtu_drone_control/sjtu_drone_control.egg-info/requires.txt\n'}
+[3.293693] (sjtu_drone_control) StdoutLine: {'line': b'writing top-level names to ../build/sjtu_drone_control/sjtu_drone_control.egg-info/top_level.txt\n'}
+[3.295496] (sjtu_drone_control) StdoutLine: {'line': b"reading manifest file '../build/sjtu_drone_control/sjtu_drone_control.egg-info/SOURCES.txt'\n"}
+[3.296699] (hitl) StdoutLine: {'line': b'running egg_info\n'}
+[3.297563] (hitl) StdoutLine: {'line': b'writing ../build/hitl/hitl.egg-info/PKG-INFO\n'}
+[3.297847] (hitl) StdoutLine: {'line': b'writing dependency_links to ../build/hitl/hitl.egg-info/dependency_links.txt\n'}
+[3.298056] (hitl) StdoutLine: {'line': b'writing entry points to ../build/hitl/hitl.egg-info/entry_points.txt\n'}
+[3.298199] (hitl) StdoutLine: {'line': b'writing requirements to ../build/hitl/hitl.egg-info/requires.txt\n'}
+[3.298310] (hitl) StdoutLine: {'line': b'writing top-level names to ../build/hitl/hitl.egg-info/top_level.txt\n'}
+[3.308444] (sjtu_drone_control) StdoutLine: {'line': b"writing manifest file '../build/sjtu_drone_control/sjtu_drone_control.egg-info/SOURCES.txt'\n"}
+[3.308702] (sjtu_drone_control) StdoutLine: {'line': b'running build\n'}
+[3.308797] (sjtu_drone_control) StdoutLine: {'line': b'running build_py\n'}
+[3.308980] (sjtu_drone_control) StdoutLine: {'line': b'running install\n'}
+[3.309328] (sjtu_drone_control) StdoutLine: {'line': b'running install_lib\n'}
+[3.310516] (hitl) StdoutLine: {'line': b"reading manifest file '../build/hitl/hitl.egg-info/SOURCES.txt'\n"}
+[3.310772] (sjtu_drone_control) StdoutLine: {'line': b'running install_data\n'}
+[3.310930] (sjtu_drone_control) StdoutLine: {'line': b'running install_egg_info\n'}
+[3.312363] (-) TimerEvent: {}
+[3.312796] (sjtu_drone_control) StdoutLine: {'line': b"removing '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/python3.10/site-packages/sjtu_drone_control-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[3.313079] (sjtu_drone_control) StdoutLine: {'line': b'Copying ../build/sjtu_drone_control/sjtu_drone_control.egg-info to /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/python3.10/site-packages/sjtu_drone_control-0.0.0-py3.10.egg-info\n'}
+[3.317718] (sjtu_drone_bringup) StdoutLine: {'line': b'running egg_info\n'}
+[3.318357] (sjtu_drone_bringup) StdoutLine: {'line': b'writing ../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/PKG-INFO\n'}
+[3.318545] (sjtu_drone_bringup) StdoutLine: {'line': b'writing dependency_links to ../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/dependency_links.txt\n'}
+[3.318677] (sjtu_drone_bringup) StdoutLine: {'line': b'writing entry points to ../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/entry_points.txt\n'}
+[3.318779] (sjtu_drone_bringup) StdoutLine: {'line': b'writing requirements to ../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/requires.txt\n'}
+[3.318868] (sjtu_drone_bringup) StdoutLine: {'line': b'writing top-level names to ../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/top_level.txt\n'}
+[3.320719] (sjtu_drone_bringup) StdoutLine: {'line': b"reading manifest file '../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/SOURCES.txt'\n"}
+[3.326781] (sensor_data_logger) StdoutLine: {'line': b'running install_scripts\n'}
+[3.343829] (hitl) StdoutLine: {'line': b"writing manifest file '../build/hitl/hitl.egg-info/SOURCES.txt'\n"}
+[3.344041] (hitl) StdoutLine: {'line': b'running build\n'}
+[3.344134] (hitl) StdoutLine: {'line': b'running build_py\n'}
+[3.344249] (hitl) StdoutLine: {'line': b'copying hitl/hitl_node.py -> /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl\n'}
+[3.344490] (hitl) StdoutLine: {'line': b'running install\n'}
+[3.344822] (hitl) StdoutLine: {'line': b'running install_lib\n'}
+[3.345543] (hitl) StdoutLine: {'line': b'copying /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl/hitl_node.py -> /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl\n'}
+[3.346146] (hitl) StdoutLine: {'line': b'byte-compiling /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl/hitl_node.py to hitl_node.cpython-310.pyc\n'}
+[3.348109] (hitl) StdoutLine: {'line': b'running install_data\n'}
+[3.348329] (hitl) StdoutLine: {'line': b'running install_egg_info\n'}
+[3.350042] (hitl) StdoutLine: {'line': b"removing '/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[3.350309] (hitl) StdoutLine: {'line': b'Copying ../build/hitl/hitl.egg-info to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl-0.0.0-py3.10.egg-info\n'}
+[3.354339] (sensor_data_logger) StdoutLine: {'line': b'Installing sensor_data_logger script to /home/widha893/ros2_hil_quadrotor/install/sensor_data_logger/lib/sensor_data_logger\n'}
+[3.354760] (sensor_data_logger) StdoutLine: {'line': b"writing list of installed files to '/home/widha893/ros2_hil_quadrotor/build/sensor_data_logger/install.log'\n"}
+[3.356059] (sjtu_drone_control) StdoutLine: {'line': b'running install_scripts\n'}
+[3.356909] (sjtu_drone_bringup) StdoutLine: {'line': b"writing manifest file '../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/SOURCES.txt'\n"}
+[3.357165] (sjtu_drone_bringup) StdoutLine: {'line': b'running build\n'}
+[3.357283] (sjtu_drone_bringup) StdoutLine: {'line': b'running build_py\n'}
+[3.357555] (sjtu_drone_bringup) StdoutLine: {'line': b'running install\n'}
+[3.358023] (sjtu_drone_bringup) StdoutLine: {'line': b'running install_lib\n'}
+[3.359593] (hitl) StdoutLine: {'line': b'running install_scripts\n'}
+[3.359905] (sjtu_drone_bringup) StdoutLine: {'line': b'running install_data\n'}
+[3.360078] (sjtu_drone_bringup) StdoutLine: {'line': b'running install_egg_info\n'}
+[3.362094] (sjtu_drone_bringup) StdoutLine: {'line': b"removing '/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages/sjtu_drone_bringup-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[3.362464] (sjtu_drone_bringup) StdoutLine: {'line': b'Copying ../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info to /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages/sjtu_drone_bringup-0.0.0-py3.10.egg-info\n'}
+[3.370502] (sjtu_drone_bringup) StdoutLine: {'line': b'running install_scripts\n'}
+[3.387772] (sjtu_drone_control) StdoutLine: {'line': b'Installing drone_position_control script to /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/sjtu_drone_control\n'}
+[3.388174] (sjtu_drone_control) StdoutLine: {'line': b'Installing open_loop_control script to /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/sjtu_drone_control\n'}
+[3.388389] (sjtu_drone_control) StdoutLine: {'line': b'Installing teleop script to /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/sjtu_drone_control\n'}
+[3.388583] (sjtu_drone_control) StdoutLine: {'line': b'Installing teleop_joystick script to /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control/lib/sjtu_drone_control\n'}
+[3.389081] (sjtu_drone_control) StdoutLine: {'line': b"writing list of installed files to '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_control/install.log'\n"}
+[3.391499] (hitl) StdoutLine: {'line': b'Installing communication script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl\n'}
+[3.393051] (hitl) StdoutLine: {'line': b'Installing hitl_node script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl\n'}
+[3.393348] (hitl) StdoutLine: {'line': b'Installing receiver script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl\n'}
+[3.393531] (hitl) StdoutLine: {'line': b"writing list of installed files to '/home/widha893/ros2_hil_quadrotor/build/hitl/install.log'\n"}
+[3.393755] (sjtu_drone_bringup) StdoutLine: {'line': b'Installing spawn_drone script to /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/sjtu_drone_bringup\n'}
+[3.394186] (sjtu_drone_bringup) StdoutLine: {'line': b"writing list of installed files to '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/install.log'\n"}
+[3.400742] (sensor_data_logger) CommandEnded: {'returncode': 0}
+[3.412584] (-) TimerEvent: {}
+[3.513139] (-) TimerEvent: {}
+[3.514938] (sensor_data_logger) JobEnded: {'identifier': 'sensor_data_logger', 'rc': 0}
+[3.517651] (sjtu_drone_bringup) CommandEnded: {'returncode': 0}
+[3.539794] (sjtu_drone_bringup) JobEnded: {'identifier': 'sjtu_drone_bringup', 'rc': 0}
+[3.540606] (sjtu_drone_control) CommandEnded: {'returncode': 0}
+[3.552938] (sjtu_drone_control) JobEnded: {'identifier': 'sjtu_drone_control', 'rc': 0}
+[3.569106] (hitl) CommandEnded: {'returncode': 0}
+[3.580006] (hitl) JobEnded: {'identifier': 'hitl', 'rc': 0}
+[3.613293] (-) TimerEvent: {}
+[3.713771] (-) TimerEvent: {}
+[3.814251] (-) TimerEvent: {}
+[3.914746] (-) TimerEvent: {}
+[4.015169] (-) TimerEvent: {}
+[4.115569] (-) TimerEvent: {}
+[4.216137] (-) TimerEvent: {}
+[4.316777] (-) TimerEvent: {}
+[4.417338] (-) TimerEvent: {}
+[4.518129] (-) TimerEvent: {}
+[4.618857] (-) TimerEvent: {}
+[4.719401] (-) TimerEvent: {}
+[4.820047] (-) TimerEvent: {}
+[4.920716] (-) TimerEvent: {}
+[5.021388] (-) TimerEvent: {}
+[5.121962] (-) TimerEvent: {}
+[5.222533] (-) TimerEvent: {}
+[5.323130] (-) TimerEvent: {}
+[5.423643] (-) TimerEvent: {}
+[5.524195] (-) TimerEvent: {}
+[5.624664] (-) TimerEvent: {}
+[5.725169] (-) TimerEvent: {}
+[5.825631] (-) TimerEvent: {}
+[5.926008] (-) TimerEvent: {}
+[6.026593] (-) TimerEvent: {}
+[6.127100] (-) TimerEvent: {}
+[6.227585] (-) TimerEvent: {}
+[6.328101] (-) TimerEvent: {}
+[6.428651] (-) TimerEvent: {}
+[6.529325] (-) TimerEvent: {}
+[6.629868] (-) TimerEvent: {}
+[6.730181] (-) TimerEvent: {}
+[6.830851] (-) TimerEvent: {}
+[6.931412] (-) TimerEvent: {}
+[7.031772] (-) TimerEvent: {}
+[7.132289] (-) TimerEvent: {}
+[7.232877] (-) TimerEvent: {}
+[7.333501] (-) TimerEvent: {}
+[7.434081] (-) TimerEvent: {}
+[7.534482] (-) TimerEvent: {}
+[7.634824] (-) TimerEvent: {}
+[7.735168] (-) TimerEvent: {}
+[7.835542] (-) TimerEvent: {}
+[7.936119] (-) TimerEvent: {}
+[8.036523] (-) TimerEvent: {}
+[8.136930] (-) TimerEvent: {}
+[8.237512] (-) TimerEvent: {}
+[8.338003] (-) TimerEvent: {}
+[8.438361] (-) TimerEvent: {}
+[8.538684] (-) TimerEvent: {}
+[8.639056] (-) TimerEvent: {}
+[8.739398] (-) TimerEvent: {}
+[8.839792] (-) TimerEvent: {}
+[8.940284] (-) TimerEvent: {}
+[9.040602] (-) TimerEvent: {}
+[9.141136] (-) TimerEvent: {}
+[9.241675] (-) TimerEvent: {}
+[9.342081] (-) TimerEvent: {}
+[9.442607] (-) TimerEvent: {}
+[9.543107] (-) TimerEvent: {}
+[9.643497] (-) TimerEvent: {}
+[9.743891] (-) TimerEvent: {}
+[9.844414] (-) TimerEvent: {}
+[9.945235] (-) TimerEvent: {}
+[10.045888] (-) TimerEvent: {}
+[10.146549] (-) TimerEvent: {}
+[10.247112] (-) TimerEvent: {}
+[10.347619] (-) TimerEvent: {}
+[10.448405] (-) TimerEvent: {}
+[10.549026] (-) TimerEvent: {}
+[10.649502] (-) TimerEvent: {}
+[10.749831] (-) TimerEvent: {}
+[10.850177] (-) TimerEvent: {}
+[10.950537] (-) TimerEvent: {}
+[11.050954] (-) TimerEvent: {}
+[11.151506] (-) TimerEvent: {}
+[11.251886] (-) TimerEvent: {}
+[11.352475] (-) TimerEvent: {}
+[11.453051] (-) TimerEvent: {}
+[11.553773] (-) TimerEvent: {}
+[11.654281] (-) TimerEvent: {}
+[11.754839] (-) TimerEvent: {}
+[11.855410] (-) TimerEvent: {}
+[11.956104] (-) TimerEvent: {}
+[12.056816] (-) TimerEvent: {}
+[12.157328] (-) TimerEvent: {}
+[12.257700] (-) TimerEvent: {}
+[12.358070] (-) TimerEvent: {}
+[12.458391] (-) TimerEvent: {}
+[12.558700] (-) TimerEvent: {}
+[12.659135] (-) TimerEvent: {}
+[12.759563] (-) TimerEvent: {}
+[12.859947] (-) TimerEvent: {}
+[12.960323] (-) TimerEvent: {}
+[13.060684] (-) TimerEvent: {}
+[13.161085] (-) TimerEvent: {}
+[13.261402] (-) TimerEvent: {}
+[13.361711] (-) TimerEvent: {}
+[13.462095] (-) TimerEvent: {}
+[13.562498] (-) TimerEvent: {}
+[13.662801] (-) TimerEvent: {}
+[13.763363] (-) TimerEvent: {}
+[13.864138] (-) TimerEvent: {}
+[13.964498] (-) TimerEvent: {}
+[14.064935] (-) TimerEvent: {}
+[14.165282] (-) TimerEvent: {}
+[14.265627] (-) TimerEvent: {}
+[14.365968] (-) TimerEvent: {}
+[14.466346] (-) TimerEvent: {}
+[14.566907] (-) TimerEvent: {}
+[14.667298] (-) TimerEvent: {}
+[14.767618] (-) TimerEvent: {}
+[14.867950] (-) TimerEvent: {}
+[14.968302] (-) TimerEvent: {}
+[15.068662] (-) TimerEvent: {}
+[15.169030] (-) TimerEvent: {}
+[15.269377] (-) TimerEvent: {}
+[15.369717] (-) TimerEvent: {}
+[15.470178] (-) TimerEvent: {}
+[15.570557] (-) TimerEvent: {}
+[15.670959] (-) TimerEvent: {}
+[15.771351] (-) TimerEvent: {}
+[15.871780] (-) TimerEvent: {}
+[15.972214] (-) TimerEvent: {}
+[16.072566] (-) TimerEvent: {}
+[16.172900] (-) TimerEvent: {}
+[16.273231] (-) TimerEvent: {}
+[16.373570] (-) TimerEvent: {}
+[16.473938] (-) TimerEvent: {}
+[16.574258] (-) TimerEvent: {}
+[16.674570] (-) TimerEvent: {}
+[16.774904] (-) TimerEvent: {}
+[16.875279] (-) TimerEvent: {}
+[16.975583] (-) TimerEvent: {}
+[17.075909] (-) TimerEvent: {}
+[17.176268] (-) TimerEvent: {}
+[17.276605] (-) TimerEvent: {}
+[17.376926] (-) TimerEvent: {}
+[17.477280] (-) TimerEvent: {}
+[17.577591] (-) TimerEvent: {}
+[17.677945] (-) TimerEvent: {}
+[17.778313] (-) TimerEvent: {}
+[17.878658] (-) TimerEvent: {}
+[17.979049] (-) TimerEvent: {}
+[18.079418] (-) TimerEvent: {}
+[18.179812] (-) TimerEvent: {}
+[18.280185] (-) TimerEvent: {}
+[18.380540] (-) TimerEvent: {}
+[18.480878] (-) TimerEvent: {}
+[18.581203] (-) TimerEvent: {}
+[18.681567] (-) TimerEvent: {}
+[18.781876] (-) TimerEvent: {}
+[18.882189] (-) TimerEvent: {}
+[18.982510] (-) TimerEvent: {}
+[19.082841] (-) TimerEvent: {}
+[19.183212] (-) TimerEvent: {}
+[19.283538] (-) TimerEvent: {}
+[19.383880] (-) TimerEvent: {}
+[19.484226] (-) TimerEvent: {}
+[19.584572] (-) TimerEvent: {}
+[19.684935] (-) TimerEvent: {}
+[19.785279] (-) TimerEvent: {}
+[19.885620] (-) TimerEvent: {}
+[19.985980] (-) TimerEvent: {}
+[20.086312] (-) TimerEvent: {}
+[20.186701] (-) TimerEvent: {}
+[20.287076] (-) TimerEvent: {}
+[20.387461] (-) TimerEvent: {}
+[20.487762] (-) TimerEvent: {}
+[20.588117] (-) TimerEvent: {}
+[20.688445] (-) TimerEvent: {}
+[20.788803] (-) TimerEvent: {}
+[20.889175] (-) TimerEvent: {}
+[20.989566] (-) TimerEvent: {}
+[21.089958] (-) TimerEvent: {}
+[21.190329] (-) TimerEvent: {}
+[21.290643] (-) TimerEvent: {}
+[21.390964] (-) TimerEvent: {}
+[21.491363] (-) TimerEvent: {}
+[21.591681] (-) TimerEvent: {}
+[21.692007] (-) TimerEvent: {}
+[21.706535] (sjtu_drone_description) StderrLine: {'line': b'\x1b[01m\x1b[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void gazebo_plugins::DroneSimpleController::Load(gazebo::physics::ModelPtr, sdf::v9::ElementPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[21.707182] (sjtu_drone_description) StderrLine: {'line': b'\x1b[01m\x1b[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone.cpp:126:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kclass gazebo_plugins::DroneSimpleControllerPrivate\x1b[m\x1b[K\xe2\x80\x99 has no member named \xe2\x80\x98\x1b[01m\x1b[KInitSerial\x1b[m\x1b[K\xe2\x80\x99\n'}
+[21.707283] (sjtu_drone_description) StderrLine: {'line': b'  126 |   impl_->\x1b[01;31m\x1b[KInitSerial\x1b[m\x1b[K();\n'}
+[21.707341] (sjtu_drone_description) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[21.792185] (-) TimerEvent: {}
+[21.892534] (-) TimerEvent: {}
+[21.992874] (-) TimerEvent: {}
+[22.093204] (-) TimerEvent: {}
+[22.193563] (-) TimerEvent: {}
+[22.293899] (-) TimerEvent: {}
+[22.394263] (-) TimerEvent: {}
+[22.494595] (-) TimerEvent: {}
+[22.594946] (-) TimerEvent: {}
+[22.695375] (-) TimerEvent: {}
+[22.795793] (-) TimerEvent: {}
+[22.896218] (-) TimerEvent: {}
+[22.996655] (-) TimerEvent: {}
+[23.097029] (-) TimerEvent: {}
+[23.197397] (-) TimerEvent: {}
+[23.297763] (-) TimerEvent: {}
+[23.398117] (-) TimerEvent: {}
+[23.498530] (-) TimerEvent: {}
+[23.598851] (-) TimerEvent: {}
+[23.699163] (-) TimerEvent: {}
+[23.799498] (-) TimerEvent: {}
+[23.899849] (-) TimerEvent: {}
+[24.000201] (-) TimerEvent: {}
+[24.100584] (-) TimerEvent: {}
+[24.200921] (-) TimerEvent: {}
+[24.301237] (-) TimerEvent: {}
+[24.401616] (-) TimerEvent: {}
+[24.501988] (-) TimerEvent: {}
+[24.602313] (-) TimerEvent: {}
+[24.702657] (-) TimerEvent: {}
+[24.885255] (-) TimerEvent: {}
+[24.985659] (-) TimerEvent: {}
+[25.085991] (-) TimerEvent: {}
+[25.153102] (sjtu_drone_description) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:76: CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o] Error 1\n'}
+[25.153396] (sjtu_drone_description) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[25.186118] (-) TimerEvent: {}
+[25.286479] (-) TimerEvent: {}
+[25.386863] (-) TimerEvent: {}
+[25.487208] (-) TimerEvent: {}
+[25.587601] (-) TimerEvent: {}
+[25.687920] (-) TimerEvent: {}
+[25.788328] (-) TimerEvent: {}
+[25.888679] (-) TimerEvent: {}
+[25.989045] (-) TimerEvent: {}
+[26.089373] (-) TimerEvent: {}
+[26.189830] (-) TimerEvent: {}
+[26.290188] (-) TimerEvent: {}
+[26.390561] (-) TimerEvent: {}
+[26.490891] (-) TimerEvent: {}
+[26.591262] (-) TimerEvent: {}
+[26.691630] (-) TimerEvent: {}
+[26.792045] (-) TimerEvent: {}
+[26.892405] (-) TimerEvent: {}
+[26.992789] (-) TimerEvent: {}
+[27.093193] (-) TimerEvent: {}
+[27.193565] (-) TimerEvent: {}
+[27.293905] (-) TimerEvent: {}
+[27.394297] (-) TimerEvent: {}
+[27.494725] (-) TimerEvent: {}
+[27.595133] (-) TimerEvent: {}
+[27.695504] (-) TimerEvent: {}
+[27.795843] (-) TimerEvent: {}
+[27.896156] (-) TimerEvent: {}
+[27.996617] (-) TimerEvent: {}
+[28.097011] (-) TimerEvent: {}
+[28.197341] (-) TimerEvent: {}
+[28.297656] (-) TimerEvent: {}
+[28.397989] (-) TimerEvent: {}
+[28.498559] (-) TimerEvent: {}
+[28.599109] (-) TimerEvent: {}
+[28.699533] (-) TimerEvent: {}
+[28.799903] (-) TimerEvent: {}
+[28.900212] (-) TimerEvent: {}
+[29.000517] (-) TimerEvent: {}
+[29.100874] (-) TimerEvent: {}
+[29.201282] (-) TimerEvent: {}
+[29.301634] (-) TimerEvent: {}
+[29.402032] (-) TimerEvent: {}
+[29.502429] (-) TimerEvent: {}
+[29.602907] (-) TimerEvent: {}
+[29.703380] (-) TimerEvent: {}
+[29.803895] (-) TimerEvent: {}
+[29.904369] (-) TimerEvent: {}
+[30.004778] (-) TimerEvent: {}
+[30.105211] (-) TimerEvent: {}
+[30.205826] (-) TimerEvent: {}
+[30.306378] (-) TimerEvent: {}
+[30.407129] (-) TimerEvent: {}
+[30.507856] (-) TimerEvent: {}
+[30.608324] (-) TimerEvent: {}
+[30.708692] (-) TimerEvent: {}
+[30.809293] (-) TimerEvent: {}
+[30.909741] (-) TimerEvent: {}
+[31.010209] (-) TimerEvent: {}
+[31.110757] (-) TimerEvent: {}
+[31.211388] (-) TimerEvent: {}
+[31.311922] (-) TimerEvent: {}
+[31.412296] (-) TimerEvent: {}
+[31.512780] (-) TimerEvent: {}
+[31.613097] (-) TimerEvent: {}
+[31.713426] (-) TimerEvent: {}
+[31.813775] (-) TimerEvent: {}
+[31.914153] (-) TimerEvent: {}
+[32.014560] (-) TimerEvent: {}
+[32.114933] (-) TimerEvent: {}
+[32.215280] (-) TimerEvent: {}
+[32.315586] (-) TimerEvent: {}
+[32.415897] (-) TimerEvent: {}
+[32.516220] (-) TimerEvent: {}
+[32.616552] (-) TimerEvent: {}
+[32.716855] (-) TimerEvent: {}
+[32.817191] (-) TimerEvent: {}
+[32.917512] (-) TimerEvent: {}
+[33.017839] (-) TimerEvent: {}
+[33.118158] (-) TimerEvent: {}
+[33.218523] (-) TimerEvent: {}
+[33.318784] (-) TimerEvent: {}
+[33.419122] (-) TimerEvent: {}
+[33.519508] (-) TimerEvent: {}
+[33.619842] (-) TimerEvent: {}
+[33.720225] (-) TimerEvent: {}
+[33.820517] (-) TimerEvent: {}
+[33.920810] (-) TimerEvent: {}
+[34.021073] (-) TimerEvent: {}
+[34.121448] (-) TimerEvent: {}
+[34.221796] (-) TimerEvent: {}
+[34.322181] (-) TimerEvent: {}
+[34.422476] (-) TimerEvent: {}
+[34.522842] (-) TimerEvent: {}
+[34.623212] (-) TimerEvent: {}
+[34.723511] (-) TimerEvent: {}
+[34.823847] (-) TimerEvent: {}
+[34.924237] (-) TimerEvent: {}
+[35.024539] (-) TimerEvent: {}
+[35.124866] (-) TimerEvent: {}
+[35.225187] (-) TimerEvent: {}
+[35.325498] (-) TimerEvent: {}
+[35.425859] (-) TimerEvent: {}
+[35.526214] (-) TimerEvent: {}
+[35.626622] (-) TimerEvent: {}
+[35.726912] (-) TimerEvent: {}
+[35.827248] (-) TimerEvent: {}
+[35.927631] (-) TimerEvent: {}
+[36.027990] (-) TimerEvent: {}
+[36.128296] (-) TimerEvent: {}
+[36.228616] (-) TimerEvent: {}
+[36.328937] (-) TimerEvent: {}
+[36.429311] (-) TimerEvent: {}
+[36.529684] (-) TimerEvent: {}
+[36.630044] (-) TimerEvent: {}
+[36.730400] (-) TimerEvent: {}
+[36.830715] (-) TimerEvent: {}
+[36.931040] (-) TimerEvent: {}
+[37.031360] (-) TimerEvent: {}
+[37.131724] (-) TimerEvent: {}
+[37.232070] (-) TimerEvent: {}
+[37.332461] (-) TimerEvent: {}
+[37.432756] (-) TimerEvent: {}
+[37.533082] (-) TimerEvent: {}
+[37.633502] (-) TimerEvent: {}
+[37.733899] (-) TimerEvent: {}
+[37.834396] (-) TimerEvent: {}
+[37.934858] (-) TimerEvent: {}
+[38.035254] (-) TimerEvent: {}
+[38.135660] (-) TimerEvent: {}
+[38.235975] (-) TimerEvent: {}
+[38.336333] (-) TimerEvent: {}
+[38.436793] (-) TimerEvent: {}
+[38.537140] (-) TimerEvent: {}
+[38.637522] (-) TimerEvent: {}
+[38.737900] (-) TimerEvent: {}
+[38.838610] (-) TimerEvent: {}
+[38.939491] (-) TimerEvent: {}
+[39.040134] (-) TimerEvent: {}
+[39.140955] (-) TimerEvent: {}
+[39.241608] (-) TimerEvent: {}
+[39.342182] (-) TimerEvent: {}
+[39.442935] (-) TimerEvent: {}
+[39.543781] (-) TimerEvent: {}
+[39.644461] (-) TimerEvent: {}
+[39.744990] (-) TimerEvent: {}
+[39.845538] (-) TimerEvent: {}
+[39.946099] (-) TimerEvent: {}
+[40.046821] (-) TimerEvent: {}
+[40.147385] (-) TimerEvent: {}
+[40.248026] (-) TimerEvent: {}
+[40.348778] (-) TimerEvent: {}
+[40.449259] (-) TimerEvent: {}
+[40.549617] (-) TimerEvent: {}
+[40.649931] (-) TimerEvent: {}
+[40.750221] (-) TimerEvent: {}
+[40.850618] (-) TimerEvent: {}
+[40.951089] (-) TimerEvent: {}
+[41.051491] (-) TimerEvent: {}
+[41.151893] (-) TimerEvent: {}
+[41.252331] (-) TimerEvent: {}
+[41.352831] (-) TimerEvent: {}
+[41.453418] (-) TimerEvent: {}
+[41.553996] (-) TimerEvent: {}
+[41.654504] (-) TimerEvent: {}
+[41.755020] (-) TimerEvent: {}
+[41.855398] (-) TimerEvent: {}
+[41.895726] (sjtu_drone_description) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/plugin_drone.dir/all] Error 2\n'}
+[41.895961] (sjtu_drone_description) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[41.955683] (-) TimerEvent: {}
+[41.984805] (sjtu_drone_description) CommandEnded: {'returncode': 2}
+[42.055894] (-) TimerEvent: {}
+[42.156453] (-) TimerEvent: {}
+[42.256981] (-) TimerEvent: {}
+[42.357519] (-) TimerEvent: {}
+[42.458070] (-) TimerEvent: {}
+[42.558652] (-) TimerEvent: {}
+[42.659347] (-) TimerEvent: {}
+[42.760231] (-) TimerEvent: {}
+[42.850080] (sjtu_drone_description) JobEnded: {'identifier': 'sjtu_drone_description', 'rc': 2}
+[42.860782] (-) TimerEvent: {}
+[42.861866] (-) EventReactorShutdown: {}

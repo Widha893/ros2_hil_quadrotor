@@ -1,0 +1,23 @@
+[1.361s] Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
+[1.677s] [ 20%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o[0m
+[18.622s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DroneSimpleControllerPrivate::UpdateDynamics(double)[m[K’:
+[18.622s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:624:14:[m[K [01;31m[Kerror: [m[Kinvalid operands of types ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’ to binary ‘[01m[Koperator%[m[K’
+[18.622s]   624 |       if ([32m[Kdt[m[K [01;31m[K%[m[K [34m[K3.0[m[K == 0)
+[18.622s]       |           [32m[K~~[m[K [01;31m[K^[m[K [34m[K~~~[m[K
+[18.622s]       |           [32m[K|[m[K    [34m[K|[m[K
+[18.622s]       |           [32m[K|[m[K    [34m[Kdouble[m[K
+[18.622s]       |           [32m[Kdouble[m[K
+[18.622s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:631:14:[m[K [01;31m[Kerror: [m[Kinvalid operands of types ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’ to binary ‘[01m[Koperator%[m[K’
+[18.622s]   631 |       if ([32m[Kdt[m[K [01;31m[K%[m[K [34m[K5.0[m[K == 0)
+[18.622s]       |           [32m[K~~[m[K [01;31m[K^[m[K [34m[K~~~[m[K
+[18.622s]       |           [32m[K|[m[K    [34m[K|[m[K
+[18.623s]       |           [32m[K|[m[K    [34m[Kdouble[m[K
+[18.623s]       |           [32m[Kdouble[m[K
+[18.652s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:636:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kpich_command_hitl[m[K’ was not declared in this scope; did you mean ‘[01m[Kpitch_command_hitl[m[K’?
+[18.652s]   636 |         [01;31m[Kpich_command_hitl[m[K = 0.0;
+[18.652s]       |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[18.652s]       |         [32m[Kpitch_command_hitl[m[K
+[27.890s] gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:90: CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o] Error 1
+[27.890s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/plugin_drone.dir/all] Error 2
+[27.890s] gmake: *** [Makefile:146: all] Error 2
+[27.893s] Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8

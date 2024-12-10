@@ -31,16 +31,8 @@ message msg {
         required double total_force = 4;
     }
 
-    message Command {
-        required double roll = 1;
-        required double pitch = 2;
-        required double yaw = 3;
-        required double altitude = 4;
-    }
-
     optional Gains gains = 1;
     optional ControlData controls = 2;
     optional SensorData sensors = 3;
-    optional Command command = 4;
 
 }

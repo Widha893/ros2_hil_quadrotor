@@ -34,6 +34,7 @@
 #include <std_msgs/msg/string.hpp>
 #include <std_msgs/msg/int8.hpp>
 #include <std_msgs/msg/float64_multi_array.hpp>
+#include <std_msgs/msg/float64.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
@@ -41,7 +42,7 @@
 #include <tf2_ros/transform_broadcaster.h>
 
 #include "sjtu_drone_description/pid_controller.h"
-#include "sjtu_drone_description/messages.pb.h"
+// #include "sjtu_drone_description/messages.pb.h"
 #include <boost/asio.hpp>
 #include "sjtu_drone_description/pb_decode.h"
 
@@ -72,14 +73,15 @@ public:
   void InitPublishers(
     std::string gt_topic_ = "gt_pose", std::string gt_vel_topic_ = "gt_vel",
     std::string gt_acc_topic_ = "gt_acc", std::string cmd_mode_topic_ = "cmd_mode",
-    std::string state_topic_ = "state", std::string odom_topic_ = "odom");
+    std::string state_topic_ = "state", std::string odom_topic_ = "odom",
+    std::string roll_command_topic_ = "roll_command", std::string pitch_command_topic_ = "pitch_command");
   void LoadControllerSettings(gazebo::physics::ModelPtr _model, sdf::ElementPtr _sdf);
 
-  void InitSerial();
-  void ReadSerialMessage(); // Process incoming messages
-  void handleSerialRead(const boost::system::error_code &ec, std::size_t bytes_transferred);
-  void decodeMessage(uint16_t message_size);
-  bool receive_message();
+  // void InitSerial();
+  // void ReadSerialMessage(); // Process incoming messages
+  // void handleSerialRead(const boost::system::error_code &ec, std::size_t bytes_transferred);
+  // void decodeMessage(uint16_t message_size);
+  // bool receive_message();
 
   void UpdateState(double dt);
   void UpdateDynamics(double dt);
@@ -119,9 +121,9 @@ public:
   rclcpp::Node::SharedPtr ros_node_{nullptr};
   rclcpp::CallbackGroup::SharedPtr callback_group_{nullptr};
   std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
-  uint8_t buffer_[MAX_MESSAGE_SIZE]; // Buffer for incoming data
-  HWIL_msg msg = HWIL_msg_init_zero;
-  HWIL_msg msg_;
+  // uint8_t buffer_[MAX_MESSAGE_SIZE]; // Buffer for incoming data
+  // HWIL_msg msg = HWIL_msg_init_zero;
+  // HWIL_msg msg_;
 
 private:
   rclcpp::SubscriptionOptions create_subscription_options(
@@ -141,9 +143,9 @@ private:
 
   double last_odom_publish_time_;
 
-  boost::asio::io_context io_;                             // Corrected type
-  boost::asio::serial_port serial_port_;  // Manage the serial port's lifetime
-  std::thread io_thread_;
+  // boost::asio::io_context io_;                             // Corrected type
+  // boost::asio::serial_port serial_port_;  // Manage the serial port's lifetime
+  // std::thread io_thread_;
 
   void PublishOdom(
     const ignition::math::v6::Pose3<double> & pose,
@@ -186,6 +188,8 @@ private:
   rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_cmd_mode{nullptr}; //for publishing command mode
   rclcpp::Publisher<std_msgs::msg::Int8>::SharedPtr pub_state{nullptr}; //for publishing current STATE (Landed, Flying, Takingoff, Landing)
   rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pub_odom_{nullptr}; //for publishing odometry
+  rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr pub_roll_command{nullptr}; //for publishing roll command
+  rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr pub_pitch_command{nullptr}; //for publishing pitch command
 
   // PID Controller
   Controllers controllers_;

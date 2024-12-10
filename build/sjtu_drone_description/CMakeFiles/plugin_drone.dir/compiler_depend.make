@@ -5731,9 +5731,8 @@ CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o: /home/widha893/ros2_hil_quad
   /usr/include/gazebo-11/gazebo/transport/TransportIface.hh \
   /usr/include/gazebo-11/gazebo/Server.hh \
   /usr/include/gazebo-11/gazebo/Master.hh \
-  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/messages.pb.h \
-  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb.h \
-  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb_decode.h
+  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb_decode.h \
+  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb.h
 
 CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o: /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp \
   /usr/include/stdc-predef.h \
@@ -8955,9 +8954,8 @@ CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o: /home/widha893/ros2_
   /usr/include/gazebo-11/gazebo/transport/TransportIface.hh \
   /usr/include/gazebo-11/gazebo/Server.hh \
   /usr/include/gazebo-11/gazebo/Master.hh \
-  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/messages.pb.h \
-  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb.h \
-  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb_decode.h
+  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb_decode.h \
+  /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/pb.h
 
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__builder.hpp:
