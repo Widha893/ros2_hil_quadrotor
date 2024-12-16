@@ -29,22 +29,9 @@ DroneSimpleControllerPrivate::DroneSimpleControllerPrivate()
   , odom_seq(0)
   , odom_hz(30)
   , last_odom_publish_time_(0.0)
-  // , io_()
-  // , serial_port_(io_)  // Initialize serial_port with io_context
-{
-  // io_thread_ = std::thread([this]() { io_.run(); });
-}
+{}
 
-DroneSimpleControllerPrivate::~DroneSimpleControllerPrivate() 
-{
-  // if (serial_port_.is_open()) {
-  //       serial_port_.close();
-  // }
-  // io_.stop();
-  // if (io_thread_.joinable()) {
-  //     io_thread_.join();
-  // }
-}
+DroneSimpleControllerPrivate::~DroneSimpleControllerPrivate() {}
 
 void DroneSimpleControllerPrivate::Reset()
 {
@@ -609,33 +596,9 @@ void DroneSimpleControllerPrivate::UpdateDynamics(double dt)
           dt) + load_factor * gravity);
     }
   } else if(m_hitl) {
-    // double pitch_command_hitl = controllers_.velocity_x.update(
-    //     cmd_vel.linear.x, velocity_xy[0],
-    //     acceleration_xy[0], dt) / gravity;
-    // double roll_command_hitl = -controllers_.velocity_y.update(
-    //     cmd_vel.linear.y, velocity_xy[1],
-    //     acceleration_xy[1], dt) / gravity;
-    // RCLCPP_INFO(ros_node_->get_logger(), "pitch_command_hitl: %.2f, roll_command_hitl: %.2f", pitch_command_hitl, roll_command_hitl);
-    
     if (navi_state == FLYING_MODEL) {
-      // if (std::fmod(dt,3.0) == 0)
-      // {
-      //   roll_command_hitl = 0.401;
-      // }
-      // else {
-      //   roll_command_hitl = 0.0;
-      // }
-      // if (std::fmod(dt,5.0) == 0)
-      // {
-      //   pitch_command_hitl = 0.401;
-      // }
-      // else {
-      //   pitch_command_hitl = 0.0;
-      // }
-      // RCLCPP_INFO(ros_node_->get_logger(), "Roll Command: %.2f, Pitch Command: %.2f", roll_command_hitl, pitch_command_hitl);
-      
-      torque[0] = (inertia[0] * control_roll); //+ (inertia[0] * roll_command_hitl); 
-      torque[1] = (inertia[1] * control_pitch); //+ (inertia[1] * pitch_command_hitl);
+      torque[0] = (inertia[0] * control_roll); 
+      torque[1] = (inertia[1] * control_pitch);
       RCLCPP_INFO(ros_node_->get_logger(), "Torque: %.2f, %.2f", torque[0], torque[1]);
       //TODO: add hover by distnace of sonar
     } 
@@ -649,16 +612,6 @@ void DroneSimpleControllerPrivate::UpdateDynamics(double dt)
     //normal control
     std::cout << "hitl mode: " << m_hitl << std::endl;
     if (navi_state == FLYING_MODEL) {
-      // if (receive_message()){
-      //   // double total_force = msg_.controls.total_force;
-      //   double control_roll = msg_.controls.torque_x;
-      //   double control_pitch = msg_.controls.torque_y;
-      //   double control_yaw = msg_.controls.torque_z;
-
-      //   std::cout<< "control_roll: " << control_roll << std::endl;
-      //   std::cout<< "control_pitch: " << control_pitch << std::endl;
-      //   std::cout<< "control_yaw: " << control_yaw << std::endl;
-      // }
       //hovering
       double pitch_command = controllers_.velocity_x.update(
         cmd_vel.linear.x, velocity_xy[0],

@@ -42,9 +42,7 @@
 #include <tf2_ros/transform_broadcaster.h>
 
 #include "sjtu_drone_description/pid_controller.h"
-// #include "sjtu_drone_description/messages.pb.h"
 #include <boost/asio.hpp>
-#include "sjtu_drone_description/pb_decode.h"
 
 #define STX 0xFE
 #define MAX_MESSAGE_SIZE (HWIL_msg_size + 4)
@@ -76,12 +74,6 @@ public:
     std::string state_topic_ = "state", std::string odom_topic_ = "odom",
     std::string roll_command_topic_ = "roll_command", std::string pitch_command_topic_ = "pitch_command");
   void LoadControllerSettings(gazebo::physics::ModelPtr _model, sdf::ElementPtr _sdf);
-
-  // void InitSerial();
-  // void ReadSerialMessage(); // Process incoming messages
-  // void handleSerialRead(const boost::system::error_code &ec, std::size_t bytes_transferred);
-  // void decodeMessage(uint16_t message_size);
-  // bool receive_message();
 
   void UpdateState(double dt);
   void UpdateDynamics(double dt);
@@ -121,9 +113,6 @@ public:
   rclcpp::Node::SharedPtr ros_node_{nullptr};
   rclcpp::CallbackGroup::SharedPtr callback_group_{nullptr};
   std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
-  // uint8_t buffer_[MAX_MESSAGE_SIZE]; // Buffer for incoming data
-  // HWIL_msg msg = HWIL_msg_init_zero;
-  // HWIL_msg msg_;
 
 private:
   rclcpp::SubscriptionOptions create_subscription_options(
@@ -142,10 +131,6 @@ private:
   void SwitchModeCallback(const std_msgs::msg::Bool::SharedPtr msg);
 
   double last_odom_publish_time_;
-
-  // boost::asio::io_context io_;                             // Corrected type
-  // boost::asio::serial_port serial_port_;  // Manage the serial port's lifetime
-  // std::thread io_thread_;
 
   void PublishOdom(
     const ignition::math::v6::Pose3<double> & pose,

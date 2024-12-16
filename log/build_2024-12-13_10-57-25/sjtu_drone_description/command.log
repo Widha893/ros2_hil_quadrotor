@@ -1,0 +1,4 @@
+Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
+Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '0': /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
+Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': /usr/bin/cmake --install /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description
+Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '0': /usr/bin/cmake --install /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description

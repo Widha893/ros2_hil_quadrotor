@@ -210,30 +210,6 @@ plugin_drone/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/plugin_drone.dir/build.make CMakeFiles/plugin_drone.dir/build
 .PHONY : plugin_drone/fast
 
-include/sjtu_drone_description/messages.pb.o: include/sjtu_drone_description/messages.pb.c.o
-.PHONY : include/sjtu_drone_description/messages.pb.o
-
-# target to build an object file
-include/sjtu_drone_description/messages.pb.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plugin_drone.dir/build.make CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.o
-.PHONY : include/sjtu_drone_description/messages.pb.c.o
-
-include/sjtu_drone_description/messages.pb.i: include/sjtu_drone_description/messages.pb.c.i
-.PHONY : include/sjtu_drone_description/messages.pb.i
-
-# target to preprocess a source file
-include/sjtu_drone_description/messages.pb.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plugin_drone.dir/build.make CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.i
-.PHONY : include/sjtu_drone_description/messages.pb.c.i
-
-include/sjtu_drone_description/messages.pb.s: include/sjtu_drone_description/messages.pb.c.s
-.PHONY : include/sjtu_drone_description/messages.pb.s
-
-# target to generate assembly for a file
-include/sjtu_drone_description/messages.pb.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/plugin_drone.dir/build.make CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.s
-.PHONY : include/sjtu_drone_description/messages.pb.c.s
-
 src/pid_controller.o: src/pid_controller.cpp.o
 .PHONY : src/pid_controller.o
 
@@ -322,9 +298,6 @@ help:
 	@echo "... sjtu_drone_description_uninstall"
 	@echo "... uninstall"
 	@echo "... plugin_drone"
-	@echo "... include/sjtu_drone_description/messages.pb.o"
-	@echo "... include/sjtu_drone_description/messages.pb.i"
-	@echo "... include/sjtu_drone_description/messages.pb.s"
 	@echo "... src/pid_controller.o"
 	@echo "... src/pid_controller.i"
 	@echo "... src/pid_controller.s"

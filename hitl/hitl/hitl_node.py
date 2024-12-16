@@ -33,6 +33,8 @@ class HITLNode(Node):
         self.altitude = 0.0
         self.roll_setpoint = 0.0
         self.pitch_setpoint = 0.0
+        self.roll_command = 0.0
+        self.pitch_command = 0.0
 
         try:
             self.serial_port = Serial(self.port, self.baudrate, timeout=1)
@@ -45,6 +47,8 @@ class HITLNode(Node):
         # Topics for sensor data
         self.imu_topic = '/simple_drone/imu/out'
         self.alt_topic = '/simple_drone/sonar/out'
+        self.roll_command_topic = '/simple_drone/roll_command'
+        self.pitch_command_topic = '/simple_drone/pitch_command'
 
         # Initialize state flags
         self.imu_updated = False
@@ -68,6 +72,8 @@ class HITLNode(Node):
 
         # Create subscribers
         self.imu_subscriber = self.create_subscription(Imu, self.imu_topic, self.imu_callback, 10)
+        self.roll_command_subscriber = self.create_subscription(Float64, self.roll_command_topic, self.roll_command_callback, 10)
+        self.pitch_command_subscriber = self.create_subscription(Float64, self.pitch_command_topic, self.pitch_command_callback, 10)
         self.alt_subscriber = self.create_subscription(Range, self.alt_topic, self.alt_callback, 10)
 
     def imu_callback(self, msg: Imu):
@@ -81,9 +87,11 @@ class HITLNode(Node):
         self.angular_vel_z = msg.angular_velocity.z
         self.imu_updated = True
 
-        # if self.imu_updated:
-        #     self.send_to_micon()
-        #     self.reset_flags()
+    def roll_command_callback(self, msg: Float64):
+        self.roll_command = msg.data
+
+    def pitch_command_callback(self, msg: Float64):
+        self.pitch_command = msg.data
 
     def alt_callback(self, msg: Range):
         self.altitude = msg.range
@@ -93,7 +101,7 @@ class HITLNode(Node):
             # self.get_logger().info(f"Altitude = {self.altitude:.2f}, Euler Angles [Degrees]: Roll={self.roll:.2f}, Pitch={self.pitch:.2f}, Yaw={self.yaw:.2f}")
             self.send_to_micon()
             self.poll_serial()
-            self.publish_hitl_status(True)
+            # self.publish_hitl_status(True)
             self.reset_flags()
 
     def quaternion_to_roll(self, q_w, q_x, q_y, q_z):
@@ -123,6 +131,9 @@ class HITLNode(Node):
         _msg.sensors.pitch = self.pitch
         _msg.sensors.yaw = self.yaw
         _msg.sensors.altitude = self.altitude
+        _msg.command.roll = 0.0
+        _msg.command.pitch = 0.0
+        _msg.command.yaw = 0.0
 
         try:
             # # Send message to micon

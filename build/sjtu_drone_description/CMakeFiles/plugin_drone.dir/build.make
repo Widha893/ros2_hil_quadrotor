@@ -111,26 +111,11 @@ CMakeFiles/plugin_drone.dir/src/pid_controller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/plugin_drone.dir/src/pid_controller.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/pid_controller.cpp -o CMakeFiles/plugin_drone.dir/src/pid_controller.cpp.s
 
-CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.o: CMakeFiles/plugin_drone.dir/flags.make
-CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.o: /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/messages.pb.c
-CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.o: CMakeFiles/plugin_drone.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.o -MF CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.o.d -o CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.o -c /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/messages.pb.c
-
-CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/messages.pb.c > CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.i
-
-CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/messages.pb.c -o CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.s
-
 # Object files for target plugin_drone
 plugin_drone_OBJECTS = \
 "CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o" \
 "CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o" \
-"CMakeFiles/plugin_drone.dir/src/pid_controller.cpp.o" \
-"CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.o"
+"CMakeFiles/plugin_drone.dir/src/pid_controller.cpp.o"
 
 # External object files for target plugin_drone
 plugin_drone_EXTERNAL_OBJECTS =
@@ -138,7 +123,6 @@ plugin_drone_EXTERNAL_OBJECTS =
 /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so: CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o
 /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so: CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o
 /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so: CMakeFiles/plugin_drone.dir/src/pid_controller.cpp.o
-/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so: CMakeFiles/plugin_drone.dir/include/sjtu_drone_description/messages.pb.c.o
 /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so: CMakeFiles/plugin_drone.dir/build.make
 /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_c.so
 /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_cpp.so
@@ -399,7 +383,7 @@ plugin_drone_EXTERNAL_OBJECTS =
 /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so: /usr/lib/x86_64-linux-gnu/libuuid.so
 /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so: /usr/lib/x86_64-linux-gnu/libuuid.so
 /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so: CMakeFiles/plugin_drone.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library /home/widha893/ros2_hil_quadrotor/sjtu_drone_description/plugins/libplugin_drone.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/plugin_drone.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
