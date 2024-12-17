@@ -15,6 +15,7 @@ hitl/hitl_control.py
 hitl/hitl_node.py
 hitl/matplotlib_test.py
 hitl/messages_pb2.py
+hitl/quadrotor_controller.py
 hitl/receiver.py
 resource/hitl
 test/test_copyright.py

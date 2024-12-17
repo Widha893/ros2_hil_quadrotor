@@ -47,7 +47,7 @@ sys = control.ss(A, B, C, D)
 
 # LQR Controller
 def LQR():
-    Q = np.diag([100, 1, 400, 100, 400, 100, 4.2, 0.2])  # State cost
+    Q = np.diag([100, 1, 25, 17, 30, 8, 9, 1])  # State cost
     R = np.diag([1, 1, 1, 1])  # Input cost
     K, S, E = control.lqr(sys, Q, R)
     print("\nLQR Gain Matrix (K):")

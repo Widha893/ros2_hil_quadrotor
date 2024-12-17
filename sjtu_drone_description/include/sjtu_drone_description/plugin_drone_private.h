@@ -67,7 +67,8 @@ public:
     std::string imu_topic_ = "imu", std::string takeoff_topic_ = "takeoff",
     std::string land_topic_ = "land", std::string reset_topic_ = "reset",
     std::string switch_mode_topic_ = "dronevel_mode", std::string hitl_topic_ = "/hitl_node/hitl_status", /*Change back to /receiver/hitl if error*/
-    std::string control_data_topic_ = "/hitl_node/drone_control_signals"); /*Change back to /receiver/control_data if error*/
+    std::string control_data_topic_ = "/hitl_node/drone_control_signals", std::string sim_status_topic_ = "/quadrotor_controller/controller_status",
+    std::string sim_controller_topic_ = "/quadrotor_controller/drone_control_signals");
   void InitPublishers(
     std::string gt_topic_ = "gt_pose", std::string gt_vel_topic_ = "gt_vel",
     std::string gt_acc_topic_ = "gt_acc", std::string cmd_mode_topic_ = "cmd_mode",
@@ -98,6 +99,7 @@ public:
   int navi_state;
   bool m_posCtrl;
   bool m_hitl;
+  bool m_sim;
   bool m_velMode;
   int odom_seq;
   int odom_hz;
@@ -108,6 +110,10 @@ public:
   double control_roll;
   double control_pitch;
   double control_yaw;
+
+  double sim_roll;
+  double sim_pitch;
+  double sim_yaw;
 
   // rclcpp configuration
   rclcpp::Node::SharedPtr ros_node_{nullptr};
@@ -124,6 +130,8 @@ private:
   void PosCtrlCallback(const std_msgs::msg::Bool::SharedPtr cmd);
   void HITLCallback(const std_msgs::msg::Bool::SharedPtr cmd);
   void HITLControlCallback(const std_msgs::msg::Float64MultiArray::SharedPtr cmd);
+  void simStatusCallback(const std_msgs::msg::Bool::SharedPtr cmd);
+  void simControllerCallback(const std_msgs::msg::Float64MultiArray::SharedPtr cmd);
   void ImuCallback(const sensor_msgs::msg::Imu::SharedPtr imu);
   void TakeoffCallback(const std_msgs::msg::Empty::SharedPtr msg);
   void LandCallback(const std_msgs::msg::Empty::SharedPtr msg);
@@ -160,6 +168,8 @@ private:
   rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr posctrl_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr hitl_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr hitl_control_subscriber_{nullptr};
+  rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr sim_status_subscriber_{nullptr};
+  rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr sim_controller_subscriber_{nullptr};
   rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr takeoff_subscriber_{nullptr};
   rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr land_subscriber_{nullptr};

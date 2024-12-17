@@ -1,0 +1,19 @@
+[1.074s] Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
+[1.485s] [35m[1mConsolidate compiler generated dependencies of target plugin_drone[0m
+[1.667s] [ 25%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone.cpp.o[0m
+[1.668s] [ 50%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o[0m
+[19.267s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:60:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid gazebo_plugins::DroneSimpleControllerPrivate::InitSubscribers(std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string)[m[K’
+[19.267s]    60 | void [01;31m[KDroneSimpleControllerPrivate[m[K::InitSubscribers(
+[19.268s]       |      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[19.268s] In file included from [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/src/plugin_drone_private.cpp:18[m[K:
+[19.268s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:65:8:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvoid gazebo_plugins::DroneSimpleControllerPrivate::InitSubscribers(std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string)[m[K’
+[19.268s]    65 |   void [01;36m[KInitSubscribers[m[K(
+[19.268s]       |        [01;36m[K^~~~~~~~~~~~~~~[m[K
+[19.268s] [01m[K/home/widha893/ros2_hil_quadrotor/sjtu_drone_description/include/sjtu_drone_description/plugin_drone_private.h:58:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass gazebo_plugins::DroneSimpleControllerPrivate[m[K’ defined here
+[19.268s]    58 | class [01;36m[KDroneSimpleControllerPrivate[m[K
+[19.268s]       |       [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[23.105s] gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:90: CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o] Error 1
+[23.105s] gmake[2]: *** Waiting for unfinished jobs....
+[25.868s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/plugin_drone.dir/all] Error 2
+[25.868s] gmake: *** [Makefile:146: all] Error 2
+[25.930s] Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8

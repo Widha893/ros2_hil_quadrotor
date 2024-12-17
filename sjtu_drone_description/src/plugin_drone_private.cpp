@@ -25,6 +25,7 @@ DroneSimpleControllerPrivate::DroneSimpleControllerPrivate()
   , navi_state(LANDED_MODEL)
   , m_posCtrl(false)
   , m_hitl(false)
+  , m_sim(false)
   , m_velMode(false)
   , odom_seq(0)
   , odom_hz(30)
@@ -65,7 +66,9 @@ void DroneSimpleControllerPrivate::InitSubscribers(
   std::string reset_topic_,
   std::string switch_mode_topic_,
   std::string hitl_topic_,
-  std::string hitl_control_topic_)
+  std::string hitl_control_topic_,
+  std::string sim_status_topic_,
+  std::string sim_controller_topic_)
 {
   auto qos = rclcpp::QoS(rclcpp::KeepLast(1)).best_effort();
 
@@ -146,6 +149,22 @@ void DroneSimpleControllerPrivate::InitSubscribers(
       std::bind(&DroneSimpleControllerPrivate::HITLControlCallback, this, std::placeholders::_1));
   } else {
     RCLCPP_ERROR(ros_node_->get_logger(), "No hitl control topic defined!");
+  }
+
+  if (!sim_status_topic_.empty()) {
+    sim_status_subscriber_ = ros_node_->create_subscription<std_msgs::msg::Bool>(
+      sim_status_topic_, qos,
+      std::bind(&DroneSimpleControllerPrivate::simStatusCallback, this, std::placeholders::_1));
+  } else {
+    RCLCPP_ERROR(ros_node_->get_logger(), "No sim status topic defined!");
+  }
+
+  if (!sim_controller_topic_.empty()) {
+    sim_controller_subscriber_ = ros_node_->create_subscription<std_msgs::msg::Float64MultiArray>(
+      sim_controller_topic_, qos,
+      std::bind(&DroneSimpleControllerPrivate::simControllerCallback, this, std::placeholders::_1));
+  } else {
+    RCLCPP_ERROR(ros_node_->get_logger(), "No sim controller topic defined!");
   }
 }
 
@@ -310,9 +329,9 @@ void DroneSimpleControllerPrivate::HITLCallback(const std_msgs::msg::Bool::Share
   if(m_hitl) {
     RCLCPP_INFO(ros_node_->get_logger(), "Entering HITL mode!");
   }
-  else {
-    RCLCPP_INFO(ros_node_->get_logger(), "HITL mode false!");
-  }
+  // else {
+  //   RCLCPP_INFO(ros_node_->get_logger(), "HITL mode false!");
+  // }
 }
 
 void DroneSimpleControllerPrivate::HITLControlCallback(const std_msgs::msg::Float64MultiArray::SharedPtr cmd)
@@ -321,6 +340,24 @@ void DroneSimpleControllerPrivate::HITLControlCallback(const std_msgs::msg::Floa
   control_roll = cmd->data[1];
   control_pitch = cmd->data[2];
   control_yaw = cmd->data[3];
+}
+
+void DroneSimpleControllerPrivate::simStatusCallback(const std_msgs::msg::Bool::SharedPtr cmd)
+{
+  m_sim = cmd->data;
+  if(m_sim) {
+    RCLCPP_INFO(ros_node_->get_logger(), "Entering simulation mode!");
+  }
+  // else {
+  //   RCLCPP_INFO(ros_node_->get_logger(), "Simulation mode false!");
+  // }
+}
+
+void DroneSimpleControllerPrivate::simControllerCallback(const std_msgs::msg::Float64MultiArray::SharedPtr cmd)
+{
+  sim_roll = cmd->data[0];
+  sim_pitch = cmd->data[1];
+  sim_yaw = cmd->data[2];
 }
 
 /**
@@ -608,9 +645,20 @@ void DroneSimpleControllerPrivate::UpdateDynamics(double dt)
         cmd_vel.linear.z, velocity[2], acceleration[2],
         dt) + load_factor * gravity);
 
+  } else if(m_sim) {
+    if (navi_state == FLYING_MODEL) {
+      torque[0] = (inertia[0] * sim_roll); 
+      torque[1] = (inertia[1] * sim_pitch);
+      RCLCPP_INFO(ros_node_->get_logger(), "Torque: %.2f, %.2f", torque[0], torque[1]);
+    }
+    torque[2] = inertia[2] * sim_yaw;
+    force[2] = mass *
+      (controllers_.velocity_z.update(
+        cmd_vel.linear.z, velocity[2], acceleration[2],
+        dt) + load_factor * gravity);
   } else {
     //normal control
-    std::cout << "hitl mode: " << m_hitl << std::endl;
+    // std::cout << "hitl mode: " << m_hitl << std::endl;
     if (navi_state == FLYING_MODEL) {
       //hovering
       double pitch_command = controllers_.velocity_x.update(

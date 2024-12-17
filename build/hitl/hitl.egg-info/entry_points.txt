@@ -1,5 +1,6 @@
 [console_scripts]
 communication = hitl.communication:main
+controller = hitl.quadrotor_controller:main
 data_analyzer = hitl.data_analyzer:main
 hitl_node = hitl.hitl_node:main
 receiver = hitl.receiver:main

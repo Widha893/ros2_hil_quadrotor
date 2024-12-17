@@ -23,7 +23,8 @@ setup(
             'communication = hitl.communication:main',
             'receiver = hitl.receiver:main',
             'hitl_node = hitl.hitl_node:main',
-            'data_analyzer = hitl.data_analyzer:main'
+            'data_analyzer = hitl.data_analyzer:main',
+            'controller = hitl.quadrotor_controller:main'
         ],
     },
 )
