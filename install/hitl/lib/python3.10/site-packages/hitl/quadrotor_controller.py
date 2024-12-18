@@ -6,8 +6,9 @@ import numpy as np
 import math
 import time
 
-DT = 0.05
-MAX_VALUE = 100.0
+DT = 0.1
+MAX_VALUE = 25.0
+MAX_VALUE_YAW = 10.0
 
 class QuadrotorController(Node):
     def __init__(self):
@@ -17,12 +18,12 @@ class QuadrotorController(Node):
         self.roll_command_topic = '/simple_drone/roll_command'
         self.pitch_command_topic = '/simple_drone/pitch_command'
 
-        self.gain_roll = 10.000 # 20.00
-        self.gain_p = 5.526 # 10.228
-        self.gain_pitch = 5.477 # 20.00
-        self.gain_q = 3.043 # 10.228
-        self.gain_yaw = 3.000
-        self.gain_r = 1.519
+        self.gain_roll = 7.071 # 6.324
+        self.gain_p = 1.621 #5.144
+        self.gain_pitch = 6.324 # 20.00
+        self.gain_q = 1.400 # #4.611
+        self.gain_yaw = 7.071 # 3.000
+        self.gain_r = 1.756 # 1.519
 
         self.prev_quat = None
         self.prev_time = None
@@ -32,6 +33,9 @@ class QuadrotorController(Node):
         self.control_roll = 0.0
         self.control_pitch = 0.0
         self.control_yaw = 0.0
+        self.angular_velocity = [0.0, 0.0, 0.0]
+        self.angular_acceleration = [0.0, 0.0, 0.0]
+        self.prev_angular_velocity = None
 
         # Create publishers
         self.pub_control_signals = self.create_publisher(Float64MultiArray, '~/drone_control_signals', 10)
@@ -125,6 +129,12 @@ class QuadrotorController(Node):
         if self.prev_quat is not None and self.prev_time is not None:
             dt = current_time - self.prev_time
             self.angular_velocity = self.quaternion_to_angular_velocity(current_quat, self.prev_quat, dt)
+            
+             # Calculate angular acceleration
+            if self.prev_angular_velocity is not None:
+                self.angular_acceleration = (np.array(self.angular_velocity) - np.array(self.prev_angular_velocity)) / dt
+
+            self.prev_angular_velocity = self.angular_velocity
         
         self.prev_quat = current_quat
         self.prev_time = current_time
@@ -150,16 +160,16 @@ class QuadrotorController(Node):
         d_roll = self.gain_p * (self.setpoint_roll-self.angular_velocity[0])
         p_pitch = self.gain_pitch * error_pitch
         d_pitch = self.gain_q * (self.setpoint_pitch-self.angular_velocity[1])
-        p_yaw = self.gain_yaw * self.yaw
-        d_yaw = self.gain_r * self.angular_velocity[2]
+        p_yaw = self.gain_yaw * (self.setpoint_yaw-self.angular_velocity[2])
+        # d_yaw = self.gain_r * self.angular_velocity[2]
 
         self.control_roll = p_roll + d_roll
         self.control_pitch = p_pitch + d_pitch
-        self.control_yaw = p_yaw + d_yaw
+        self.control_yaw = p_yaw
 
         self.control_roll = np.clip(self.control_roll, -MAX_VALUE, MAX_VALUE)
         self.control_pitch = np.clip(self.control_pitch, -MAX_VALUE, MAX_VALUE)
-        self.control_yaw = -np.clip(self.control_yaw, -MAX_VALUE, MAX_VALUE)
+        self.control_yaw = np.clip(self.control_yaw, -MAX_VALUE_YAW, MAX_VALUE_YAW)
 
         control = Float64MultiArray()
         control.data = [self.control_roll, self.control_pitch, self.control_yaw]
