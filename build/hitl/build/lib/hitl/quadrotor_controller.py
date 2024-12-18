@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Imu, Range
-from std_msgs.msg import Float64MultiArray, Bool, Float64
+from std_msgs.msg import Float64MultiArray, Bool
 import numpy as np
 import math
 import time
@@ -19,11 +19,11 @@ class QuadrotorController(Node):
         self.pitch_command_topic = '/simple_drone/pitch_command'
 
         self.gain_roll = 7.071 # 6.324
-        self.gain_p = 1.621 #5.144
+        self.gain_p = 1.740 #5.144
         self.gain_pitch = 6.324 # 20.00
-        self.gain_q = 1.400 # #4.611
-        self.gain_yaw = 7.071 # 3.000
-        self.gain_r = 1.756 # 1.519
+        self.gain_q = 1.469 # #4.611
+        self.gain_yaw = 7.856 # 3.000
+        self.gain_r = 1.729 # 1.519
 
         self.prev_quat = None
         self.prev_time = None
@@ -34,8 +34,11 @@ class QuadrotorController(Node):
         self.control_pitch = 0.0
         self.control_yaw = 0.0
         self.angular_velocity = [0.0, 0.0, 0.0]
-        self.angular_acceleration = [0.0, 0.0, 0.0]
-        self.prev_angular_velocity = None
+
+        self.disturbance_interval = 10.0  # seconds
+        self.disturbance_duration = 1.0  # seconds
+        self.disturbance_applied = False
+        self.last_disturbance_time = self.get_clock().now().seconds_nanoseconds()[0]
 
         # Create publishers
         self.pub_control_signals = self.create_publisher(Float64MultiArray, '~/drone_control_signals', 10)
@@ -129,12 +132,6 @@ class QuadrotorController(Node):
         if self.prev_quat is not None and self.prev_time is not None:
             dt = current_time - self.prev_time
             self.angular_velocity = self.quaternion_to_angular_velocity(current_quat, self.prev_quat, dt)
-            
-             # Calculate angular acceleration
-            if self.prev_angular_velocity is not None:
-                self.angular_acceleration = (np.array(self.angular_velocity) - np.array(self.prev_angular_velocity)) / dt
-
-            self.prev_angular_velocity = self.angular_velocity
         
         self.prev_quat = current_quat
         self.prev_time = current_time
@@ -152,6 +149,17 @@ class QuadrotorController(Node):
         self.publish_controller_status(True)
         
     def control_system(self):
+        current_time = self.get_clock().now().seconds_nanoseconds()[0]
+
+        # Apply disturbance at intervals
+        if not self.disturbance_applied and current_time - self.last_disturbance_time >= self.disturbance_interval:
+            self.apply_disturbance()
+            self.last_disturbance_time = current_time
+
+        # Reset disturbance after the duration
+        if self.disturbance_applied and current_time - self.last_disturbance_time >= self.disturbance_duration:
+            self.reset_disturbance()
+
         error_roll = self.setpoint_roll - self.roll
         error_pitch = self.setpoint_pitch - self.pitch
         error_yaw = self.setpoint_yaw - self.yaw
@@ -185,6 +193,18 @@ class QuadrotorController(Node):
         controller_status_msg = Bool()
         controller_status_msg.data = status
         self.pub_status.publish(controller_status_msg)
+
+    def apply_disturbance(self):
+        """Apply a temporary disturbance to the roll setpoint."""
+        self.get_logger().info("Applying disturbance...")
+        self.setpoint_roll += 10.0  # Apply a 10-degree disturbance
+        self.disturbance_applied = True
+
+    def reset_disturbance(self):
+        """Reset the roll setpoint after the disturbance."""
+        self.get_logger().info("Resetting disturbance...")
+        self.setpoint_roll = 0.0  # Reset roll setpoint to 0 degrees
+        self.disturbance_applied = False
 
 def main(args=None):
     rclpy.init(args=args)
