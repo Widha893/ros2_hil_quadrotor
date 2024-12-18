@@ -4,7 +4,7 @@ from sensor_msgs.msg import Imu, Range
 from std_msgs.msg import Float64MultiArray, Bool
 import numpy as np
 import math
-import time
+import matplotlib.pyplot as plt
 
 DT = 0.1
 MAX_VALUE = 25.0
@@ -39,6 +39,11 @@ class QuadrotorController(Node):
         self.disturbance_duration = 1.0  # seconds
         self.disturbance_applied = False
         self.last_disturbance_time = self.get_clock().now().seconds_nanoseconds()[0]
+
+        # Data logging for plotting
+        self.time_data = []
+        self.roll_data = []
+        self.setpoint_data = []  # Always log 0 for the setpoint
 
         # Create publishers
         self.pub_control_signals = self.create_publisher(Float64MultiArray, '~/drone_control_signals', 10)
@@ -132,6 +137,10 @@ class QuadrotorController(Node):
         if self.prev_quat is not None and self.prev_time is not None:
             dt = current_time - self.prev_time
             self.angular_velocity = self.quaternion_to_angular_velocity(current_quat, self.prev_quat, dt)
+
+        self.time_data.append(current_time)
+        self.roll_data.append(self.roll)
+        self.setpoint_data.append(0.0)
         
         self.prev_quat = current_quat
         self.prev_time = current_time
@@ -169,7 +178,6 @@ class QuadrotorController(Node):
         p_pitch = self.gain_pitch * error_pitch
         d_pitch = self.gain_q * (self.setpoint_pitch-self.angular_velocity[1])
         p_yaw = self.gain_yaw * (self.setpoint_yaw-self.angular_velocity[2])
-        # d_yaw = self.gain_r * self.angular_velocity[2]
 
         self.control_roll = p_roll + d_roll
         self.control_pitch = p_pitch + d_pitch
@@ -206,11 +214,28 @@ class QuadrotorController(Node):
         self.setpoint_roll = 0.0  # Reset roll setpoint to 0 degrees
         self.disturbance_applied = False
 
+    def plot_response(self):
+        """Plot the roll response."""
+        plt.figure()
+        plt.plot(self.time_data, self.roll_data, label='Roll Angle (°)')
+        plt.axhline(0, color='r', linestyle='--', label='Setpoint (0°)')
+        plt.xlabel('Time (s)')
+        plt.ylabel('Roll Angle (°)')
+        plt.title('Roll Response with Setpoint')
+        plt.legend()
+        plt.grid()
+        plt.show()
+
 def main(args=None):
     rclpy.init(args=args)
     node = QuadrotorController()
-    rclpy.spin(node)
-    rclpy.shutdown()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        node.get_logger().info("Plotting reponse...")
+        node.plot_response()
+    finally:
+        rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
