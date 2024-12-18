@@ -1,0 +1,25 @@
+[2.366s] Invoking command in '/home/widha893/ros2_hil_quadrotor/hitl': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/hitl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/hitl build --build-base /home/widha893/ros2_hil_quadrotor/build/hitl/build install --record /home/widha893/ros2_hil_quadrotor/build/hitl/install.log --single-version-externally-managed install_data
+[2.763s] running egg_info
+[2.764s] writing ../build/hitl/hitl.egg-info/PKG-INFO
+[2.765s] writing dependency_links to ../build/hitl/hitl.egg-info/dependency_links.txt
+[2.765s] writing entry points to ../build/hitl/hitl.egg-info/entry_points.txt
+[2.765s] writing requirements to ../build/hitl/hitl.egg-info/requires.txt
+[2.766s] writing top-level names to ../build/hitl/hitl.egg-info/top_level.txt
+[2.769s] reading manifest file '../build/hitl/hitl.egg-info/SOURCES.txt'
+[2.770s] writing manifest file '../build/hitl/hitl.egg-info/SOURCES.txt'
+[2.770s] running build
+[2.770s] running build_py
+[2.771s] running install
+[2.772s] running install_lib
+[2.774s] running install_data
+[2.775s] running install_egg_info
+[2.777s] removing '/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl-0.0.0-py3.10.egg-info' (and everything under it)
+[2.778s] Copying ../build/hitl/hitl.egg-info to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl-0.0.0-py3.10.egg-info
+[2.779s] running install_scripts
+[2.814s] Installing communication script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[2.814s] Installing controller script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[2.814s] Installing data_analyzer script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[2.814s] Installing hitl_node script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[2.815s] Installing receiver script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[2.815s] writing list of installed files to '/home/widha893/ros2_hil_quadrotor/build/hitl/install.log'
+[2.858s] Invoked command in '/home/widha893/ros2_hil_quadrotor/hitl' returned '0': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/hitl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/hitl build --build-base /home/widha893/ros2_hil_quadrotor/build/hitl/build install --record /home/widha893/ros2_hil_quadrotor/build/hitl/install.log --single-version-externally-managed install_data

@@ -20,9 +20,9 @@ class QuadrotorController(Node):
 
         self.gain_roll = 7.071 # 6.324
         self.gain_p = 1.740 #5.144
-        self.gain_pitch = 6.324 # 20.00
+        self.gain_pitch = 6.325 # 20.00
         self.gain_q = 1.469 # #4.611
-        self.gain_yaw = 7.856 # 3.000
+        self.gain_yaw = 6.856 # 3.000
         self.gain_r = 1.729 # 1.519
 
         self.prev_quat = None
@@ -43,6 +43,8 @@ class QuadrotorController(Node):
         # Data logging for plotting
         self.time_data = []
         self.roll_data = []
+        self.pitch_data = []
+        self.yaw_data = []
         self.setpoint_data = []  # Always log 0 for the setpoint
 
         # Create publishers
@@ -140,6 +142,8 @@ class QuadrotorController(Node):
 
         self.time_data.append(current_time)
         self.roll_data.append(self.roll)
+        self.pitch_data.append(self.pitch)
+        self.yaw_data.append(self.angular_velocity[2])
         self.setpoint_data.append(0.0)
         
         self.prev_quat = current_quat
@@ -205,26 +209,46 @@ class QuadrotorController(Node):
     def apply_disturbance(self):
         """Apply a temporary disturbance to the roll setpoint."""
         self.get_logger().info("Applying disturbance...")
-        self.setpoint_roll += 10.0  # Apply a 10-degree disturbance
+        self.setpoint_pitch -= 25.0  # Apply a 10-degree disturbance
         self.disturbance_applied = True
 
     def reset_disturbance(self):
         """Reset the roll setpoint after the disturbance."""
         self.get_logger().info("Resetting disturbance...")
-        self.setpoint_roll = 0.0  # Reset roll setpoint to 0 degrees
+        self.setpoint_pitch = 0.0  # Reset roll setpoint to 0 degrees
         self.disturbance_applied = False
 
+    # def plot_response(self):
+    #     """Plot the roll response."""
+    #     plt.figure()
+    #     plt.plot(self.time_data, self.roll_data, label='Roll Angle (°)')
+    #     plt.axhline(0, color='r', linestyle='--', label='Setpoint (0°)')
+    #     plt.xlabel('Time (s)')
+    #     plt.ylabel('Roll Angle (°)')
+    #     plt.title('Roll Response with Setpoint')
+    #     plt.legend()
+    #     plt.grid()
+    #     plt.show()
+
     def plot_response(self):
-        """Plot the roll response."""
+        """Plot the roll response with a 5% tolerance band."""
+        
         plt.figure()
-        plt.plot(self.time_data, self.roll_data, label='Roll Angle (°)')
-        plt.axhline(0, color='r', linestyle='--', label='Setpoint (0°)')
+        plt.plot(self.time_data, self.pitch_data, label='Pitch Angle (°)')
+        plt.axhline(0.0, color='r', linestyle='--', label='Setpoint (0°)')
+        
+        # Add tolerance band
+        plt.axhline(1.5, color='g', linestyle='--', label='+5% Tolerance')
+        plt.axhline(-1.5, color='g', linestyle='--', label='-5% Tolerance')
+        
         plt.xlabel('Time (s)')
         plt.ylabel('Roll Angle (°)')
-        plt.title('Roll Response with Setpoint')
+        plt.title('Pitch Response with 5% Tolerance')
         plt.legend()
         plt.grid()
         plt.show()
+
+
 
 def main(args=None):
     rclpy.init(args=args)
