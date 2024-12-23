@@ -1,5 +1,0 @@
-  File "/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl/hitl_node.py", line 145
-    self.get_logger().info("f"Published: {control_signal_msg.data}")
-                                                                  ^
-SyntaxError: unterminated string literal (detected at line 145)
-

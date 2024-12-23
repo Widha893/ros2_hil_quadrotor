@@ -336,10 +336,10 @@ void DroneSimpleControllerPrivate::HITLCallback(const std_msgs::msg::Bool::Share
 
 void DroneSimpleControllerPrivate::HITLControlCallback(const std_msgs::msg::Float64MultiArray::SharedPtr cmd)
 {
-  total_force = cmd->data[0];
-  control_roll = cmd->data[1];
-  control_pitch = cmd->data[2];
-  control_yaw = cmd->data[3];
+  // total_force = cmd->data[0];
+  control_roll = cmd->data[0];
+  control_pitch = cmd->data[1];
+  control_yaw = cmd->data[2];
 }
 
 void DroneSimpleControllerPrivate::simStatusCallback(const std_msgs::msg::Bool::SharedPtr cmd)
@@ -636,8 +636,8 @@ void DroneSimpleControllerPrivate::UpdateDynamics(double dt)
     if (navi_state == FLYING_MODEL) {
       torque[0] = (inertia[0] * control_roll); 
       torque[1] = (inertia[1] * control_pitch);
-      RCLCPP_INFO(ros_node_->get_logger(), "Torque: %.2f, %.2f", torque[0], torque[1]);
-      //TODO: add hover by distnace of sonar
+      RCLCPP_INFO(ros_node_->get_logger(), "Control: %.2f, %.2f", control_roll, control_pitch);
+      // TODO: add hover by distnace of sonar
     } 
     torque[2] = inertia[2] * control_yaw;
     force[2] = mass *

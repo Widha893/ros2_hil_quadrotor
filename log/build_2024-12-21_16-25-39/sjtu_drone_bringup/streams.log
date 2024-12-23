@@ -1,0 +1,44 @@
+[2.940s] Invoking command in '/home/widha893/ros2_hil_quadrotor/sjtu_drone_bringup': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/sjtu_drone_bringup build --build-base /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/build install --record /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/install.log --single-version-externally-managed install_data
+[3.322s] running egg_info
+[3.323s] creating ../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info
+[3.323s] writing ../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/PKG-INFO
+[3.326s] writing dependency_links to ../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/dependency_links.txt
+[3.326s] writing entry points to ../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/entry_points.txt
+[3.326s] writing requirements to ../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/requires.txt
+[3.326s] writing top-level names to ../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/top_level.txt
+[3.326s] writing manifest file '../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/SOURCES.txt'
+[3.327s] reading manifest file '../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/SOURCES.txt'
+[3.329s] writing manifest file '../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info/SOURCES.txt'
+[3.330s] running build
+[3.330s] running build_py
+[3.330s] creating /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/build
+[3.330s] creating /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/build/lib
+[3.330s] creating /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/build/lib/sjtu_drone_bringup
+[3.330s] copying sjtu_drone_bringup/__init__.py -> /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/build/lib/sjtu_drone_bringup
+[3.330s] copying sjtu_drone_bringup/spawn_drone.py -> /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/build/lib/sjtu_drone_bringup
+[3.331s] running install
+[3.331s] running install_lib
+[3.331s] creating /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages/sjtu_drone_bringup
+[3.331s] copying /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/build/lib/sjtu_drone_bringup/__init__.py -> /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages/sjtu_drone_bringup
+[3.331s] copying /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/build/lib/sjtu_drone_bringup/spawn_drone.py -> /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages/sjtu_drone_bringup
+[3.332s] byte-compiling /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages/sjtu_drone_bringup/__init__.py to __init__.cpython-310.pyc
+[3.332s] byte-compiling /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages/sjtu_drone_bringup/spawn_drone.py to spawn_drone.cpython-310.pyc
+[3.333s] running install_data
+[3.333s] creating /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/ament_index
+[3.333s] creating /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/ament_index/resource_index
+[3.333s] creating /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/ament_index/resource_index/packages
+[3.333s] copying resource/sjtu_drone_bringup -> /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/ament_index/resource_index/packages
+[3.334s] copying package.xml -> /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup
+[3.334s] creating /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/launch
+[3.334s] copying launch/sjtu_drone_bringup.launch.py -> /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/launch
+[3.334s] copying launch/sjtu_drone_gazebo.launch.py -> /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/launch
+[3.334s] creating /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/rviz
+[3.334s] copying rviz/rviz.rviz -> /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/rviz
+[3.353s] creating /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/config
+[3.353s] copying config/drone.yaml -> /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/share/sjtu_drone_bringup/config
+[3.404s] running install_egg_info
+[3.405s] Copying ../build/sjtu_drone_bringup/sjtu_drone_bringup.egg-info to /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages/sjtu_drone_bringup-0.0.0-py3.10.egg-info
+[3.408s] running install_scripts
+[3.433s] Installing spawn_drone script to /home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/sjtu_drone_bringup
+[3.434s] writing list of installed files to '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/install.log'
+[3.557s] Invoked command in '/home/widha893/ros2_hil_quadrotor/sjtu_drone_bringup' returned '0': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/sjtu_drone_bringup build --build-base /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/build install --record /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_bringup/install.log --single-version-externally-managed install_data

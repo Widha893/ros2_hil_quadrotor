@@ -1,0 +1,62 @@
+[2.957s] Invoking command in '/home/widha893/ros2_hil_quadrotor/hitl': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/hitl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/hitl build --build-base /home/widha893/ros2_hil_quadrotor/build/hitl/build install --record /home/widha893/ros2_hil_quadrotor/build/hitl/install.log --single-version-externally-managed install_data
+[3.325s] running egg_info
+[3.326s] creating ../build/hitl/hitl.egg-info
+[3.326s] writing ../build/hitl/hitl.egg-info/PKG-INFO
+[3.327s] writing dependency_links to ../build/hitl/hitl.egg-info/dependency_links.txt
+[3.327s] writing entry points to ../build/hitl/hitl.egg-info/entry_points.txt
+[3.327s] writing requirements to ../build/hitl/hitl.egg-info/requires.txt
+[3.328s] writing top-level names to ../build/hitl/hitl.egg-info/top_level.txt
+[3.328s] writing manifest file '../build/hitl/hitl.egg-info/SOURCES.txt'
+[3.339s] reading manifest file '../build/hitl/hitl.egg-info/SOURCES.txt'
+[3.340s] writing manifest file '../build/hitl/hitl.egg-info/SOURCES.txt'
+[3.340s] running build
+[3.340s] running build_py
+[3.341s] creating /home/widha893/ros2_hil_quadrotor/build/hitl/build
+[3.341s] creating /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib
+[3.341s] creating /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl
+[3.341s] copying hitl/matplotlib_test.py -> /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl
+[3.341s] copying hitl/communication.py -> /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl
+[3.341s] copying hitl/messages_pb2.py -> /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl
+[3.341s] copying hitl/hitl_node.py -> /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl
+[3.341s] copying hitl/hitl_control.py -> /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl
+[3.341s] copying hitl/__init__.py -> /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl
+[3.342s] copying hitl/quadrotor_controller.py -> /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl
+[3.342s] copying hitl/receiver.py -> /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl
+[3.342s] copying hitl/data_analyzer.py -> /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl
+[3.342s] running install
+[3.342s] running install_lib
+[3.344s] creating /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl
+[3.344s] copying /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl/matplotlib_test.py -> /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl
+[3.345s] copying /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl/communication.py -> /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl
+[3.345s] copying /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl/messages_pb2.py -> /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl
+[3.345s] copying /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl/hitl_node.py -> /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl
+[3.345s] copying /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl/hitl_control.py -> /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl
+[3.345s] copying /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl/__init__.py -> /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl
+[3.346s] copying /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl/quadrotor_controller.py -> /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl
+[3.346s] copying /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl/receiver.py -> /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl
+[3.346s] copying /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl/data_analyzer.py -> /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl
+[3.347s] byte-compiling /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl/matplotlib_test.py to matplotlib_test.cpython-310.pyc
+[3.347s] byte-compiling /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl/communication.py to communication.cpython-310.pyc
+[3.348s] byte-compiling /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl/messages_pb2.py to messages_pb2.cpython-310.pyc
+[3.351s] byte-compiling /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl/hitl_node.py to hitl_node.cpython-310.pyc
+[3.353s] byte-compiling /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl/hitl_control.py to hitl_control.cpython-310.pyc
+[3.354s] byte-compiling /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl/__init__.py to __init__.cpython-310.pyc
+[3.354s] byte-compiling /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl/quadrotor_controller.py to quadrotor_controller.cpython-310.pyc
+[3.355s] byte-compiling /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl/receiver.py to receiver.cpython-310.pyc
+[3.357s] byte-compiling /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl/data_analyzer.py to data_analyzer.cpython-310.pyc
+[3.358s] running install_data
+[3.358s] creating /home/widha893/ros2_hil_quadrotor/install/hitl/share/ament_index
+[3.358s] creating /home/widha893/ros2_hil_quadrotor/install/hitl/share/ament_index/resource_index
+[3.359s] creating /home/widha893/ros2_hil_quadrotor/install/hitl/share/ament_index/resource_index/packages
+[3.359s] copying resource/hitl -> /home/widha893/ros2_hil_quadrotor/install/hitl/share/ament_index/resource_index/packages
+[3.359s] copying package.xml -> /home/widha893/ros2_hil_quadrotor/install/hitl/share/hitl
+[3.359s] running install_egg_info
+[3.363s] Copying ../build/hitl/hitl.egg-info to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl-0.0.0-py3.10.egg-info
+[3.364s] running install_scripts
+[3.385s] Installing communication script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[3.385s] Installing controller script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[3.386s] Installing data_analyzer script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[3.386s] Installing hitl_node script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[3.386s] Installing receiver script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[3.386s] writing list of installed files to '/home/widha893/ros2_hil_quadrotor/build/hitl/install.log'
+[3.437s] Invoked command in '/home/widha893/ros2_hil_quadrotor/hitl' returned '0': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/hitl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/hitl build --build-base /home/widha893/ros2_hil_quadrotor/build/hitl/build install --record /home/widha893/ros2_hil_quadrotor/build/hitl/install.log --single-version-externally-managed install_data

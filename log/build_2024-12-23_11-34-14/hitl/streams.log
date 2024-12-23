@@ -1,0 +1,28 @@
+[6.125s] Invoking command in '/home/widha893/ros2_hil_quadrotor/hitl': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/hitl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/hitl build --build-base /home/widha893/ros2_hil_quadrotor/build/hitl/build install --record /home/widha893/ros2_hil_quadrotor/build/hitl/install.log --single-version-externally-managed install_data
+[6.374s] running egg_info
+[6.375s] writing ../build/hitl/hitl.egg-info/PKG-INFO
+[6.378s] writing dependency_links to ../build/hitl/hitl.egg-info/dependency_links.txt
+[6.378s] writing entry points to ../build/hitl/hitl.egg-info/entry_points.txt
+[6.378s] writing requirements to ../build/hitl/hitl.egg-info/requires.txt
+[6.378s] writing top-level names to ../build/hitl/hitl.egg-info/top_level.txt
+[6.381s] reading manifest file '../build/hitl/hitl.egg-info/SOURCES.txt'
+[6.382s] writing manifest file '../build/hitl/hitl.egg-info/SOURCES.txt'
+[6.392s] running build
+[6.392s] running build_py
+[6.392s] copying hitl/hitl_node.py -> /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl
+[6.392s] running install
+[6.393s] running install_lib
+[6.394s] copying /home/widha893/ros2_hil_quadrotor/build/hitl/build/lib/hitl/hitl_node.py -> /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl
+[6.412s] byte-compiling /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl/hitl_node.py to hitl_node.cpython-310.pyc
+[6.416s] running install_data
+[6.416s] running install_egg_info
+[6.420s] removing '/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl-0.0.0-py3.10.egg-info' (and everything under it)
+[6.420s] Copying ../build/hitl/hitl.egg-info to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages/hitl-0.0.0-py3.10.egg-info
+[6.421s] running install_scripts
+[6.448s] Installing communication script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[6.448s] Installing controller script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[6.449s] Installing data_analyzer script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[6.449s] Installing hitl_node script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[6.484s] Installing receiver script to /home/widha893/ros2_hil_quadrotor/install/hitl/lib/hitl
+[6.485s] writing list of installed files to '/home/widha893/ros2_hil_quadrotor/build/hitl/install.log'
+[6.533s] Invoked command in '/home/widha893/ros2_hil_quadrotor/hitl' returned '0': PYTHONPATH=/home/widha893/ros2_hil_quadrotor/build/hitl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/widha893/ros2_hil_quadrotor/install/hitl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/hitl build --build-base /home/widha893/ros2_hil_quadrotor/build/hitl/build install --record /home/widha893/ros2_hil_quadrotor/build/hitl/install.log --single-version-externally-managed install_data

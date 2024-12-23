@@ -140,14 +140,6 @@ class Communication(Node):
 
     def create_message(self):
         _msg = messages_pb2.msg()
-        _msg.gains.alt = self.gain_alt
-        _msg.gains.vz = self.gain_vz
-        _msg.gains.roll = self.gain_roll
-        _msg.gains.p = self.gain_p
-        _msg.gains.pitch = self.gain_pitch
-        _msg.gains.q = self.gain_q
-        _msg.gains.yaw = self.gain_yaw
-        _msg.gains.r = self.gain_r
         _msg.sensors.angular_vel_x = self.angular_vel_x
         _msg.sensors.angular_vel_y = self.angular_vel_y
         _msg.sensors.angular_vel_z = self.angular_vel_z

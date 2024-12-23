@@ -1,7 +1,0 @@
-[1.406s] Invoking command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8
-[1.498s] [35m[1mConsolidate compiler generated dependencies of target plugin_drone[0m
-[1.774s] [ 20%] [32mBuilding CXX object CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o[0m
-[9.813s] gmake[2]: *** [CMakeFiles/plugin_drone.dir/build.make:90: CMakeFiles/plugin_drone.dir/src/plugin_drone_private.cpp.o] Interrupt
-[9.814s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/plugin_drone.dir/all] Interrupt
-[9.814s] gmake: *** [Makefile:146: all] Interrupt
-[9.839s] Invoked command in '/home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description' returned '-2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/widha893/ros2_hil_quadrotor/install:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_control:/home/widha893/ros2_hil_quadrotor/install/sjtu_drone_bringup:/home/widha893/ros2_hil_quadrotor/install/sensor_data_logger:/home/widha893/ros2_hil_quadrotor/install/hitl:/opt/ros/humble: /usr/bin/cmake --build /home/widha893/ros2_hil_quadrotor/build/sjtu_drone_description -- -j8 -l8

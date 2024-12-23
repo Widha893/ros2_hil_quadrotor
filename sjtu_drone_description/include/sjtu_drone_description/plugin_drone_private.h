@@ -106,7 +106,7 @@ public:
   bool pub_odom;
 
   // Controller for HITL mode
-  double total_force;
+  // double total_force;
   double control_roll;
   double control_pitch;
   double control_yaw;
