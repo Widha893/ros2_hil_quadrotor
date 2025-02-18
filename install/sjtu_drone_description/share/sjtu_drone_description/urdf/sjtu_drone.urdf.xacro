@@ -115,7 +115,7 @@
     <sensor name='sensor_imu' type='imu'>
       <always_on> 1 </always_on>
       <visualize>1</visualize>
-      <update_rate> 100 </update_rate>
+      <update_rate> 75 </update_rate>
       <pose> 0 0 0 0 0 0 </pose>
       <imu>
         <noise>

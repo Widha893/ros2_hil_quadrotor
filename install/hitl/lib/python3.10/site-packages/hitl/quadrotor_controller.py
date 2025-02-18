@@ -1,10 +1,14 @@
 import rclpy
 from rclpy.node import Node
+from rclpy.executors import MultiThreadedExecutor
 from sensor_msgs.msg import Imu, Range
 from std_msgs.msg import Float64MultiArray, Bool
 import numpy as np
 import math
 import matplotlib.pyplot as plt
+import csv
+import os
+import time
 
 DT = 0.1
 MAX_VALUE = 25.0
@@ -18,25 +22,34 @@ class QuadrotorController(Node):
         self.roll_command_topic = '/simple_drone/roll_command'
         self.pitch_command_topic = '/simple_drone/pitch_command'
 
-        self.gain_roll = 7.071 # 6.324
-        self.gain_p = 1.740 #5.144
-        self.gain_pitch = 6.325 # 20.00
-        self.gain_q = 1.469 # #4.611
-        self.gain_yaw = 6.856 # 3.000
-        self.gain_r = 1.729 # 1.519
+        self.gain_roll = 5.477 # 7.071
+        self.gain_p = 3.027 # 1.740
+        self.gain_pitch = 5.196 # 6.325
+        self.gain_q = 3.341 # 1.469
+        self.gain_yaw = 3.000 # 6.856
+        self.gain_r = 1.079 # 1.729
 
         self.prev_quat = None
         self.prev_time = None
+        self.roll = 0.0
+        self.pitch = 0.0
+        self.yaw = 0.0
         self.setpoint_roll = 0.0
+        self.current_setpoint_roll = 0.0
+        self.last_setpoint_roll = 0.0
         self.setpoint_pitch = 0.0
+        self.current_setpoint_pitch = 0.0
+        self.last_setpoint_pitch = 0.0
         self.setpoint_yaw = 0.0
+        self.current_setpoint_yaw = 0.0
+        self.last_setpoint_yaw = 0.0
         self.control_roll = 0.0
         self.control_pitch = 0.0
         self.control_yaw = 0.0
         self.angular_velocity = [0.0, 0.0, 0.0]
 
-        self.disturbance_interval = 10.0  # seconds
-        self.disturbance_duration = 1.0  # seconds
+        self.disturbance_interval = 18.0  # seconds
+        self.disturbance_duration = 2.0  # seconds
         self.disturbance_applied = False
         self.last_disturbance_time = self.get_clock().now().seconds_nanoseconds()[0]
 
@@ -46,13 +59,21 @@ class QuadrotorController(Node):
         self.pitch_data = []
         self.yaw_data = []
         self.setpoint_data = []  # Always log 0 for the setpoint
+        self.start_time = None
 
+        self.csv_filename = '/home/widha893/data_log_roll.csv'
+        self.fieldnames = ['timestamp', 'roll']
+        
+        if not os.path.exists(self.csv_filename):
+            with open(self.csv_filename, mode='w', newline='') as file:
+                writer = csv.DictWriter(file, fieldnames=self.fieldnames)
+                writer.writeheader()
         # Create publishers
         self.pub_control_signals = self.create_publisher(Float64MultiArray, '~/drone_control_signals', 10)
         self.pub_status = self.create_publisher(Bool, '~/controller_status', 10)
 
         self.imu_subscriber = self.create_subscription(Imu, self.imu_topic, self.imu_callback, 10)
-        self.alt_subscriber = self.create_subscription(Range, self.alt_topic, self.alt_callback, 10)
+        # self.alt_subscriber = self.create_subscription(Range, self.alt_topic, self.alt_callback, 10)
 
     def quaternion_to_roll(self, q_w, q_x, q_y, q_z):
         return math.atan2(2 * (q_w * q_x + q_y * q_z), 1 - 2 * (q_x**2 + q_y**2))
@@ -131,11 +152,6 @@ class QuadrotorController(Node):
         self.pitch = np.degrees(self.quaternion_to_pitch(quat.w, quat.x, quat.y, quat.z))
         self.yaw = np.degrees(self.quaternion_to_yaw(quat.w, quat.x, quat.y, quat.z))
 
-        if self.yaw > 180.0:
-            self.yaw = self.yaw - 360.0
-        elif self.yaw < -180.0:
-            self.yaw = self.yaw + 360.0
-
         if self.prev_quat is not None and self.prev_time is not None:
             dt = current_time - self.prev_time
             self.angular_velocity = self.quaternion_to_angular_velocity(current_quat, self.prev_quat, dt)
@@ -145,24 +161,45 @@ class QuadrotorController(Node):
         self.pitch_data.append(self.pitch)
         self.yaw_data.append(self.angular_velocity[2])
         self.setpoint_data.append(0.0)
+
+        self.save_to_csv()
         
         self.prev_quat = current_quat
         self.prev_time = current_time
 
     def alt_callback(self, msg: Range):
         self.altitude = msg.range
-        # self.get_logger().info(
-        #         f"Received data - roll: {self.roll:.2f}, "
-        #         f"pitch: {self.pitch:.2f}, "
-        #         f"yaw: {self.yaw:.2f}, "
-        #         f"altitude: {self.altitude:.2f},"
-        #         f"angular velocity (deg/s): {self.angular_velocity}"
-        #     )
         self.control_system()
         self.publish_controller_status(True)
         
     def control_system(self):
-        current_time = self.get_clock().now().seconds_nanoseconds()[0]
+        current_time = self.get_clock().now().seconds_nanoseconds()[0] + \
+                       self.get_clock().now().seconds_nanoseconds()[1] * 1e-9
+        
+        # Hitung dt (delta time) dalam detik
+        if not hasattr(self, 'previous_time'):
+            self.previous_time = current_time
+        dt = current_time - self.previous_time
+        self.previous_time = current_time
+
+        self.last_setpoint_roll = self.current_setpoint_roll
+        self.current_setpoint_roll = self.setpoint_roll
+
+        self.last_setpoint_pitch = self.current_setpoint_pitch
+        self.current_setpoint_pitch = self.setpoint_pitch
+
+        self.last_setpoint_yaw = self.current_setpoint_yaw
+        self.current_setpoint_yaw = self.setpoint_yaw
+
+        # Hitung perubahan setpoint per detik
+        if dt > 0:
+            setpoint_roll_rate = (self.current_setpoint_roll - self.last_setpoint_roll) / dt
+            setpoint_pitch_rate = (self.current_setpoint_pitch - self.last_setpoint_pitch) / dt
+            setpoint_yaw_rate = (self.current_setpoint_yaw - self.last_setpoint_yaw) / dt
+        else:
+            setpoint_roll_rate = 0.0
+            setpoint_pitch_rate = 0.0
+            setpoint_yaw_rate = 0.0
 
         # Apply disturbance at intervals
         if not self.disturbance_applied and current_time - self.last_disturbance_time >= self.disturbance_interval:
@@ -178,14 +215,17 @@ class QuadrotorController(Node):
         error_yaw = self.setpoint_yaw - self.yaw
 
         p_roll = self.gain_roll * error_roll
-        d_roll = self.gain_p * (self.setpoint_roll-self.angular_velocity[0])
+        d_roll = self.gain_p * (setpoint_roll_rate-self.angular_velocity[0])
+
         p_pitch = self.gain_pitch * error_pitch
-        d_pitch = self.gain_q * (self.setpoint_pitch-self.angular_velocity[1])
-        p_yaw = self.gain_yaw * (self.setpoint_yaw-self.angular_velocity[2])
+        d_pitch = self.gain_q * (setpoint_pitch_rate-self.angular_velocity[1])
+
+        p_yaw = self.gain_yaw * error_yaw
+        d_yaw = self.gain_r * (setpoint_yaw_rate-self.angular_velocity[2])
 
         self.control_roll = p_roll + d_roll
         self.control_pitch = p_pitch + d_pitch
-        self.control_yaw = p_yaw
+        self.control_yaw = p_yaw + d_yaw
 
         self.control_roll = np.clip(self.control_roll, -MAX_VALUE, MAX_VALUE)
         self.control_pitch = np.clip(self.control_pitch, -MAX_VALUE, MAX_VALUE)
@@ -199,6 +239,11 @@ class QuadrotorController(Node):
             f"pitch: {self.control_pitch:.2f}, "
             f"yaw: {self.control_yaw:.2f}"
         )
+        self.get_logger().info(
+            f"Sensor data - roll: {self.roll:.2f}, "
+            f"pitch: {self.pitch:.2f}, "
+            f"yaw: {self.yaw:.2f}"
+        )
 
     def publish_controller_status(self, status):
         # Publish the HITL status as a Boolean value
@@ -209,32 +254,20 @@ class QuadrotorController(Node):
     def apply_disturbance(self):
         """Apply a temporary disturbance to the roll setpoint."""
         self.get_logger().info("Applying disturbance...")
-        self.setpoint_pitch -= 25.0  # Apply a 10-degree disturbance
+        self.setpoint_roll -= 25.0  # Apply a 10-degree disturbance
         self.disturbance_applied = True
 
     def reset_disturbance(self):
         """Reset the roll setpoint after the disturbance."""
         self.get_logger().info("Resetting disturbance...")
-        self.setpoint_pitch = 0.0  # Reset roll setpoint to 0 degrees
+        self.setpoint_roll = 0.0  # Reset roll setpoint to 0 degrees
         self.disturbance_applied = False
-
-    # def plot_response(self):
-    #     """Plot the roll response."""
-    #     plt.figure()
-    #     plt.plot(self.time_data, self.roll_data, label='Roll Angle (°)')
-    #     plt.axhline(0, color='r', linestyle='--', label='Setpoint (0°)')
-    #     plt.xlabel('Time (s)')
-    #     plt.ylabel('Roll Angle (°)')
-    #     plt.title('Roll Response with Setpoint')
-    #     plt.legend()
-    #     plt.grid()
-    #     plt.show()
 
     def plot_response(self):
         """Plot the roll response with a 5% tolerance band."""
         
         plt.figure()
-        plt.plot(self.time_data, self.pitch_data, label='Pitch Angle (°)')
+        plt.plot(self.time_data, self.roll_data, label='Roll Angle (°)')
         plt.axhline(0.0, color='r', linestyle='--', label='Setpoint (0°)')
         
         # Add tolerance band
@@ -243,22 +276,43 @@ class QuadrotorController(Node):
         
         plt.xlabel('Time (s)')
         plt.ylabel('Roll Angle (°)')
-        plt.title('Pitch Response with 5% Tolerance')
+        plt.title('Roll Response with 5% Tolerance')
         plt.legend()
         plt.grid()
         plt.show()
+
+    def save_to_csv(self):
+        timestamp = int(time.time() * 1e3)  # timestamp in microseconds
+        roll_setpoint = 0.0
+        pitch_setpoint = 0.0
+        yaw_setpoint = 0.0
+        alt_setpoint = 0.8
+
+        # Append data to CSV
+        with open(self.csv_filename, mode='a', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=self.fieldnames)
+            writer.writerow({
+                'timestamp': timestamp,
+                'roll': self.roll,
+            })
 
 
 
 def main(args=None):
     rclpy.init(args=args)
     node = QuadrotorController()
+    executor = MultiThreadedExecutor()
+    executor.add_node(node)
     try:
-        rclpy.spin(node)
+        while rclpy.ok():
+            executor.spin_once(timeout_sec=0.1)
+            node.control_system()
+            node.publish_controller_status(True)
     except KeyboardInterrupt:
         node.get_logger().info("Plotting reponse...")
         node.plot_response()
     finally:
+        node.destroy_node()
         rclpy.shutdown()
 
 if __name__ == '__main__':

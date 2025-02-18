@@ -10,7 +10,9 @@ setup.py
 ../build/hitl/hitl.egg-info/zip-safe
 hitl/__init__.py
 hitl/communication.py
+hitl/conversion_matrix.py
 hitl/data_analyzer.py
+hitl/data_plotter.py
 hitl/hitl_control.py
 hitl/hitl_node.py
 hitl/matplotlib_test.py

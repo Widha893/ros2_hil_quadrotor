@@ -716,8 +716,8 @@ void DroneSimpleControllerPrivate::UpdateDynamics(double dt)
     link->AddRelativeForce(force);
     link->AddRelativeTorque(torque);
   } else if (navi_state == TAKINGOFF_MODEL) {
-    link->AddRelativeForce(force * 1.5);
-    link->AddRelativeTorque(torque * 1.5);
+    link->AddRelativeForce(force * 1.75);
+    link->AddRelativeTorque(torque * 1.75);
   } else if (navi_state == LANDING_MODEL) {
     link->AddRelativeForce(force * 0.8);
     link->AddRelativeTorque(torque * 0.8);
